@@ -11,38 +11,42 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="style.css" rel="stylesheet"/>
           <script src="javascript/jquery.js"></script>
+		    <script src="javascript/popup.js"></script>
         <script src="javascript/script.js" async></script>
             <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-			<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+            <link href="fonts/lato/Lato-Light.ttf"/>
+            <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
     </head>
     <body>
         <header>
           
-            <img src="image/banner.jpg" width="100%" height="200" alt="Baner"/>	
-			<div class='login'>
-				<input type='button' id='login_button' value='Zaloguj'/>
-			</div>
+            <img src="image/baner.jpg" width="100%" height="200" alt="Baner"/>
+
         </header>
+    <div id="container">
         <nav>
             <div id="news">
                 <p><a href="index.html">News</a></p>
             </div>
+
+				
             <div id="flags">
                 <div id="images">
-                    <a href="poland.html"> <img src="image/poland.png" class="image" width="45" height="35" alt="poland"/></a>  
-                    <a> <img src="image/germany.png" class="image" width="45" height="35" alt="germany"/></a>
-                    <a> <img src="image/spain.png" class="image" width="45" height="35" alt="spain"/></a>
-                    <a> <img src="image/portugal.png" class="image"  width="45" height="35" alt="portugal"/></a>
-                    <a> <img src="image/russia.png" class="image"  width="45" height="35" alt="russia"/></a>
-                    <a> <img src="image/italy.png" class="image" width="45" height="35" alt="italy"/></a>
-                    <a> <img src="image/brazil.png" class="image" width="45" height="35" alt="brazil"/></a>
-                    <a> <img src="image/france.png" class="image" width="45" height="35" alt="france"/></a>
-                    <a> <img src="image/england.png" class="image" width="45" height="35" alt="england"/></a>
+                    <a href="poland.html"> <img src="image/polska.png" class="image" width="6%" height="35" alt="Polska"/></a>  
+                    <a> <img src="image/niemcy.png" class="image" width="6%" height="35" alt="Niemcy"/></a>
+                    <a> <img src="image/hiszpania.png" class="image" width="6%" height="35" alt="hiszpania"/></a>
+                    <a> <img src="image/portugalia.png" class="image"  width="6%" height="35" alt="portugalia"/></a>
+                    <a> <img src="image/rosja.png" class="image"  width="6%" height="35" alt="rosja"/></a>
+                    <a> <img src="image/wlochy.png" class="image" width="6%" height="35" alt="włochy"/></a>
+                    <a> <img src="image/brazylia.png" class="image" width="6%" height="35" alt="Brazylia"/></a>
+                    <a> <img src="image/francja.png" class="image" width="6%" height="35" alt="francja"/></a>
+                    <a> <img src="image/anglia.png" class="image" width="6%" height="35" alt="anglia"/></a>
                     
                 </div>
             </div>
         </nav>
-        <section>
+        <main>
            
             <article>
                 <div id="avatar">
@@ -99,8 +103,60 @@ and open the template in the editor.
                    popisał się artystycznym uderzeniem i mecz skończył z dubletem.
                 </div>
             </article>
-        </section>
-        
+        </main>
+        </div >
+		
+		
+	<button id="login-button"><a href="" class="uruchom-okienko" data-okienkoId="#popup-login">Login</a></button>
+<div id="popup-login" class="window-base">
+	<div class="window-inside">
+		<span class="window-close">&times;</span>
+		<h1>Logowanie<h1>
+		
+		<div id="logowanie">
+			<form>
+				<label for="username">Nazwa użytkownika:</label>
+				<input type="text" id="username" name="username">
+				<label for="password">Hasło:</label>
+				<input type="password" id="password" name="password">
+				<div id="lower">
+	<br>
+				<input type="submit" value="Login">
+				</div>
+</form>
+</div>
+		
+	</form>
+	</div>
+</div>
+				
+<button id="registration-button"><a href="" class="uruchom-okienko" data-okienkoId="#popup-registration">Rejestracja</a></button>
+			<div id="popup-registration" class="window-base">
+	<div class="window-inside">
+		<span class="window-close">&times;</span>
+		<h1>Rejestracja<h1>
+		
+		<div id="rejestration">
+			<form>
+				<label for="username">Nazwa użytkownika:</label>
+				<input type="text" id="username" name="username">
+				<label for="username">Email:</label>
+				<input type="text" id="email" name="email">
+				<label for="password">Hasło:</label>
+				<input type="password" id="password" name="password">
+				<label for="password">Powtórz hasło:</label>
+				<input type="password" id="password" name="password">
+				<div id="lower">
+	<br>
+				<input type="submit" value="Rejestracja">
+				</div>
+</form>
+</div>
+		
+	</form>
+	</div>
+</div>
+		
         <footer>
             <img src="image/footer.jpg" width="100%" height="50" alt="footer"/>
 
