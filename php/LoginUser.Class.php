@@ -1,8 +1,8 @@
 <?php
 /**
- * Description of LoginUser
- *
  * @author Marek
+ * @date 10.11.2018
+ * @description: Class for login user.
  */
 class LoginUser {
     var $oMySql;

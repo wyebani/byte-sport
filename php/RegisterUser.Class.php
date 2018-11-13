@@ -28,7 +28,7 @@ class RegisterUser {
        }
    }
    
-   function Register($aUserData) {       
+   function Register($aUserData) {
        if(!$this->validate('user', 'username', $aUserData['username'])) {
            $this->aError[] = 'Użytkownik o podanym loginie już istnieje!';
        }
@@ -50,6 +50,7 @@ class RegisterUser {
                                 'password' => md5($aUserData['password']),
                                 'active' => 0,
                                 'permissions' => 0));
+
           if($iUserId) {
              $this->oMySql->insert('user_details', array('user_id' => $iUserId,
                                                     'name' => $aUserData['name'],

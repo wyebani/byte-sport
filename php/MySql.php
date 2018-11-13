@@ -1,8 +1,8 @@
 <?php
 /**
- * Description of MySql
- *
  * @author Marek
+ * @date 09.11.2018
+ * @description Class responsible for communication with database.
  */
 
 class MySql {
