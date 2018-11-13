@@ -21,7 +21,7 @@ if(avatar>description){
      $("#box_article").height(box_article+10);
      
   if($("#box_article").height()>$("#table").height()){
-   $("section").height($("#box_article").height()); 
+   $("main").height($("#box_article").height()); 
 }
-  if($("#box_article").height()<$("#table").height())$("section").height($("#table").height()); 
+  if($("#box_article").height()<$("#table").height())$("main").height($("#table").height()); 
   });
