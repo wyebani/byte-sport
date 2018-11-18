@@ -15,7 +15,57 @@ class LoginUser extends PageAction {
     function Login($sUsername, $sPassword) {
         $aUserData = $this->oMySql->select($this->sTable, 1, array('username' => $sUsername,
                                                                     'password' => hash('sha512', $sPassword),
-                                                                    'active' => 1));
+                                                                    'active' => '1'));
+        $sPassword = hash('sha512', $sPassword);
+        
+        if(empty($aUserData)) {
+            $this->aError[] = 'Niepoprawny login lub hasło.';
+        } else {
+            if($aUserData['active'] == 0) {
+                $this->aWarning[] = 'Konto użytkownika jeszcze nie zostało aktywowane.';
+            } else if($sUsername != $aUserData['username']) {
+                $this->aError[] = 'Podany login jest nieprawidłowy.';
+            } else if($sPassword != $aUserData['password']) {
+                $this->aError[] = 'Podane hasło jest nieprawidłowe.';
+            }
+        }
+        
+        if(!$this->aError) {
+            $_SESSION['username'] = $aUserData['username'];
+            $_SESSION['password'] = $aUserData['password'];
+            
+            if($aUserData['permissions'] == 1) {
+                $_SESSION['permissions'] = true;
+            } else {
+                $_SESSION['permissions'] = false;
+            }
+            $_SESSION['userData'] = $aUserData;
+            $_SESSION['userLogin'] = true;
+            
+            $this->aData = $aUserData;
+            $this->bLogin = true;
+            
+            $this->oMySql->update($this->sTable,
+                                array('login_success' => date("Y-m-d, H:i:s")),
+                                array('username' => $sUsername));        
+            return true;
+        } else {
+            $this->oMySql->update($this->sTable,
+                                array('login_failure' => date("Y-m-d H:i:s")),
+                                array('username' => $sUsername));
+            
+            $this->bLogin = false;
+            $this->setMesagges();
+            return false;
+        }
+    }
+    
+    function LoginAdmin($sUsername, $sPassword) {
+        $aUserData = $this->oMySql->select($this->sTable, 1, array('username' => $sUsername,
+                                                                    'password' => hash('sha512', $sPassword),
+                                                                    'active' => '1',
+                                                                    'permissions' => '1'));
+        
         $sPassword = hash('sha512', $sPassword);
         
         if(empty($aUserData)) {
