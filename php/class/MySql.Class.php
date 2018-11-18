@@ -11,7 +11,7 @@ class MySql {
     
     var $sHost = 'localhost';
     var $sUserLogin = 'root';
-    var $sUserPassword = '';
+    var $sUserPassword = 'Xs3UyppeQloFZEWs';
     var $sDatabase = 'byte_sport';
     
     function connect() {

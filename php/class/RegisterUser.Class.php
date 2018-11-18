@@ -5,17 +5,10 @@
  * @date 10.11.2018
  * @description: Class for register new account.
  */
-class RegisterUser {
-   var $oMySql;
-   var $aError      = array();
-   var $aMessage    = array();
-   var $aWarning    = array();
-   var $aSuccess    = array();
-   var $bRegister   = false;
-   
-   public function __construct($oMySql) {
-       $this->oMySql = $oMySql;
-   }
+
+require 'PageAction.Class.php';
+
+class RegisterUser extends PageAction {
    
     function validate($sTable, $sKey, $sValue) {      
        $aResult = $this->oMySql->select($sTable, null, array($sKey => $sValue));
@@ -47,7 +40,7 @@ class RegisterUser {
        
        if(empty($this->aError)) {
           $iUserId = $this->oMySql->insert('user', array('username' => $aUserData['username'],
-                                'password' => md5($aUserData['password']),
+                                'password' => hash('sha512', $aUserData['password']),
                                 'active' => 0,
                                 'permissions' => 0));
 
@@ -59,18 +52,21 @@ class RegisterUser {
                                                     'email' => $aUserData['email']));
           }
           
-          
-          
           if($iUserId) {
-              // Jakoś przekazać wiadomość do frontu
-            $this->aMessage[] = 'Rejestracja przebiegła pomyślnie';
             return true;
           }
        } else {
-           // Jakoś przekazać tablice errorów do frontu
+           $this->setMesagges();
            return false;
        }
    }
+   
+   function setMesagges() {
+        $this->oSmarty->assign('aMessage', $this->aMessage);
+        $this->oSmarty->assign('aWarning', $this->aWarning);
+        $this->oSmarty->assign('aError', $this->aError);
+        $this->oSmarty->assign('aSuccess', $this->aSuccess);
+  }
    
 }
 

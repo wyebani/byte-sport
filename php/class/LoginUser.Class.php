@@ -4,26 +4,19 @@
  * @date 10.11.2018
  * @description: Class for login user.
  */
-class LoginUser {
-    var $oMySql;
-    var $aError      = array();
-    var $aMessage    = array();
-    var $aWarning    = array();
-    var $aSuccess    = array();
+
+require 'PageAction.Class.php';
+
+class LoginUser extends PageAction {
     var $aData       = array();
     var $bLogin      = false;
     var $sTable      = 'user';
     
-    public function __construct($oMySql) {
-        $this->oMySql = $oMySql;
-    }
-    
     function Login($sUsername, $sPassword) {
         $aUserData = $this->oMySql->select($this->sTable, 1, array('username' => $sUsername,
-                                                                    'password' => md5($sPassword),
+                                                                    'password' => hash('sha512', $sPassword),
                                                                     'active' => 1));
-        
-        $sPassword = md5($sPassword);
+        $sPassword = hash('sha512', $sPassword);
         
         if(empty($aUserData)) {
             $this->aError[] = 'Niepoprawny login lub hasło.';
@@ -54,8 +47,7 @@ class LoginUser {
             
             $this->oMySql->update($this->sTable,
                                 array('login_success' => date("Y-m-d, H:i:s")),
-                                array('username' => $sUsername));
-            
+                                array('username' => $sUsername));        
             return true;
         } else {
             $this->oMySql->update($this->sTable,
@@ -63,8 +55,8 @@ class LoginUser {
                                 array('username' => $sUsername));
             
             $this->bLogin = false;
-            // Tutaj przekazać do frontu wiadomość z błędem do wyświetlenia
-           return false;
+            $this->setMesagges();
+            return false;
         }
     }
     
@@ -78,4 +70,11 @@ class LoginUser {
         $this->aData                = null;
         $this->bLogin               = false;
     }
+    
+    function setMesagges() {
+        $this->oSmarty->assign('aMessage', $this->aMessage);
+        $this->oSmarty->assign('aWarning', $this->aWarning);
+        $this->oSmarty->assign('aError', $this->aError);
+        $this->oSmarty->assign('aSuccess', $this->aSuccess);
+  }
 }
