@@ -12,9 +12,8 @@ class LoginUser extends PageAction {
     var $bLogin      = false;
     var $sTable      = 'user';
 	
-	function LoginErrorInfo($aUserData,$sUsername, $sPassword)
-	{
-		 if(empty($aUserData)) {
+    function LoginErrorInfo($aUserData, $sUsername, $sPassword) {
+        if(empty($aUserData)) {
             $this->aError[] = 'Niepoprawny login lub hasło.';
         } else {
             if($aUserData['active'] == 0) {
@@ -25,11 +24,10 @@ class LoginUser extends PageAction {
                 $this->aError[] = 'Podane hasło jest nieprawidłowe.';
             } 
         }
-	}
+    }
 	
-	function LoginValidation($aUserData,$sUsername)
-	{
-		 if(!$this->aError) {
+    function LoginValidation($aUserData, $sUsername) {
+        if(!$this->aError) {
             $_SESSION['username'] = $aUserData['username'];
             $_SESSION['password'] = $aUserData['password'];
             
@@ -38,6 +36,7 @@ class LoginUser extends PageAction {
             } else {
                 $_SESSION['permissions'] = false;
             }
+            
             $_SESSION['userData'] = $aUserData;
             $_SESSION['userLogin'] = true;
             
@@ -57,7 +56,7 @@ class LoginUser extends PageAction {
             $this->setMesagges();
             return false;
         }
-	}
+    }
 	
     
     function Login($sUsername, $sPassword) { 
@@ -68,13 +67,11 @@ class LoginUser extends PageAction {
         
         $this->LoginErrorInfo($aUserData,$sUsername, $sPassword);
         
-       if($this -> LoginValidation($aUserData,$sUsername)) 
-	   {
-		   return true;
-	   }
-	   else return false;
-        
-       
+       if($this -> LoginValidation($aUserData,$sUsername)) {
+	   return true;
+	} else {
+            return false;
+        }   
     }
     
     function LoginAdmin($sUsername, $sPassword) {
@@ -87,11 +84,11 @@ class LoginUser extends PageAction {
         
 		$this->LoginErrorInfo($aUserData,$sUsername, $sPassword);
         
-       if($this -> LoginValidation($aUserData,$sUsername)) 
-	   {
-		   return true;
-	   }
-	   else return false;
+        if($this -> LoginValidation($aUserData,$sUsername)) {
+            return true;
+	} else {
+            return false;
+        }
     }
     
     function Logout() {
