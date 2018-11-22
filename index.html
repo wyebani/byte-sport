@@ -27,9 +27,71 @@ and open the template in the editor.
 				<img src="image/banner.jpg" width="100%" height="200" alt="Baner"/>
 		</header>
 		
+				<div id="menu-bar">
+				
+					<button id="registration-button"><a  style="color:white;text-decoration: none;" href="" class="open-window" data-okienkoId="#popup-registration">Rejestracja</a></button>
+					
+					<div id="popup-registration" class="window-base">
+						<div class="window-inside2">
+							<span class="window-close">&times;</span>
+							<h1>Rejestracja<h1>
+		
+							<div id="registration">
+								<form>
+									<label for="username">Nazwa użytkownika:</label>
+									<input type="text" id="username" name="username" placeholder=" Username">
+									<label for="username">Email:</label>
+									<input type="text" id="email" name="email" placeholder="E-mail">
+									<label for="password">Hasło:</label>
+									<input type="password" id="password" name="password" placeholder="Password">
+									<label for="password">Powtórz hasło:</label>
+									<input type="password" id="password" name="password" placeholder="Password">
+									<label for="name">Imie:</label>
+									<input type="text" id="name" name="name" placeholder="Name">
+									<label for="surname">Nazwisko:</label>
+									<input type="text" id="surname" name="surname" placeholder="Surname">
+									<label for="surname">Data Urodzenia:</label>
+									<input type="date" id="start" name="trip-start"value="2018-01-01" min="1950-01-01" max="2020-01-31">
+									
+									
+										<br><br><input type="submit" value="Zarejestruj się">
+									
+									
+								</form>
+							</div>
+						</div>
+					</div>
+					<button id="login-button"><a style="color:white;text-decoration: none;" href="" class="open-window" data-okienkoId="#popup-login">Zaloguj się</a></button>
+					<div id="popup-login" class="window-base">
+						<div class="window-inside">
+									<span class="window-close">&times;</span>
+								<h1>Logowanie<h1>
+		
+									<div id="logowanie">
+										<form>
+											<label for="username">Nazwa użytkownika:</label>
+											<input type="text" id="username" name="username">
+											<label for="password">Hasło:</label>
+											<input type="password" id="password" name="password">
+											<br><br>
+											
+										<input type="submit" value="Zaloguj">
+										
+										<div id="forgot-exit">	
+										<button class="cancel-button">Wyjdź</a></button>
+										<span class="forgot-password">Zapomniałeś <a href="#">hasła?</a></span>
+										
+										</form></div>
+									</div>
+						</div>
+					</div>
+					
+				</div>
 		
 		<div id="container">
+		
 			<nav>
+			
 				<div id="news">
 					<p><a href="index.html">News</a></p>
 				</div>
@@ -109,51 +171,7 @@ and open the template in the editor.
 		</div>
 		
 		
-		<button id="login-button"><a href="" class="uruchom-okienko" data-okienkoId="#popup-login">Zaloguj się</a></button>
-		<div id="popup-login" class="window-base">
-			<div class="window-inside">
-				<span class="window-close">&times;</span>
-				<h1>Logowanie<h1>
 		
-				<div id="logowanie">
-					<form>
-						<label for="username">Nazwa użytkownika:</label>
-						<input type="text" id="username" name="username">
-						<label for="password">Hasło:</label>
-						<input type="password" id="password" name="password">
-						<div id="lower">
-							<br>
-							<input type="submit" value="Zaloguj się">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-				
-		<button id="registration-button"><a href="" class="uruchom-okienko" data-okienkoId="#popup-registration">Rejestracja</a></button>
-		<div id="popup-registration" class="window-base">
-			<div class="window-inside">
-				<span class="window-close">&times;</span>
-				<h1>Rejestracja<h1>
-		
-				<div id="rejestration">
-					<form>
-						<label for="username">Nazwa użytkownika:</label>
-						<input type="text" id="username" name="username">
-						<label for="username">Email:</label>
-						<input type="text" id="email" name="email">
-						<label for="password">Hasło:</label>
-						<input type="password" id="password" name="password">
-						<label for="password">Powtórz hasło:</label>
-						<input type="password" id="password" name="password">
-						<div id="lower">
-							<br>
-							<input type="submit" value="Zarejestruj się">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
 		
         <footer>
             <img src="image/footer.jpg" width="100%" height="50" alt="footer"/>
