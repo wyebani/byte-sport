@@ -1,5 +1,5 @@
 $(function(){
-	$(".uruchom-okienko").click(function(e){
+	$(".open-window").click(function(e){
 		e.preventDefault();
 
 		$("body").css("overflow", "hidden");
