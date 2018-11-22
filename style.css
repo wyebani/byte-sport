@@ -243,7 +243,7 @@ input[type=date]
 }
 #forgot-exit
 {
-	margin-top:67px;
+	margin-top:50px;
 	background-color:#f1f1f1;
 	height:60px;
 
@@ -273,7 +273,7 @@ span.forgot-password {
 			background-color: white;
 			padding-top: 20px;
 			width: 500px;
-			height:400px;
+			height:350px;
 			margin: 0 auto;
 			text-align: center;
 			position: relative;
