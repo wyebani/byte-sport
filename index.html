@@ -37,7 +37,7 @@ and open the template in the editor.
 							<h1>Rejestracja<h1>
 		
 							<div id="registration">
-								<form>
+								<form method="post" action="php/functions/register.php">
 									<label for="username">Nazwa użytkownika:</label>
 									<input type="text" id="username" name="username" placeholder=" Nazwa użytkownika">
 									<label for="username">Email:</label>
@@ -54,7 +54,8 @@ and open the template in the editor.
 									<input type="date" id="start" name="trip-start"value="2018-01-01" min="1950-01-01" max="2020-01-31">
 									
 									
-										<br><br><input type="submit" value="Zarejestruj się">
+									<br><br>
+									<input type="submit" value="Zarejestruj się">
 									
 									
 								</form>
@@ -64,28 +65,27 @@ and open the template in the editor.
 					<button id="login-button"><a style="color:white;text-decoration: none;" href="" class="open-window" data-okienkoId="#popup-login">Zaloguj się</a></button>
 					<div id="popup-login" class="window-base">
 						<div class="window-inside">
-									<span class="window-close">&times;</span>
-								<h1>Logowanie<h1><br>
+							<span class="window-close">&times;</span>
+							<h1>Logowanie<h1><br>
 		
-									<div id="logowanie">
-										<form>
-											<label for="username">Nazwa użytkownika:</label>
-											<input type="text" id="username" name="username">
-											<label for="password">Hasło:</label>
-											<input type="password" id="password" name="password">
-											<br><br>
+							<div id="logowanie">
+								<form method="post" action="php/functions/login.php">
+									<label for="username">Nazwa użytkownika:</label>
+									<input type="text" id="username" name="username">
+									<label for="password">Hasło:</label>
+									<input type="password" id="password" name="password">
+									<br><br>
 											
-										<input type="submit" value="Zaloguj">
+									<input type="submit" value="Zaloguj">
 										
-										<div id="forgot-exit">	
+									<div id="forgot-exit">	
 										<button class="cancel-button">Wyjdź</a></button>
 										<span class="forgot-password"><a href="#">Zapomniałeś hasła?</a></span>
-										
-										</form></div>
 									</div>
+								</form>
+							</div>
 						</div>
 					</div>
-					
 				</div>
 		
 		<div id="container">

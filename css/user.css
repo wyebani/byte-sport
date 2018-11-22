@@ -95,8 +95,8 @@ article{
     height: 300px;
     font-size: 20px;
 }
-#personal_date{
-    display: none;
+#personal_data{
+    display: visible;
 }
 #change_password{
         display: none;

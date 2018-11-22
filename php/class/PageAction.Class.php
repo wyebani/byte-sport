@@ -18,6 +18,8 @@ class PageAction {
     
     function __construct() {
         $this->oSmarty = new Smarty();
+		$this->oSmarty->setTemplateDir("../../templates");
+		$this->oSmarty->setCompileDir("../../templates_c");
         $this->oMySql = new MySql();
         $this->oMySql->connect();
         

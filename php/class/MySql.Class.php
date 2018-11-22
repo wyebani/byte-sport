@@ -211,7 +211,7 @@ class MySql {
     $sQuery = "UPDATE `$sTable`";
     $sQuery .= $this->setSet($aFields);
     $sQuery .= $this->setWhere($aIf, $sOperator);
-
+	
     if ($this->query($sQuery)) {
       return true;
     } else {

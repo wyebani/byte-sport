@@ -13,9 +13,9 @@
     $result = $registerController->Register($aUserData);
     
     if($result) {
-        $registerController->getSmarty()->display("index.tpl");
+        echo "Zarejestrowano pomyślnie";
     } else {
-        
+        echo "Wystąpił błąd";
     }
     
     

@@ -28,29 +28,20 @@ class LoginUser extends PageAction {
 	
     function LoginValidation($aUserData, $sUsername) {
         if(!$this->aError) {
-            $_SESSION['username'] = $aUserData['username'];
-            $_SESSION['password'] = $aUserData['password'];
-            
-            if($aUserData['permissions'] == 1) {
-                $_SESSION['permissions'] = true;
-            } else {
-                $_SESSION['permissions'] = false;
-            }
-            
             $_SESSION['userData'] = $aUserData;
-            $_SESSION['userLogin'] = true;
+            $_SESSION['userDetails'] = $this->oMySql->select('user_details', 1, array('user_id' => $aUserData['user_id']));
             
             $this->aData = $aUserData;
             $this->bLogin = true;
             
-            $this->oMySql->update($this->sTable,
+            $this->oMySql->update('user_details',
                                 array('login_success' => date("Y-m-d, H:i:s")),
-                                array('username' => $sUsername));        
+                                array('user_id' => $aUserData['user_id']));        
             return true;
         } else {
-            $this->oMySql->update($this->sTable,
+            $this->oMySql->update('user_details',
                                 array('login_failure' => date("Y-m-d H:i:s")),
-                                array('username' => $sUsername));
+                                array('user_id' => $aUserData['user_id']));
             
             $this->bLogin = false;
             $this->setMesagges();
@@ -67,9 +58,9 @@ class LoginUser extends PageAction {
         
         $this->LoginErrorInfo($aUserData,$sUsername, $sPassword);
         
-       if($this -> LoginValidation($aUserData,$sUsername)) {
-	   return true;
-	} else {
+       if($this->LoginValidation($aUserData,$sUsername)) {
+			return true;
+		} else {
             return false;
         }   
     }
@@ -82,7 +73,7 @@ class LoginUser extends PageAction {
         
         $sPassword = hash('sha512', $sPassword);
         
-		$this->LoginErrorInfo($aUserData,$sUsername, $sPassword);
+	$this->LoginErrorInfo($aUserData,$sUsername, $sPassword);
         
         if($this -> LoginValidation($aUserData,$sUsername)) {
             return true;
