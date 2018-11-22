@@ -123,8 +123,10 @@ article{
 }
 
 label {
+
+float:left;
 display: block;
-width: 260px;
+width: 200px;
 padding: 10px 10px;
 color: black;
 font-size: 15px;
@@ -218,6 +220,13 @@ input[type=submit]
 	width:90%;
 	height:50px;
 }
+
+input[type=date]
+{
+	
+   width:150px;
+}
+
 .cancel-button
 {
 	background-color: #f44336;
@@ -234,7 +243,7 @@ input[type=submit]
 }
 #forgot-exit
 {
-	margin-top:60px;
+	margin-top:67px;
 	background-color:#f1f1f1;
 	height:60px;
 
@@ -262,7 +271,7 @@ span.forgot-password {
 			/*Okienko POP-UP LOGOWANIA*/
 		.window-inside {
 			background-color: white;
-			/*padding: 20px;*/
+			padding-top: 20px;
 			width: 500px;
 			height:400px;
 			margin: 0 auto;
@@ -275,9 +284,10 @@ span.forgot-password {
 		}
 		.window-inside2 {
 			background-color: white;
+			padding-top:20px;
 			/*padding: 20px;*/
 			width: 500px;
-			height:700px;
+			height:450px;
 			margin: 0 auto;
 			text-align: center;
 			position: relative;
