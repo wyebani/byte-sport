@@ -4,12 +4,12 @@ $(function(){
 
 		$("body").css("overflow", "hidden");
 
-		var idOkienka = $(this).attr("data-okienkoId");
-		$(idOkienka).fadeIn("fast");
+		var idModal = $(this).attr("data-okienkoId");
+		$(idModal).fadeIn("fast");
 
 		// Zamknięcie okienka
-		$(idOkienka).find(".window-close").click(function(){
-			$(idOkienka).fadeOut("fast", function(){
+		$(idModal).find(".window-close").click(function(){
+			$(idModal).fadeOut("fast", function(){
 				$("body").css("overflow", "auto");
 			});
 		});
