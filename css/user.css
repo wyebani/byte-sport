@@ -79,6 +79,11 @@ aside{
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
 	background-color:#6c7c7c;
         color:red;
+      
+}
+.myButton p:nth-child(2){
+    display: none;
+    
 }
 .myButton:active {
 	position:relative;
@@ -87,6 +92,7 @@ aside{
 .myButton p{
     text-align: center;
 }
+
 article{
     margin-top: 30px;
     border: black 1px solid;
@@ -109,10 +115,48 @@ article{
     
     display: none;
 }
-
+/*-------------------------Admin----------------------------------------*/
+#Users{
+    display: none;
+}
+#league{
+    display: none;
+}
+#teams{
+    display: none;
+}
+#the_same_table{
+    width: 300px;
+}
+#match{
+    display: none;
+}
+#buttonarticles{
+    height: 30px;
+    width: 100px;
+    
+}
+#articles{
+    
+    display: none;
+}
+/*-----------------------------------------------------------------*/
 .inputclass{
     margin-left: 30px;
    background: white
+}
+.inputbutton{
+    margin-top: 20px;
+    margin-left: 130px;
+    width: 100px;
+    height: 50px;
+    
+}
+#add_button
+{
+     width: 130px;
+    height: 50px;
+    margin-left: 250px;
 }
 table{
     margin: 5px auto;
