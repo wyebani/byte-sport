@@ -39,9 +39,9 @@ and open the template in the editor.
             <article>
                 <div id="Users">
                     <br>
-                    <table>
+                    <table cellspacing="10">
                         <tr>
-                            <td>Wszyscy Użytkownicy</td>
+                            <td>Wszyscy Użytkownicy:</td>
                             <td>
 								<input list="All_users" name="User"   class="inputclass"/>
                                 <datalist id="All_users">
@@ -52,20 +52,33 @@ and open the template in the editor.
                             </td>
                         </tr>
                         <tr>
-                           
+                            <td>                                <input type="button" value="Edytuj" id='buttonarticles'/></td>
+                            <td>                                <input type="button" value="Usuń" id='buttonarticles'/></td>
                         </tr>
-                    </table>
-					<td><input type="button" value="Edytuj"class="inputbutton"/></td>
-					<input type="button" value="Usuń"class="inputbutton"/>
-                    <br>
-                    <br>
-                    <table>
                         <tr>
                             <td>Dodaj Użytkownika:</td>
-                            <td><input type="text" value="" class="inputclass"/></td>                                      
-                        </tr>                                   
+                            <td>                                <input type="text" value="" class="inputclass"/></td>                                      
+                        </tr>       
+                        <tr>
+                            <td></td>
+                            <td>                                <input type="button" value="Dodaj" id='buttonarticles'/></td>
+                        </tr>
+                        <tr>
+                            <td>Aktywacja Użytkownika:</td>
+                            <td>                                <input list="not_active_users" name="User"   class="inputclass"/>
+                                <datalist id="not_active_users">
+									<option value="Małkpa">
+									<option value="Zabcia">  
+									<option value="Suchy">
+                                </datalist>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>                                 <input type="button" value="Aktywuj" id='buttonarticles'/></td>
+                        </tr>
                     </table>
-                    <input type="submit" value="Dodaj" id="add_button"/>
+                   
                 </div>
 				
                 <div id='league'>                        
@@ -83,27 +96,27 @@ and open the template in the editor.
                             </td>
                         </tr>
                        
-                        <tr>
-                            <td><input type="button" value="Edytuj" id='buttonarticles'/><td>
-                            <td><input type="button" value="Usuń" id='buttonarticles'/><td>
+                                                 <tr>
+                            <td>                                <input type="button" value="Edytuj" id='buttonarticles'/><td>
+                            <td>                                 <input type="button" value="Usuń" id='buttonarticles'/><td>
 						</tr>
                         <tr>
                             <td>Dodaj Lige:</td>
-                            <td><input type="text" value="" class="inputclass"/></td>                                      
+                            <td>                                <input type="text" value="" class="inputclass"/></td>                                      
                         </tr>
                         <tr>
                             <td>Flaga Ligi</td>
-                            <td> <input type="image" value="Image" class='inputclass'/></td>
+                            <td>                                <input type="image" value="Image" class='inputclass'/></td>
                         </tr>    
                         <tr>              
-                            <td> <input type="submit" value="Dodaj" id="buttonarticles"/></td>
+                            <td>                                <input type="submit" value="Dodaj" id="buttonarticles"/></td>
 						</tr>
                     </table>                        
                 </div> 
                 
                 <div id="teams">
                     <br>
-                    <table  id="the_same_table">
+                    <table cellspacing="10" >
                         <tr>
                             <td>Wybierz Lige:</td>
                             <td>
@@ -126,16 +139,22 @@ and open the template in the editor.
                                 <option value="Druzyna3">
                             </datalist>
                         </td>                      
-                    </table>
+                              <tr>
+                            <td>                        <input type="button" value="Edytuj" id='buttonarticles'/><td>
+                            <td>                        <input type="button" value="Usuń" id='buttonarticles'/><td>
+						</tr>
 					
-                    <input type="button" value="Edytuj"class="inputbutton"/>
-                    <input type="button" value="Usuń"class="inputbutton"/>
+                   
 					
-                    <table id="the_same_table">
+                        <tr>
                         <td>Dodaj Drużynę:</td>
-                         <td><input type="text" value="" class="inputclass"/></td>                                                                         
+                         <td>                           <input type="text" value="" class="inputclass"/></td>     
+                        </tr>
+                        <tr>
+                            <td>                        <input type="submit" value="Dodaj" id="buttonarticles"/></td>
+                        </tr>
                     </table>
-                    <input type="submit" value="Dodaj" id="add_button"/>
+                   
                 </div>
 				
                 <div id="match">
@@ -179,7 +198,7 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td>Gospodarz: </td>
-                            <td><input type="number" value="" class="inputclass"/></td>                      
+                            <td>                                <input type="number" value="" class="inputclass"/></td>                      
                         </tr>
 						
                         <tr>
@@ -211,7 +230,7 @@ and open the template in the editor.
                         </td>
                         <tr>
                             <td>Temat:</td>
-                            <td><input type="text" value="" class="inputclass"/></td>
+                            <td>                                <input type="text" value="" class="inputclass"/></td>
                         </tr>
                         <tr>
                             <td>Treść:</td>
@@ -221,7 +240,7 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td></td>
-                            <td><input id="buttonarticles" type="submit" value="Dodaj"/></td>                              
+                            <td>                                <input id="buttonarticles" type="submit" value="Dodaj"/></td>                              
                         </tr>
                         <tr>
                             <td>Dodane artykuły: </td>
@@ -237,7 +256,7 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td></td>
-                            <td><input id="buttonarticles" type="submit" value="Usuń" ></td>
+                            <td>                                <input id="buttonarticles" type="submit" value="Usuń" ></td>
                         </tr>
                     </table>
                 </div>
