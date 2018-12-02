@@ -96,14 +96,19 @@ class Crud extends PageAction {
  *       Method updates object into table.                                     *
  * @params:                                                                    *
  *      $sTable - table name                                                   *
- *      $aData - array with fields                                             *
+ *      $aFields - array with fields                                           *
+ *      $aWhere - array with fields for WHERE section in query                 *
  * @returns:                                                                   *
  *      - true when success                                                    *
  *      - false when fail                                                      *
  ******************************************************************************/
     
     public function update($sTable, $aFields, $aWhere) {
-        // TO DO //
+        if(!empty($sTable) && !empty($aFields) && !empty($aWhere)) {
+            return $this->oMySql->update($sTable, $aFields, $aWhere);
+        }
+        
+        return false;
     }
     
 /*******************************************************************************

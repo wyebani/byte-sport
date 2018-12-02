@@ -283,6 +283,17 @@ class MySql {
     return $aReturn;
   }
   
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method for INSERT one record into table                               *
+ * @params                                                                     *
+ *      - $sTable - table name                                                 *
+ *      - $aFields - array with wanted fields (null = all)                     *
+ * @return                                                                     *
+ *      - insert id when success                                               *
+ *      - error message when fail                                              *
+ ******************************************************************************/  
+  
     function insert($sTable, $aFields) {
     $sQuery = '';
     $sError = '';
