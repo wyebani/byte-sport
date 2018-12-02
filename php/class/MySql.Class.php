@@ -1,9 +1,9 @@
 <?php
-/**
- * @author Marek
- * @date 09.11.2018
- * @description Class responsible for communication with database.
- */
+/*******************************************************************************
+ * @brief Global MySql class                                                   *
+ * @author Marek                                                               *
+ * @date 10.11.2018                                                            *
+ ******************************************************************************/
 
 class MySql {
     var $oConnect;
@@ -14,8 +14,18 @@ class MySql {
     var $sUserPassword = 'Xs3UyppeQloFZEWs';
     var $sDatabase = 'byte_sport';
     
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method makes connect with database.                                   *
+ * @return                                                                     *
+ *      none                                                                   *
+ ******************************************************************************/  
+    
     function connect() {
-        $this->oConnect = @new mysqli($this->sHost, $this->sUserLogin, $this->sUserPassword, $this->sDatabase);
+        $this->oConnect = @new mysqli($this->sHost,
+                        $this->sUserLogin,
+                        $this->sUserPassword,
+                        $this->sDatabase);
         
         if ($this->oConnect->connect_errno) {
             echo "Fail Connect to MySQL Database... <br/>Error type: <b>" . $this->oConnect->connect_error . "</b>";
@@ -26,48 +36,74 @@ class MySql {
         }
     }
     
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method sets charset.                                                  *
+ * @return                                                                     *
+ *      none                                                                   *
+ ******************************************************************************/  
+    
     function setCharset($sCharset) {
     $sQuery = "SET NAMES '$sCharset'";
     $this->query($sQuery);
   }
-  
+
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method sends query to database.                                       *
+ * @return                                                                     *
+ *      - array with result                                                    *
+ ******************************************************************************/  
+    
     private function query($sQuery) {
-    return $this->oConnect->query($sQuery);
-  }
+        return $this->oConnect->query($sQuery);
+   }
   
-    function showArray($aArray) {
-    echo '<div style="position: absolute; bottom: 0; left: 0;"><pre>';
-    print_r($aArray);
-    echo '</pre></div>';
-  }
-  
-    function setValues($aFields)
-  {
-    $bFirst = true;
-    $sQuery1 = '';
-    $sQuery2 = '';
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method puts values into query.                                        *
+ * @params                                                                     *
+ *      - array with fields                                                    *
+ * @return                                                                     *
+ *      -Query                                                                 *
+ ******************************************************************************/  
+   
+    function setValues($aFields) {
+        $bFirst = true;
+        $sQuery1 = '';
+        $sQuery2 = '';
 
-    if (isset($aFields)) {
-      foreach ($aFields as $sKey => $sValue) {
-        if ($bFirst) {
-          $sQuery1 = " ( $sKey";
-          $sQuery2 = " VALUES( '$sValue'";
-          $bFirst = false;
-        } else {
-          $sQuery1 .= ", $sKey";
-          $sQuery2 .= ", '$sValue'";
+        if (isset($aFields)) {
+          foreach ($aFields as $sKey => $sValue) {
+            if ($bFirst) {
+              $sQuery1 = " ( $sKey";
+              $sQuery2 = " VALUES( '$sValue'";
+              $bFirst = false;
+            } else {
+              $sQuery1 .= ", $sKey";
+              $sQuery2 .= ", '$sValue'";
+            }
+          }
+
+          $sQuery1 .= " )";
+          $sQuery2 .= " )";
         }
-      }
 
-      $sQuery1 .= " )";
-      $sQuery2 .= " )";
+        $sQuery = $sQuery1 . " " . $sQuery2;
+
+        return $sQuery;
     }
-
-    $sQuery = $sQuery1 . " " . $sQuery2;
-
-    return $sQuery;
-  }
   
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method sets WHERE section in query.                                   *
+ * @params                                                                     *
+ *      - $aIs - array with fields                                             *
+ *      - $sOperators - operator                                               *
+ * @return                                                                     *
+ *      - Query                                                                *
+ ******************************************************************************/      
+    
     function setWhere($aIf, $sOperators) {
     $bFirst = true;
     $sQuery = '';
@@ -89,6 +125,15 @@ class MySql {
 
     return $sQuery;
   }
+  
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method sets SET section in query.                                     *
+ * @params                                                                     *
+ *      - $aFields - array with fields                                         *    
+ * @return                                                                     *
+ *      - Query                                                                *
+ ******************************************************************************/   
 
   function setSet($aFields) {
     $bFirst = true;
@@ -108,6 +153,15 @@ class MySql {
     return $sQuery;
   }
   
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method sets fields in query.                                          *
+ * @params                                                                     *
+ *      - $aFields - array with fields                                         *
+ * @return                                                                     *
+ *      - Query                                                                *
+ ******************************************************************************/   
+  
     function setFields($aFields) {
     $iCount = count($aFields);
     $sQuery = '';
@@ -121,6 +175,15 @@ class MySql {
 
     return $sQuery;
   }
+  
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method sets ORDER BY section in query.                                *
+ * @params                                                                     *
+ *      - aSort - array with fields.                                           *
+ * @return                                                                     *
+ *      - Query                                                                *
+ ******************************************************************************/   
   
     function setOrderBy($aSort) {
     $bFirst = true;
@@ -140,7 +203,23 @@ class MySql {
     return $sQuery;
   }
   
-  function select($sTable, $iLimit = null, $aIf = null, $aSort = null, $aFields = null, $sOperator = null) {
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method for SELECT records from table                                  *
+ * @params                                                                     *
+ *      - $sTable - table name                                                 *
+ *      - $iLimit - limit records (null = all)                                 *
+ *      - $aIf - array with fields for WHERE section (null = none)             *
+ *      - $aSort - array with fields for ORDER BY (null = none)                *
+ *      - $aFields - array with wanted fields (null = all)                     *
+ *      - $sOperator - operator                                                *
+ * @return                                                                     *
+ *      - array with all wanted fields (false if error)                        *
+ ******************************************************************************/   
+  
+  function select($sTable, $iLimit = null, $aIf = null, $aSort = null, 
+                                           $aFields = null, $sOperator = null) {
+      
     $aReturn = array();
     $sQuery = "SELECT ";
 
@@ -182,7 +261,22 @@ class MySql {
     }
   }
   
-    function selectOne($sTable, $aIf = null, $aSort = null, $aFields = null, $sOperator = null) {
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method for SELECT one record from table                               *
+ * @params                                                                     *
+ *      - $sTable - table name                                                 *
+ *      - $aIf - array with fields for WHERE section (null = none)             *
+ *      - $aSort - array with fields for ORDER BY (null = none)                *
+ *      - $aFields - array with wanted fields (null = all)                     *
+ *      - $sOperator - operator                                                *
+ * @return                                                                     *
+ *      - array with all wanted fields (false if error)                        *
+ ******************************************************************************/ 
+  
+    function selectOne($sTable, $aIf = null, $aSort = null, $aFields = null, 
+                                                            $sOperator = null) {
+        
     $aReturn = array();
     $aReturn = $this->select($sTable, 1, $aIf, $aSort, $aFields, $sOperator);
 
@@ -204,6 +298,19 @@ class MySql {
     }
   }
   
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method for UPDATE records from table                                  *
+ * @params                                                                     *
+ *      - $sTable - table name                                                 *
+ *      - $aIf - array with fields for WHERE section (null = none)             *
+ *      - $aFields - array with wanted fields                                  *
+ *      - $sOperator - operator (null = none)                                  *
+ * @return                                                                     *
+ *      - true if success                                                      *
+ *      - error if fail                                                        *
+ ******************************************************************************/ 
+  
     function update($sTable, $aFields, $aIf = null, $sOperator = null) {
     $sQuery = '';
     $sError = '';
@@ -220,6 +327,18 @@ class MySql {
     }
   }
   
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method for DELETE records from table                                  *
+ * @params                                                                     *
+ *      - $sTable - table name                                                 *
+ *      - $aIf - array with fields for WHERE section (null = none)             *
+ *      - $sOperator - operator (null = none)                                  *
+ * @return                                                                     *
+ *      - true if success                                                      *
+ *      - error if fail                                                        *
+ ******************************************************************************/ 
+  
     function delete($sTable, $aIf = null, $sOperator = null) {
     $sQuery = '';
     $sError = '';
@@ -234,6 +353,16 @@ class MySql {
       return $sError;
     }
   }
+  
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method for execute other query                                        *
+ * @params                                                                     *
+ *      - $sQuery - query                                                      *
+ * @return                                                                     *
+ *      - array with result of executed query                                  *
+ *      - false if fail                                                        *
+ ******************************************************************************/ 
   
     function otherQuery($sQuery) {
     $aReturn = array();
@@ -250,6 +379,9 @@ class MySql {
     } else {
       return $aReturn;
     }
-  }
-  
+  } 
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

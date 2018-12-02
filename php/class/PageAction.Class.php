@@ -1,12 +1,13 @@
 <?php
-/**
- * Description of PageAction
- *
- * @author Marek
- */
 
 require 'MySql.Class.php';
 require '../../libs/Smarty.class.php';
+
+/*******************************************************************************
+ * @brief Parent class with Smarty and DataBase objects.                       *
+ * @author Marek                                                               *
+ * @date 10.11.2018                                                            *
+ ******************************************************************************/
 
 class PageAction {
     var $oSmarty;
@@ -16,6 +17,12 @@ class PageAction {
     var $aWarning;
     var $aError;
     
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Default constructor sets the Samarty object, templates dir            *
+ *       and init database connection.                                         *
+ ******************************************************************************/     
+    
     function __construct() {
         $this->oSmarty = new Smarty();
 		$this->oSmarty->setTemplateDir("../../templates");
@@ -24,6 +31,13 @@ class PageAction {
         $this->oMySql->connect();
         
     }
+    
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method sets messages into Smarty object.                              *
+ * @return                                                                     *
+ *      none                                                                   *
+ ******************************************************************************/ 
     
     protected function _setMesagges() {
         $this->oSmarty->assign('aMessage', $this->aMessage);
@@ -35,9 +49,8 @@ class PageAction {
         $this->oSmarty->assign('aSession', $_SESSION);
         $this->oSmarty->assign('aCookie', $_COOKIE);
   }
-  
-  function getSmarty() {
-      return $this->oSmarty;
-  }
-  
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

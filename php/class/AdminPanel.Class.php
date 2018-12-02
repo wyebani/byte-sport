@@ -1,62 +1,20 @@
 <?php
 
-/**
- * Description of AdminPanel
- *
- * @author Marek
- */
+require 'Crud.Class.php';
 
-require 'PageAction.Class.php';
+/*******************************************************************************
+ * @brief Admin panel class                                                    *
+ * @author Marek                                                               *
+ * @date 01.12.2018                                                            *
+ ******************************************************************************/
 
-class AdminPanel extends PageAction {
+class AdminPanel extends Crud {
     
-    function add($sTable, $aData) {
-        if($this->validate($sTable, $aData) == true) {
-            $this->oMySql->insert($sTable, $aData);
-        }
-    }
     
-    function delete($sTable, $iId) {
-        
-    }
     
-    function update($sTable, $aData) {
-        
-    }
     
-    function validate($sTable, $aData) {
-        switch($sTable) {
-            case 'user': {
-                if(empty($aData)) {
-                    $this->aError[] = "Wypełnij wymagane pola!";
-                    return false;
-                }
-                
-                
-                $iCount = $this->oMySql->select('user', 
-                            null,
-                            array('username', $aData['username']));
-                
-                if($iCount > 0) {
-                    $this->aError[] = "Użytkownik o podanym loginie już istnieje!";
-                    return false;
-                }
-                
-                
-                
-                $iCount = $this->oMySql->select('user_details',
-                                null,
-                                array('email' => $aData['email']));
-                
-                if($iCount > 0) {
-                    $this->aError[] = "Użytkownik o podanym emailu już istnieje";
-                    return false;
-                }
-                
-                return true;
-            }
-            
-            // dla lig, drużyn etc...
-        }
-    }
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/
