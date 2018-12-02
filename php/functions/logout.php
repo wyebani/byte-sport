@@ -4,5 +4,5 @@
     
     $loginController = new LoginUser();
     $loginController->Logout();
-    $loginController->getSmarty()->display("index.tpl");
+    $loginController->oSmarty->display("index.tpl");
     

@@ -7,7 +7,7 @@
     
 	
     if($isLogin) {
-        $loginController->getSmarty()->display("login_admin.tpl");
+        $loginController->oSmarty->display("login_admin.tpl");
     } else {
         echo "Nie udało się zalogować";
     }
