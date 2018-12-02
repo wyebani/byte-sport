@@ -98,11 +98,11 @@ class Crud extends PageAction {
  *      $sTable - table name                                                   *
  *      $aData - array with fields                                             *
  * @returns:                                                                   *
- *      - true when fail                                                       *
+ *      - true when success                                                    *
  *      - false when fail                                                      *
  ******************************************************************************/
     
-    public function update($sTable, $aData) {
+    public function update($sTable, $aFields, $aWhere) {
         // TO DO //
     }
     
@@ -113,7 +113,7 @@ class Crud extends PageAction {
  *      $sTable - table name                                                   *
  *      iId - id of record in table                                            *
  * @returns:                                                                   *
- *      - true when fail                                                       *
+ *      - true when success                                                    *
  *      - false when fail                                                      *
  ******************************************************************************/
     

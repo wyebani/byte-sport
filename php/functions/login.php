@@ -5,7 +5,7 @@
     $isLogin = $loginController->Login($_POST['username'], $_POST['password']);
     
     if($isLogin) {
-		$loginController->oSmarty->display("user.tpl");
+	$loginController->oSmarty->display("user.tpl");
     } else {
         
     }

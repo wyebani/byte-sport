@@ -92,9 +92,9 @@ class LoginUser extends PageAction {
         
         $sPassword = hash('sha512', $sPassword);
         
-        $this->LoginErrorInfo($aUserData,$sUsername, $sPassword);
+        $this->LoginErrorInfo($aUserData, $sUsername, $sPassword);
         
-       if($this->SetSession($aUserData,$sUsername)) {
+       if($this->SetSession($aUserData, $sUsername)) {
             return true;
 	} else {
             return false;
@@ -121,9 +121,9 @@ class LoginUser extends PageAction {
         
         $sPassword = hash('sha512', $sPassword);
         
-	$this->LoginErrorInfo($aUserData,$sUsername, $sPassword);
+	$this->LoginErrorInfo($aUserData, $sUsername, $sPassword);
         
-        if($this->SetSession($aUserData,$sUsername)) {
+        if($this->SetSession($aUserData, $sUsername)) {
             return true;
 	} else {
             return false;
