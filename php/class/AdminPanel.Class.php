@@ -35,6 +35,10 @@ class AdminPanel extends Crud {
  ******************************************************************************/
     
     public function addNewUser($sUsername) {
+        if(empty($sUsername)) {
+            return false;
+        }
+        
         $iId = $this->addOne('user',
                         array('username' => $sUsername,
                         'password' => hash('sha512', 'haslo'),
@@ -62,13 +66,16 @@ class AdminPanel extends Crud {
  ******************************************************************************/    
     
     public function deleteUser($iId) {
-        $bResult = $this->delete('user', $iId);
-        if($bResult) {
-            $bResult = $this->delete('user_details', $iId);
-        } else {
-            return false;
-        }
+        $bResult = false;
         
+        if($iId != null) {
+            $bResult = $this->delete('user', $iId);
+            if($bResult) {
+                $bResult = $this->delete('user_details', $iId);
+            } else {
+                return false;
+            }
+        }     
         return $bResult;
     }
     
@@ -83,9 +90,48 @@ class AdminPanel extends Crud {
  ******************************************************************************/     
     
     public function activateUser($iId) {
-        return $this->update('user',
+        if($iId != null) {
+            return $this->update('user',
                     array('active' => 1),
                     array('id' => $iId));
+        }
+        return false;
+    }
+    
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method for update user.                                               *
+ * @params:                                                                    *
+ *      -$aUserData - array with user fields                                   *
+ * @returns:                                                                   *
+ *      - true when success                                                    *
+ *      - false when fail                                                      *
+ ******************************************************************************/
+
+    public function updateUser($aUserData) {
+        if(empty($aUserData)) {
+            return false;
+        }
+        
+        $bResult = false;
+        
+        $bResult = $this->update('user', 
+                array('username' => $aUserData['username'],
+                            'password' => hash('sha512', $aUserData['password']),
+                            'permissions' => $aUserData['permissions'],
+                            'active' => $aUserData['active']),
+                array('id' => $aUserData['id']));
+        
+        if($bResult) {
+             $this->update('user_details',
+                    array('name' => $aUserData['name'],
+                            'surname' => $aUserData['surname'],
+                            'date_of_birth' => $aUserData['date_of_birth'],
+                            'email' => $aUserData['email']),
+                    array('id' => $aUserData['id']));
+        }
+        
+        return $bResult;
     }
     
 }
