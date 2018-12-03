@@ -7,6 +7,8 @@
  * @date 15.11.2018                                                            *
  ******************************************************************************/
     
+    $adminPanel = new AdminPanel();
+    
     $loginController = new LoginUser();
     $isLogin = $loginController->LoginAdmin($_POST['username'], $_POST['password']);
     
