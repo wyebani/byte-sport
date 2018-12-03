@@ -13,9 +13,8 @@ and open the template in the editor.
     </head>
     <body >
       
-		<header>
-				<img src="../../image/banner.jpg" width=" 100% " height="200" alt="Baner"/>
-		</header>
+		{include file="header.tpl"}
+		
         <div id="container">
             <nav>
               
