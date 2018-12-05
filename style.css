@@ -261,6 +261,11 @@ input[type=date]
 	
    width:150px;
 }
+#password2
+{
+	
+   margin-left:8px;
+}
 
 .cancel-button
 {
