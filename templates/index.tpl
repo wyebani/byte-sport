@@ -1,87 +1,75 @@
-{config_load file="test.conf" section="setup"}
-{include file="header.tpl" title=foo}
+{include file="header.tpl"}
 
-<PRE>
-
-{* bold and title are read from the config file *}
-    {if #bold#}<b>{/if}
-        {* capitalize the first letters of each word of the title *}
-        Title: {#title#|capitalize}
-        {if #bold#}</b>{/if}
-
-    The current date and time is {$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}
-
-    The value of global assigned variable $SCRIPT_NAME is {$SCRIPT_NAME}
-
-    Example of accessing server environment variable SERVER_NAME: {$smarty.server.SERVER_NAME}
-
-    The value of {ldelim}$Name{rdelim} is <b>{$Name}</b>
-
-variable modifier example of {ldelim}$Name|upper{rdelim}
-
-<b>{$Name|upper}</b>
-
-
-An example of a section loop:
-
-    {section name=outer
-    loop=$FirstName}
-        {if $smarty.section.outer.index is odd by 2}
-            {$smarty.section.outer.rownum} . {$FirstName[outer]} {$LastName[outer]}
-        {else}
-            {$smarty.section.outer.rownum} * {$FirstName[outer]} {$LastName[outer]}
+<div id="container">
+    
+    {if $smarty.session.isLogin eq 1}
+        {if $smarty.session.permissions eq 1}
+            {include file="menu-admin.tpl"}
+        {else $smarty.session.permissions eq 0}
+            {include file="menu.tpl"}
         {/if}
-        {sectionelse}
-        none
-    {/section}
+    {else}
+        {include file="notlogged-menu.tpl"}
+    {/if}
 
-    An example of section looped key values:
+    {include file="navbar.tpl"}
+	
+<main>
+    <article>
+            <div id="avatar">
+                    <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+            </div>
 
-    {section name=sec1 loop=$contacts}
-        phone: {$contacts[sec1].phone}
-        <br>
+            <div id="description">
+                    <h1>Thiago Cionek powołany do reprezentacji Polski</h1>
 
-            fax: {$contacts[sec1].fax}
-        <br>
+                    Thiago Cionek został powołany do reprezentacji Polski na 
+                    towarzyski mecz z Czechami i spotkanie Ligi Narodów z Portugalią
+                    - poinformował Polski Związek Piłki Nożnej. Obrońca SPAL otrzymał 
+                    powołanie w miejsce kontuzjowanego Kamila Glika.
 
-            cell: {$contacts[sec1].cell}
-        <br>
-    {/section}
-    <p>
+                    Kamil Glik nabawił się kontuzji pachwiny we wtorkowym meczu Ligi Mistrzów, w
+                    którym jego AS Monaco przegrało przed własną publicznością z Club Brugge 0:4.
+                    Polski stoper nie zdołał dokończyć spotkania i musiał zejść z boiska w 76. minucie.
+                    Jak poinformował PZPN, Glik i tak stawi się w poniedziałek na zgrupowaniu, ale 
+                    selekcjoner Jerzy Brzęczek zdecydował się na powołanie Cionka.
+            </div>
+    </article>
 
-        testing strip tags
-        {strip}
-<table border=0>
-    <tr>
-        <td>
-            <A HREF="{$SCRIPT_NAME}">
-                <font color="red">This is a test </font>
-            </A>
-        </td>
-    </tr>
-</table>
-    {/strip}
+    <article>
+             <div id="avatar">
+                    <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+            </div>
+            <div id="description">
+                    <h1>Niemieckie media: karate-gol Lewandowskiego, Bayern może na nim polegać</h1>
 
-</PRE>
+               Reprezentant Polski najpierw wykorzystał rzut karny, 
+               który z resztą sam wywalczył. Eksperci nie do końca 
+               zgadzali się z decyzją sędziego. – Według mnie było to
+               za mało, by dyktować jedenastkę – komentował ekspert Sky
+               Lothar Matthaus. Po przerwie Bayern miał miał kolejne okazje, 
+               ale je marnowali. W końcu jednak podwyższyli wynik. Lewandowski 
+               popisał się artystycznym uderzeniem i mecz skończył z dubletem.
+            </div>
+    </article>
 
-This is an example of the html_select_date function:
+    <article>
+             <div id="avatar">
+                    <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+            </div>
+            <div id="description">
+                    <h1>Niemieckie media: karate-gol Lewandowskiego, Bayern może na nim polegać</h1>
 
-<form>
-    {html_select_date start_year=1998 end_year=2010}
-</form>
-
-This is an example of the html_select_time function:
-
-<form>
-    {html_select_time use_24_hours=false}
-</form>
-
-This is an example of the html_options function:
-
-<form>
-    <select name=states>
-        {html_options values=$option_values selected=$option_selected output=$option_output}
-    </select>
-</form>
-
+               Reprezentant Polski najpierw wykorzystał rzut karny, 
+               który z resztą sam wywalczył. Eksperci nie do końca 
+               zgadzali się z decyzją sędziego. – Według mnie było to
+               za mało, by dyktować jedenastkę – komentował ekspert Sky
+               Lothar Matthaus. Po przerwie Bayern miał miał kolejne okazje, 
+               ale je marnowali. W końcu jednak podwyższyli wynik. Lewandowski 
+               popisał się artystycznym uderzeniem i mecz skończył z dubletem.
+            </div>
+    </article>
+</main>
+</div>
+		
 {include file="footer.tpl"}

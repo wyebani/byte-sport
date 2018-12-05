@@ -7,12 +7,14 @@
  * @author Marek                                                               *
  * @date 10.11.2018                                                            *
  ******************************************************************************/
-        
+    session_start();
+    
     $loginController = new LoginUser();
     $isLogin = $loginController->Login($_POST['username'], $_POST['password']);
     
     if($isLogin) {
-	$loginController->oSmarty->display("user.tpl");
+        header("Location: ../../index.php");
+        die();
     } else {
         
     }

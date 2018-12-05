@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Serwis "Byte Sport"</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet"/>
+          <script src="javascript/jquery.js"></script>
+		    <script src="javascript/popup.js"></script>
+        <script src="javascript/script.js" async></script>
+            <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+            <link href="fonts/lato/Lato-Light.ttf"/>
+            <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    </head>
+	
+	
+    <body>
+	
+	
+		<header>
+				<img src="image/banner.jpg" width="100%" height="200" alt="Baner"/>
+		</header>
+		
+				<div id="menu-bar">
+                                    
+                                
+				
+				<input type="button" id="registration-button" value="Rejestruj" href="" class="open-window" data-okienkoId="#popup-registration"> </input>
+					
+					<div id="popup-registration" class="window-base">
+						<div class="window-inside2">
+							<span class="window-close">&times;</span>
+							<h1>Rejestracja<h1>
+		
+							<div id="registration">
+								<form method="post" action="php/functions/register.php">
+									<label for="username">Nazwa użytkownika:</label>
+									<input type="text" id="username" name="username" placeholder=" Nazwa użytkownika">
+									
+									<label for="email">Email:</label>
+									<input type="text" id="email" name="email" placeholder="E-mail">
+									
+									<label for="password">Hasło:</label>
+									<input type="password" id="password" name="password" placeholder="Hasło">
+									
+									<label for="repeat_passord">Powtórz hasło:</label>						
+									<input type="passord" id="repeat_passord" name="repeat_passord" placeholder="Powtórz hasło">
+									
+									<label for="name">Imie:</label>
+									<input type="text" id="name" name="name" placeholder="Imie">
+									
+									<label for="surname">Nazwisko:</label>
+									<input type="text" id="surname" name="surname" placeholder="Nazwisko">
+									
+									<label for="date_of_birth">Data Urodzenia:</label>
+									<input type="date" id="date_of_birth" name="date_of_birth" value="2018-01-01" min="1950-01-01" max="2020-01-31">
+									
+									
+									<br><br>
+									<input type="submit" value="Zarejestruj się">
+								</form>
+							</div>
+						</div>
+					</div>
+							<input type="button" id="login-button"  href="" class="open-window" data-okienkoId="#popup-login" value="Zaloguj"></input>
+					<div id="popup-login" class="window-base">
+						<div class="window-inside">
+							<span class="window-close">&times;</span>
+							<h1>Logowanie<h1><br>
+		
+							<div id="logowanie">
+								<form method="post" action="php/functions/login.php">
+									<label for="username">Nazwa użytkownika:</label>
+									<input type="text" id="username" name="username">
+									<label for="password">Hasło:</label>
+									<input type="password" id="password" name="password">
+									<br><br>
+											
+									<input type="submit" value="Zaloguj">
+										
+									<div id="forgot-exit">	
+										<button class="cancel-button">Wyjdź</a></button>
+										<span class="forgot-password"><a href="#">Zapomniałeś hasła?</a></span>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+		
+		<div id="container">
+		
+			<nav>
+			
+				<div id="news">
+					<p><a href="index.html">News</a></p>
+				</div>
+
+					
+				<div id="flags">
+					<div id="images">
+						<a href="poland.html"><img src="image/poland.png" class="image" width="45" height="35" alt="poland"/></a>  
+						<a> <img src="image/germany.png" class="image" width="45" height="35" alt="germany"/> </a>
+						<a> <img src="image/spain.png" class="image" width="45" height="35" alt="spain"/> </a>
+						<a> <img src="image/portugal.png" class="image"  width="45" height="35" alt="portugal"/> </a>
+						<a> <img src="image/russia.png" class="image"  width="45" height="35" alt="russia"/> </a>
+						<a> <img src="image/italy.png" class="image" width="45" height="35" alt="italy"/> </a>
+						<a> <img src="image/brazil.png" class="image" width="45" height="35" alt="brazil"/> </a>
+						<a> <img src="image/france.png" class="image" width="45" height="35" alt="france"/> </a>
+						<a> <img src="image/england.png" class="image" width="45" height="35" alt="england"/> </a>
+					</div>
+				</div>
+			</nav>
+			
+			<main>
+				<article>
+					<div id="avatar">
+						<img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+					</div>
+					
+					<div id="description">
+						<h1>Thiago Cionek powołany do reprezentacji Polski</h1>
+						
+						Thiago Cionek został powołany do reprezentacji Polski na 
+						towarzyski mecz z Czechami i spotkanie Ligi Narodów z Portugalią
+						- poinformował Polski Związek Piłki Nożnej. Obrońca SPAL otrzymał 
+						powołanie w miejsce kontuzjowanego Kamila Glika.
+						
+						Kamil Glik nabawił się kontuzji pachwiny we wtorkowym meczu Ligi Mistrzów, w
+						którym jego AS Monaco przegrało przed własną publicznością z Club Brugge 0:4.
+						Polski stoper nie zdołał dokończyć spotkania i musiał zejść z boiska w 76. minucie.
+						Jak poinformował PZPN, Glik i tak stawi się w poniedziałek na zgrupowaniu, ale 
+						selekcjoner Jerzy Brzęczek zdecydował się na powołanie Cionka.
+					</div>
+				</article>
+				
+				<article>
+					 <div id="avatar">
+						<img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+					</div>
+					<div id="description">
+						<h1>Niemieckie media: karate-gol Lewandowskiego, Bayern może na nim polegać</h1>
+						
+					   Reprezentant Polski najpierw wykorzystał rzut karny, 
+					   który z resztą sam wywalczył. Eksperci nie do końca 
+					   zgadzali się z decyzją sędziego. – Według mnie było to
+					   za mało, by dyktować jedenastkę – komentował ekspert Sky
+					   Lothar Matthaus. Po przerwie Bayern miał miał kolejne okazje, 
+					   ale je marnowali. W końcu jednak podwyższyli wynik. Lewandowski 
+					   popisał się artystycznym uderzeniem i mecz skończył z dubletem.
+					</div>
+				</article>
+
+				<article>
+					 <div id="avatar">
+						<img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+					</div>
+					<div id="description">
+						<h1>Niemieckie media: karate-gol Lewandowskiego, Bayern może na nim polegać</h1>
+						
+					   Reprezentant Polski najpierw wykorzystał rzut karny, 
+					   który z resztą sam wywalczył. Eksperci nie do końca 
+					   zgadzali się z decyzją sędziego. – Według mnie było to
+					   za mało, by dyktować jedenastkę – komentował ekspert Sky
+					   Lothar Matthaus. Po przerwie Bayern miał miał kolejne okazje, 
+					   ale je marnowali. W końcu jednak podwyższyli wynik. Lewandowski 
+					   popisał się artystycznym uderzeniem i mecz skończył z dubletem.
+					</div>
+				</article>
+			</main>
+		</div>
+		
+		
+		
+		
+        <footer>
+            <img src="image/footer.jpg" width="100%" height="50" alt="footer"/>
+        </footer>
+    </body>
+</html>

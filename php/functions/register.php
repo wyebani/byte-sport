@@ -7,6 +7,7 @@
  * @author Marek                                                               *
  * @date 10.11.2018                                                            *
  ******************************************************************************/
+    session_start();
     
     $registerController = new RegisterUser();
     

@@ -7,10 +7,11 @@
  * @author Marek                                                               *
  * @date 10.11.2018                                                            *
  ******************************************************************************/
+    session_start();
     
     $loginController = new LoginUser();
     $loginController->Logout();
-    $loginController->oSmarty->display("index.tpl");
+    header("Location: ../../index.php");
     
 /*******************************************************************************
  *                              END OF FILE                                    *

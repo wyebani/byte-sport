@@ -54,6 +54,8 @@ class LoginUser extends PageAction {
             $_SESSION['userData'] = $aUserData;
             $_SESSION['userDetails'] = $this->oMySql->select('user_details', 1,
                             array('id' => $aUserData['id']));
+            $_SESSION['permissions'] = $aUserData['permissions'];
+            $_SESSION['isLogin'] = true;
             
             $this->aData = $aUserData;
             $this->bLogin = true;
@@ -144,7 +146,7 @@ class LoginUser extends PageAction {
         $_SESSION['password']       = null;
         $_SESSION['permissions']    = null;
         $_SESSION['userData']       = null;
-        $_SESSION['userLogin']      = null;
+        $_SESSION['isLogin']        = null;
         
         $this->aData                = null;
         $this->bLogin               = false;
