@@ -9,7 +9,9 @@
     </head>
     <body >
       
-		{include file="header.tpl"}
+	<header>
+            <img src="../../image/banner.jpg" width="100%" height="200" alt="Baner"/>
+	</header>	
 		
         <div id="container">
             <nav>
@@ -25,13 +27,14 @@
             </nav>
             
                 <aside>
-                    <a href="../../index.html"> <p class="myButton">Strona Głowna</p> </a>
+                    <a href="../../index.php"> <p class="myButton">Strona Głowna</p> </a>
                     <p class="myButton">Dane Osobowe </p> 
                     <p class="myButton">Zmień hasło</p>
                     <p class="myButton">Zmień mail'a</p>
                     <p class="myButton">Dodaj/Usun ligi</p>
-                    <p class="myButton">Wyloguj</p>
-                    
+                    <form method="POST" action="logout.php">
+                        <input type="submit" class="myButton" value="Wyloguj"/>
+                    </form>
                 </aside>
                 
             

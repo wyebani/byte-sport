@@ -2,7 +2,7 @@
 
 <div id="container">
     
-    {if $smarty.session.isLogin eq 1}
+    {if !empty($smarty.session.isLogin)}
         {if $smarty.session.permissions eq 1}
             {include file="menu-admin.tpl"}
         {else $smarty.session.permissions eq 0}

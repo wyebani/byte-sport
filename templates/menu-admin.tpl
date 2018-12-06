@@ -7,7 +7,7 @@
             <li>
                 <a href="#">Menu</a>
                 <ul>
-                    <li><a href="#">Mój Profil</a></li>
+                    <li><form action="php/functions/userPanel.php"><input type="submit" value="Panel użytkownika"/></form></li>
                     <li><a href="#">Moja Ulubiona Liga</a></li>
                     <li><a href="admin-login.html">Panel Administratora</a></li>
                 </ul>

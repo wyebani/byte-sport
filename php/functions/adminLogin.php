@@ -8,14 +8,11 @@
  ******************************************************************************/
     session_start();
     
-    $adminPanel = new AdminPanel();
-    
     $loginController = new LoginUser();
     $isLogin = $loginController->LoginAdmin($_POST['username'], $_POST['password']);
     
-	
     if($isLogin) {
-        $loginController->oSmarty->display("login_admin.tpl");
+        $loginController->oSmarty->display("admin-panel.tpl");
     } else {
         echo "Nie udało się zalogować";
     }
