@@ -112,10 +112,10 @@ article {
 
 /*-------------------------Admin----------------------------------------*/
 #Users {
-    display: none;
+    display: visible;
 }
 #league {
-    display: visible;
+    display: none;
 }
 #teams {
     display: none;
