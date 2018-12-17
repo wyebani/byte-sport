@@ -9,9 +9,9 @@
         <script src="javascript/jquery.js"></script>
 	<script src="javascript/popup.js"></script>
         <script src="javascript/script.js" async></script>
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        
         <link href="fonts/lato/Lato-Light.ttf"/>
-        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        
     </head>
 	
 	

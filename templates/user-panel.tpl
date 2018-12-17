@@ -32,9 +32,9 @@
                     <p class="myButton">Zmień hasło</p>
                     <p class="myButton">Zmień mail'a</p>
                     <p class="myButton">Dodaj/Usun ligi</p>
-                    <form method="POST" action="logout.php">
+                   <p <form method="POST" action="logout.php">
                         <input type="submit" class="myButton" value="Wyloguj"/>
-                    </form>
+                   </form></p>
                 </aside>
                 
             
@@ -43,88 +43,107 @@
                     <table>
                         <tr>
                             <td>Imie: </td>
-                            <td><input type="text" value={$smarty.session.userDetails.name} class="inputclass"/></td>
+                            <td>        <input type="text" value={$smarty.session.userDetails.name} class="inputclass"/></td>
                             
                         </tr>
                         <tr>
                             <td>Nazwisko:  </td>
-                            <td><input type="text" value={$smarty.session.userDetails.surname} class="inputclass"/></td>
+                            <td>        <input type="text" value={$smarty.session.userDetails.surname} class="inputclass"/></td>
                             
                         </tr>
                         <tr>
                             <td>Wiek:  </td>
-                            <td><input type="text" value={$smarty.session.userDetails.date_of_birth} class="inputclass"/></td>
+                            <td>        <input type="text" value={$smarty.session.userDetails.date_of_birth} class="inputclass"/></td>
                             
                         </tr>
                         <tr>
                             <td>Twoja ulubiona drużyna: </td>
-                            <td><input type="text" value="Piast Gliwice" class="inputclass"/></td>
+                            <td>        <input type="text" value="Piast Gliwice" class="inputclass"/></td>
                             
                         </tr>
-                        
+                        <tr>
+                            <td></td>
+                            <td>        <input type="button" value="ok" id="buttonarticles"/></td>
+                        </tr>
                     </table>
-                  <input type="submit" value="ok" class="submitclass"/>
+                  
                 </div>
                 <div id="change_password">
                     <table>
                         <tr>
                             <td>Aktualne hasło: </td>
-                            <td><input type="Password"  class="inputclass"/></td>
+                            <td>     <input type="Password"  class="inputclass"/></td>
                             
                         </tr>
                         <tr>
                             <td>Nowe Hasło: </td>
-                            <td><input type="Password" class="inputclass"/></td>
+                            <td>      <input type="Password" class="inputclass"/></td>
                             
                         </tr>
                         <tr>
                             <td>Potwiedz Hasło: </td>
-                            <td><input type="Password"  class="inputclass"/></td>
+                            <td>       <input type="Password"  class="inputclass"/></td>
                             
                         </tr>
+                        <tr>
+                              <td></td>
+                            <td>        <input type="button" value="ok" id="buttonarticles"/></td>
+                        </tr>
                     </table>
-                      <input type="submit" value="ok" class="submitclass"/>
+                     
                 </div>
                 <div id="change_mail">
                     <table>
                          <tr>
                             <td>Twoj mail to: </td>
-                            <td><input type="text" value="PolskaGola@gmail.com"  class="inputclass"/></td>
+                            <td>           <input type="text" value="PolskaGola@gmail.com"  class="inputclass"/></td>
                             
                         </tr>
                         <tr>
                             <td>Nowy mail: </td>
-                            <td><input type="text" class="inputclass"/></td>
+                            <td>            <input type="text" class="inputclass"/></td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td></td>
+                                
+                            
+                            <td>            <input type="button" value="ok" id="buttonarticles"/></td>
                             
                         </tr>
                     </table>
-                     <input type="submit" value="ok" class="submitclass"/>
+                    
                 </div>
                 <div id="add_or_delete_league">
                     <table>
                          <tr>
                             <td>Dodaj Lige</td>
-                            <td><input list="add_league" name="add"   class="inputclass"/>
+                            <td>          <input list="add_league" name="add"   class="inputclass"/>
                             <datalist id="add_league"  >
-                      <option value="Włochy">
-                        <option value="Anglia">  
-                            <option value="Niemcy">
-                                </datalist>
+                                   <option value="Włochy">
+                                   <option value="Anglia">  
+                                   <option value="Niemcy">
+                            </datalist>
                           </td>
                         
                             
                         </tr>
                         <tr>
                              <td>Usun Lige</td>
-                            <td><input list="delete_league" name="delete"   class="inputclass"/>
-                            <datalist id="delete_league"  >
-                            <option value="Polska">
+                            <td>          <input list="delete_league" name="delete"   class="inputclass"/>
+                                <datalist id="delete_league"  >
+                                    <option value="Polska">
                                 </datalist>
                           </td>
                             
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td>        <input type="submit" value="ok" id="buttonarticles"/></td>
+                        </tr>
                     </table>
-                     <input type="submit" value="ok" class="submitclass"/>
+                     
                      
                      
                     <!-- Zrobcie sobie <form action="User.php" method="post"> tak zmiencie typ na php

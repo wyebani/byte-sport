@@ -88,7 +88,7 @@ and open the template in the editor.
                 </div>
 				
                 <div id='league'>                        
-                    <table cellspacing="10">
+                    <table cellspacing="5">
                         <tr>
                             <td>Ligi</td>
                             <td>
@@ -116,15 +116,16 @@ and open the template in the editor.
                              
                             </td>
                         </tr>    
-                        <tr>              
-                            <td>                                <input type="submit" value="Dodaj" id="buttonarticles"/></td>
+                        <tr>      
+                            <td></td>
+                            <td>                                <input type="button" value="Dodaj" id="buttonarticles"/></td>
 						</tr>
                     </table>                        
                 </div> 
                 
                 <div id="teams">
                     <br>
-                    <table cellspacing="10" >
+                    <table cellspacing="5" >
                         <tr>
                             <td>Wybierz Lige:</td>
                             <td>
@@ -159,7 +160,8 @@ and open the template in the editor.
                          <td>                           <input type="text" value="" class="inputclass"/></td>     
                         </tr>
                         <tr>
-                            <td>                        <input type="submit" value="Dodaj" id="buttonarticles"/></td>
+                            <td></td>
+                            <td>                        <input type="button" value="Dodaj" id="buttonarticles"/></td>
                         </tr>
                     </table>
                    
@@ -217,11 +219,14 @@ and open the template in the editor.
                         <tr>
                             <td>Gość: </td>
 							<td><input type="number" value="" class="inputclass"/></td>
-                        </tr>                                        
+                        </tr>
+                          <tr>
+                                                        <td><input type="button" value="Usun"id="buttonarticles"/></td>
+                                                        <td> <input type="button" value="Dodaj" id="buttonarticles"/></td>
+                        </tr>
                     </table>
 					
-                    <input type="button" value="Usun"class="inputbutton"/>
-                    <input type="submit" value="Dodaj"class="inputbutton"/>
+                  
                 </div>
 				
                 <div id="articles">
