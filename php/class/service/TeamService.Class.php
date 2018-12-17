@@ -40,6 +40,26 @@ class TeamService extends Crud {
     
 /*******************************************************************************
  * @brief                                                                      													*
+ *       Method gets list of Teams by League ID																		*		
+ * @params:																													*
+ *      - $iId - league ID																										*
+ * @returns:                                                            												       	*
+ *      - array with teams																									*
+ *      - false when fail																										*
+ ******************************************************************************/    
+    
+    public function getTeamByLeagueId($iLeagueId) {
+        if($iLeagueId) {
+            return $this->oMySql->select('team', 
+                    NULL,
+                    array('league_id' => $iLeagueId));
+        } else {
+            return false;
+        }
+    }
+    
+/*******************************************************************************
+ * @brief                                                                      													*
  *       Method adds new team into database.																		*
  * @params:                                                                    												*
  *      -$sTeamName - team name                                         											*                                             
@@ -48,20 +68,14 @@ class TeamService extends Crud {
  *      - false when fail                                                      												*
  ******************************************************************************/    
     
-    public function addNewTeam($sTeamName) {
+    public function addNewTeam($sTeamName, $iLeague) {
         if(empty($sTeamName)) {
             return false;
         }
         
         $iId = $this->addOne('team',
-                        array('name' => $sTeamName));
-        
-        if($iId != null) {
-            $this->addOne('team_details',
-                        array('id' => $iId));
-        } else {
-            return false;
-        }
+                        array('name' => $sTeamName,
+                        'league_id' => $iLeague));
         
         return $iId;
     }
