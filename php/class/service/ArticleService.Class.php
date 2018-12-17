@@ -35,7 +35,11 @@ class ArticleService extends Crud {
  ******************************************************************************/
     
     public function getArticle($iId) {
-        return $this->getAll('article', $iId);
+        if($iId) {
+            return $this->getAll('article', $iId);
+        } else {
+            return false;
+        }
     }     
     
 /*******************************************************************************
