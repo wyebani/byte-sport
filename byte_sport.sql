@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 07 Gru 2018, 09:35
+-- Czas generowania: 17 Gru 2018, 22:01
 -- Wersja serwera: 10.1.32-MariaDB
 -- Wersja PHP: 7.2.5
 
@@ -64,12 +64,47 @@ CREATE TABLE `league_details` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `match`
+--
+
+CREATE TABLE `match` (
+  `id` int(11) NOT NULL,
+  `host_id` int(11) NOT NULL,
+  `guest_id` int(11) NOT NULL,
+  `date_time` datetime NOT NULL,
+  `host_score` int(11) NOT NULL,
+  `guest_score` int(11) NOT NULL,
+  `season` varchar(10) COLLATE utf8_polish_ci NOT NULL,
+  `league_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `team`
 --
 
 CREATE TABLE `team` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) COLLATE utf8_polish_ci NOT NULL
+  `name` varchar(45) COLLATE utf8_polish_ci NOT NULL,
+  `league_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `team_bilans`
+--
+
+CREATE TABLE `team_bilans` (
+  `id` int(11) NOT NULL,
+  `matches_played` int(11) NOT NULL,
+  `wins` int(11) NOT NULL,
+  `draws` int(11) NOT NULL,
+  `losses` int(11) NOT NULL,
+  `scored_goals` int(11) NOT NULL,
+  `lost_goals` int(11) NOT NULL,
+  `points` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -85,24 +120,7 @@ CREATE TABLE `team_details` (
   `ground` varchar(45) COLLATE utf8_polish_ci NOT NULL,
   `president` varchar(45) COLLATE utf8_polish_ci NOT NULL,
   `head_couch` varchar(45) COLLATE utf8_polish_ci NOT NULL,
-  `league_id` int(11) NOT NULL,
   `website` varchar(45) COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `team_score`
---
-
-CREATE TABLE `team_score` (
-  `id` int(11) NOT NULL,
-  `points` int(11) NOT NULL,
-  `scored_goals` int(11) NOT NULL,
-  `lost_goals` int(11) NOT NULL,
-  `wins` int(11) NOT NULL,
-  `draws` int(11) NOT NULL,
-  `losts` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -150,7 +168,7 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `name`, `surname`, `date_of_birth`, `email`, `login_success`, `login_failure`) VALUES
-(5, 'Marek', 'Tomczyk', '2018-11-18', 'tomczykmarek33@gmail.com', '2018-12-06 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Marek', 'Tomczyk', '2018-11-18', 'tomczykmarek33@gmail.com', '2018-12-17 00:00:00', '0000-00-00 00:00:00'),
 (7, 'Adrian', 'Dworak', '1997-04-05', 'dworak.adrian97@gmail.com', '2018-12-05 00:00:00', '0000-00-00 00:00:00'),
 (8, 'Michał', 'Lebiedziński', '1997-10-05', 'lebio97@gmail.com', '2018-12-05 00:00:00', '0000-00-00 00:00:00'),
 (9, 'Paweł', 'Stachel', '1997-06-15', 'pawel.stachel97@gmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
@@ -181,23 +199,32 @@ ALTER TABLE `league_details`
   ADD UNIQUE KEY `league_id` (`id`);
 
 --
+-- Indeksy dla tabeli `match`
+--
+ALTER TABLE `match`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `t_id` (`guest_id`),
+  ADD KEY `tt_id` (`host_id`),
+  ADD KEY `l_id` (`league_id`);
+
+--
 -- Indeksy dla tabeli `team`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `league_id` (`league_id`);
+
+--
+-- Indeksy dla tabeli `team_bilans`
+--
+ALTER TABLE `team_bilans`
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indeksy dla tabeli `team_details`
 --
 ALTER TABLE `team_details`
-  ADD UNIQUE KEY `team_id` (`id`),
-  ADD UNIQUE KEY `league_id` (`league_id`);
-
---
--- Indeksy dla tabeli `team_score`
---
-ALTER TABLE `team_score`
   ADD UNIQUE KEY `team_id` (`id`);
 
 --
@@ -231,6 +258,12 @@ ALTER TABLE `league`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT dla tabeli `match`
+--
+ALTER TABLE `match`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT dla tabeli `team`
 --
 ALTER TABLE `team`
@@ -260,17 +293,30 @@ ALTER TABLE `league_details`
   ADD CONSTRAINT `league_id` FOREIGN KEY (`id`) REFERENCES `league` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Ograniczenia dla tabeli `match`
+--
+ALTER TABLE `match`
+  ADD CONSTRAINT `l_id` FOREIGN KEY (`league_id`) REFERENCES `league` (`id`),
+  ADD CONSTRAINT `t_id` FOREIGN KEY (`guest_id`) REFERENCES `team` (`id`),
+  ADD CONSTRAINT `tt_id` FOREIGN KEY (`host_id`) REFERENCES `team` (`id`);
+
+--
+-- Ograniczenia dla tabeli `team`
+--
+ALTER TABLE `team`
+  ADD CONSTRAINT `leaguee` FOREIGN KEY (`league_id`) REFERENCES `league` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ograniczenia dla tabeli `team_bilans`
+--
+ALTER TABLE `team_bilans`
+  ADD CONSTRAINT `ttt_id` FOREIGN KEY (`id`) REFERENCES `team` (`id`);
+
+--
 -- Ograniczenia dla tabeli `team_details`
 --
 ALTER TABLE `team_details`
-  ADD CONSTRAINT `leaguee` FOREIGN KEY (`league_id`) REFERENCES `league` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `team_id` FOREIGN KEY (`id`) REFERENCES `team` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ograniczenia dla tabeli `team_score`
---
-ALTER TABLE `team_score`
-  ADD CONSTRAINT `team` FOREIGN KEY (`id`) REFERENCES `team` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ograniczenia dla tabeli `user_details`
