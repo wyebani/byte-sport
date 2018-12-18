@@ -1,6 +1,6 @@
 <?php
 
-require '../class/Crud.Class.php';
+require __DIR__.'/../Crud.Class.php';
 
 /*******************************************************************************
  * @brief Service for entity User                                              *

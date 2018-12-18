@@ -1,7 +1,7 @@
 <?php
 
-require 'MySql.Class.php';
-require '../../libs/Smarty.class.php';
+require __DIR__.'/MySql.Class.php';
+require __DIR__.'/../../libs/Smarty.class.php';
 
 /*******************************************************************************
  * @brief Parent class with Smarty and DataBase objects.                       *
@@ -25,8 +25,8 @@ class PageAction {
     
     function __construct() {
         $this->oSmarty = new Smarty();
-		$this->oSmarty->setTemplateDir("../../templates");
-		$this->oSmarty->setCompileDir("../../templates_c");
+		$this->oSmarty->setTemplateDir(__DIR__."../../templates");
+		$this->oSmarty->setCompileDir(__DIR__."../../templates_c");
         $this->oMySql = new MySql();
         $this->oMySql->connect();
         

@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__.'/PageAction.Class.php';
+
 /*******************************************************************************
  * @brief Class with global methods for Insert, Select, Update, Delete         *
  * @author Marek                                                               *
