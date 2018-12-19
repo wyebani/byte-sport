@@ -32,7 +32,7 @@ and open the template in the editor.
 			</nav>
             <aside>
                 <a href="../../index.php"> <p class="myButton">Strona Głowna</p> </a>
-                <p   class="myButton"  id="_Users">Użytkownicy </p>
+                <p   class="myButton"  id="_users">Użytkownicy </p>
                 <p class="myButton"  id="_league">Liga</p>
                 <p class="myButton" id="_teams">Drużyny</p>
                 <p class="myButton" id="_match">Spotkania</p>
@@ -43,23 +43,18 @@ and open the template in the editor.
             </aside>
 			
             <article>
-                <div id="Users">
+                <div id="user">
                     <br>
                     <table cellspacing="10">
                         <tr>
                             <td>Wszyscy Użytkownicy:</td>
                             <td>
-								<input list="All_users" name="User"   class="inputclass"/>
-                                <datalist id="All_users">
-									<option value="Stefan">
-									<option value="Dzikibezczarny">  
-									<option value="Bolek">
-                                </datalist>
+								<div id="usersList"></div>
                             </td>
                         </tr>
                         <tr>
-                            <td>                                <input type="button" value="Edytuj" id='buttonarticles'/></td>
-                            <td>                                <input type="button" value="Usuń" id='buttonarticles'/></td>
+                            <td> <input type="button" value="Edytuj" id='buttonarticles'/> </td>
+                            <td> <input type="button" value="Usuń" id='buttonarticles'/> </td>
                         </tr>
                         <tr>
                             <td>Dodaj Użytkownika:</td>
@@ -92,13 +87,7 @@ and open the template in the editor.
                         <tr>
                             <td>Ligi</td>
                             <td>
-								<input list="All_league" name="League" class="inputclass"/>
-                                <datalist id="All_league">
-									<option value="Włoska">
-									<option value="Angielska">  
-									<option value="LOTTO-Ekstraklasa">
-									<option value="Gwatemalska">
-                                </datalist>
+								<div id="leaguesList"></div>
                             </td>
                         </tr>
                        
@@ -129,24 +118,12 @@ and open the template in the editor.
                         <tr>
                             <td>Wybierz Lige:</td>
                             <td>
-								<input list="chosen_league" name="League" class="inputclass"/>
-								<datalist id="chosen_league">
-									<option value="Włoska">
-									<option value="Angielska">  
-									<option value="LOTTO-Ekstraklasa">
-									<option value="Gwatemalska">
-								</datalist>
+								<div id="leaguesList_2"></div>
                             </td>                                     
                         </tr>
                         <td>Drużyna:</td>
                         <td>
-							<input list="team" name="Teams" class="inputclass"/>
-                            <datalist id="team">
-								<option value="Druzyna123">
-								<option value="Druzyna1">  
-								<option value="Druzyna2">
-                                <option value="Druzyna3">
-                            </datalist>
+							<div id="teamsList"></div>
                         </td>                      
                               <tr>
                             <td>                        <input type="button" value="Edytuj" id='buttonarticles'/><td>
