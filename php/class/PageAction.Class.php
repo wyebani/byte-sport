@@ -25,8 +25,8 @@ class PageAction {
     
     function __construct() {
         $this->oSmarty = new Smarty();
-		$this->oSmarty->setTemplateDir(__DIR__."../../templates");
-		$this->oSmarty->setCompileDir(__DIR__."../../templates_c");
+		$this->oSmarty->setTemplateDir(__DIR__."/../../templates");
+		$this->oSmarty->setCompileDir(__DIR__."/../../templates_c");
         $this->oMySql = new MySql();
         $this->oMySql->connect();
         

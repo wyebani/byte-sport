@@ -1,6 +1,6 @@
 <?php
 
-require '../../../class/service/UserService.Class.php';
+require __DIR__.'/../../../class/service/UserService.Class.php';
 
 $oUserService = new UserService();
 $sUsername = $_POST['username'];

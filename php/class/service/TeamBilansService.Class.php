@@ -1,7 +1,7 @@
 <?php
 
-require '../class/Crud.Class.php';
-require '../class/TeamService.Class.php';
+require __DIR__.'/../Crud.Class.php';
+require __DIR__.'/TeamService.Class.php';
 
 /*******************************************************************************
  * @brief Service for entity TeamBilans                                        *

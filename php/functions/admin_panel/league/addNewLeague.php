@@ -1,6 +1,6 @@
 <?php
 
-require '../../../class/service/LeagueService.Class.php';
+require __DIR__.'/../../../class/service/LeagueService.Class.php';
 
 $oLeagueService = new LeagueService();
 $sLeagueName = $_POST['leagueName'];

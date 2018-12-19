@@ -1,6 +1,6 @@
 <?php
 
-require '../../../class/service/TeamService.Class.php';
+require __DIR__.'/../../../class/service/TeamService.Class.php';
 
 $oTeamService = new TeamService();
 $sTeamName = $_POST['teamName'];
