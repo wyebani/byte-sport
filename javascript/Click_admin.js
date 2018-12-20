@@ -2,6 +2,7 @@ window.onload = function() {
   var number=0;
   var temporary=0;
   var menu = ["user", "league", "teams","match", "articles"];
+  start();
   
   function Click_panel(){
     for(var i=0; i < menu.length; i++){
@@ -12,7 +13,10 @@ window.onload = function() {
     document.getElementById("" + menu[number]).style.display = "block";
     temporary=number;     
   }
-  
+  function start(){
+      _user();
+      
+  }
   function _user() {
     number=0;
     
