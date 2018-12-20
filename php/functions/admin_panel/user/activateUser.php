@@ -6,5 +6,12 @@ $oUserService = new UserService();
 
 $iUserId = $_POST['userId'];
 if($iUserId) {
-    $oUserService->activateUser($iUserId);
+    $iResult = $oUserService->activateUser($iUserId);
+    if($iResult > 0) {
+        echo 'Pomyślnie aktywowano użytkownika!';
+    } else {
+        echo 'Wystąpił błąd podczas aktualizowania użytkownika!';
+    }
+} else {
+    echo 'Nie wybrano użytkownika!';
 }

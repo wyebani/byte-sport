@@ -12,4 +12,6 @@ if($aUsers) {
         echo '<option value="'.$value['id'].'">'.$value['username'].'</option>';
     }
     echo '</datalist>';
+} else {
+    echo '<strong style="color: red; font-size: 14px">Brak użytkowników w bazie danych!</strong>';
 }
