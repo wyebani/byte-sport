@@ -12,6 +12,8 @@ if($aTeams) {
         echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
     }
     echo '</datalist>';
+} else {
+    echo '<strong style="color: red; font-size: 14px">Brak drużyn w bazie danych!</strong>';
 }
 
 
