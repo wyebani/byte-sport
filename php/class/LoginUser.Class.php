@@ -1,6 +1,6 @@
 <?php
 
-require 'PageAction.Class.php';
+require __DIR__.'/PageAction.Class.php';
 
 /*******************************************************************************
  * @brief Login user class                                                     *

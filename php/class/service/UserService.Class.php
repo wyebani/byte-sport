@@ -23,6 +23,22 @@ class UserService extends Crud {
         return $this->getAll('user');
     }
     
+ /*******************************************************************************
+ * @brief                                                                      *
+ *       Method gets all not active Users from database.                       *
+ * @params:                                                                    *
+ *      - none                                                                 *
+ * @returns:                                                                   *
+ *      - array with users                                                     *
+ *      - false when fail                                                      *
+ ******************************************************************************/
+    
+    public function getAllNotActiveUsers() {
+        return $this->oMySql->select('user',
+                                    null,
+                                    array('active' => 0));
+    }   
+    
 /*******************************************************************************
  * @brief                                                                      *
  *       Method gets one User from database.                                   *
