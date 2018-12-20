@@ -100,7 +100,7 @@ article {
 }
 
 #personal_data {
-    display: visible;
+    display: none;
 }
 #change_password {
     display: none;    
