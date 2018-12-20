@@ -37,9 +37,9 @@ and open the template in the editor.
                 <p class="myButton" id="_teams">Drużyny</p>
                 <p class="myButton" id="_match">Spotkania</p>
                 <p class="myButton" id="_articles">Artykuły</p>
-                <form method="POST" action="logout.php">
-					<input type="submit" class="myButton" value="Wyloguj"/>
-				</form>
+                <p class="myButton" id="_logout">Wyloguj</p>
+					
+				
             </aside>
 			
             <article>
@@ -53,30 +53,26 @@ and open the template in the editor.
                             </td>
                         </tr>
                         <tr>
-                            <td> <input type="button" value="Edytuj" id='buttonarticles'/> </td>
-                            <td> <input type="button" value="Usuń" id='buttonarticles'/> </td>
+                            <td> <input type="button" value="Edytuj" id='buttonEditUser'/> </td>
+                            <td> <input type="button" value="Usuń" id='buttonDeleteUser'/> </td>
                         </tr>
                         <tr>
                             <td>Dodaj Użytkownika:</td>
-                            <td>                                <input type="text" value="" class="inputclass"/></td>                                      
+                            <td>                                <input type="text" value="" id="textboxUsername" class="inputclass"/></td>                                      
                         </tr>       
                         <tr>
                             <td></td>
-                            <td>                                <input type="button" value="Dodaj" id='buttonarticles'/></td>
+                            <td>                                <input type="button" value="Dodaj" id="buttonAddUser"/></td>
                         </tr>
                         <tr>
                             <td>Aktywacja Użytkownika:</td>
-                            <td>                                <input list="not_active_users" name="User"   class="inputclass"/>
-                                <datalist id="not_active_users">
-									<option value="Małkpa">
-									<option value="Zabcia">  
-									<option value="Suchy">
-                                </datalist>
+                            <td>
+                                <div id="notActiveUsersList"></div>
                             </td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td>                                 <input type="button" value="Aktywuj" id='buttonarticles'/></td>
+                            <td>                                 <input type="button" value="Aktywuj" id="buttonActiveUser"/></td>
                         </tr>
                     </table>
                    
