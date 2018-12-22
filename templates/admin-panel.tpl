@@ -9,244 +9,183 @@ and open the template in the editor.
         <title>Panel Administratora</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../css/user.css" rel="stylesheet"/>
-        <script src="../../javascript/Click_admin.js"></script>
-        <script src="../../javascript/jquery.js"></script>
-     
-         
-    </head>
-	
-    <body>
         
-		<header>
-			<img src="../../image/banner.jpg" width="100%" height="200" alt="Baner"/>
-		</header>
-		
-        <div id="container">
-             <nav>            
-                <ul>                     
-					<li id="text" margin="0px" >Login: {$smarty.session.userData.username}</li>
-					<li id="text">Administrator</li>
-					<li id="text">Godzina: 12:38</li>    
-				</ul>              
-			</nav>
-            <aside>
-                <a href="../../index.php"> <p class="myButton">Strona Głowna</p> </a>
-                <p   class="myButton"  id="_users">Użytkownicy </p>
-                <p class="myButton"  id="_league">Liga</p>
-                <p class="myButton" id="_teams">Drużyny</p>
-                <p class="myButton" id="_match">Spotkania</p>
-                <p class="myButton" id="_articles">Artykuły</p>
-                <p class="myButton" id="_logout">Wyloguj</p>
-					
-				
-            </aside>
-			
-            <article>
-                <div id="user">
-                    <br>
-                    <table cellspacing="10">
-                        <tr>
-                            <td>Wszyscy Użytkownicy:</td>
-                            <td>
-								<div id="usersList"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input type="button" value="Edytuj" id='buttonEditUser'/> </td>
-                            <td> <input type="button" value="Usuń" id='buttonDeleteUser'/> </td>
-                        </tr>
-                        <tr>
-                            <td>Dodaj Użytkownika:</td>
-                            <td>                                <input type="text" value="" id="textboxUsername" class="inputclass"/></td>                                      
-                        </tr>       
-                        <tr>
-                            <td></td>
-                            <td>                                <input type="button" value="Dodaj" id="buttonAddUser"/></td>
-                        </tr>
-                        <tr>
-                            <td>Aktywacja Użytkownika:</td>
-                            <td>
-                                <div id="notActiveUsersList"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>                                 <input type="button" value="Aktywuj" id="buttonActiveUser"/></td>
-                        </tr>
-                    </table>
-                   
+        <!-- Add bootstrap -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../../css/fonts.css"/>
+        <script src="../../bootstrap/js/bootstrapjquery.js"></script>
+        <script src="../../bootstrap/js/bootstrap.js"></script>
+        <script src="../../bootstrap/js/popper.js"></script>
+        
+        <!-- Side menu styles -->
+        <link rel="stylesheet" href="../../css/admin.css"/>
+        
+        <!-- Change view by click on menu -->
+        <script src="../../javascript/Click_admin.js"></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <header>
+                <img src="../../image/banner.jpg" width="100%" height="200" alt="Baner"/>
+            </header>
+
+            <!-- Side menu -->
+
+                <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Panel Administratora</h3>
                 </div>
-				
-                <div id='league'>                        
-                    <table cellspacing="5">
-                        <tr>
-                            <td>Ligi</td>
-                            <td>
-								<div id="leaguesList"></div>
-                            </td>
-                        </tr>
-                       
-                                                 <tr>
-                            <td>                                <input type="button" value="Edytuj" id='buttonarticles'/><td>
-                            <td>                                 <input type="button" value="Usuń" id='buttonarticles'/><td>
-						</tr>
-                        <tr>
-                            <td>Dodaj Lige:</td>
-                            <td>                                <input type="text" value="" class="inputclass"/></td>                                      
-                        </tr>
-                        <tr>
-                            <td>Flaga Kraju</td>
-                            <td>  
-                             
-                            </td>
-                        </tr>    
-                        <tr>      
-                            <td></td>
-                            <td>                                <input type="button" value="Dodaj" id="buttonarticles"/></td>
-						</tr>
-                    </table>                        
-                </div> 
                 
-                <div id="teams">
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#users" data-toggle="collapse">
+                            Użytkownicy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#leagues" data-toggle="collapse">
+                            Ligi
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#teams" data-toggle="collapse">
+                            Drużyny
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#matches" data-toggle="collapse">
+                            Spotkania
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#articles" data-toggle="collapse">
+                            Artykuły
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#logout">
+                            Wyloguj
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+                <!-- Page Content -->
+            <div id="content">
+                <div id="users" class="collapse">
+                    <h3>Lista użytkowników</h3>
                     <br>
-                    <table cellspacing="5" >
-                        <tr>
-                            <td>Wybierz Lige:</td>
-                            <td>
-								<div id="leaguesList_2"></div>
-                            </td>                                     
-                        </tr>
-                        <td>Drużyna:</td>
-                        <td>
-							<div id="teamsList"></div>
-                        </td>                      
-                              <tr>
-                            <td>                        <input type="button" value="Edytuj" id='buttonarticles'/><td>
-                            <td>                        <input type="button" value="Usuń" id='buttonarticles'/><td>
-						</tr>
-					
-                   
-					
-                        <tr>
-                        <td>Dodaj Drużynę:</td>
-                         <td>                           <input type="text" value="" class="inputclass"/></td>     
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>                        <input type="button" value="Dodaj" id="buttonarticles"/></td>
-                        </tr>
+                    <form method="POST" action="">
+                        <input type="text" name="username" id="username" placeholder="Nazwa użytkownika" value="" style="height: 39px;" required />  
+                        <input type="email" name="email" id="email" placeholder="Adres email" value="" style="height: 39px;" required />  
+                        <input type="submit" name="addUser-submit" id="addUser-submit" class="btn btn-success" value="Dodaj nowego użytkownika">
+                    </form>
+                    <br>
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nazwa użytkownika</th>
+                                <th scope="col">Imie</th>
+                                <th scope="col">Nazwisko</th>
+                                <th scope="col">Email</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div id="usersTableContent"></div>
+                        </tbody>
                     </table>
-                   
+                    
                 </div>
-				
-                <div id="match">
-                    <table cellspacing="10">
-						<tr>
-                            <td>Wybierz Lige:</td>
-                            <td>
-								<input list="chosen_league" name="League" class="inputclass"/>
-								<datalist id="chosen_league">
-									<option value="Włoska">
-									<option value="Angielska">  
-									<option value="LOTTO-Ekstraklasa">
-									<option value="Gwatemalska">
-								</datalist>
-                            </td>                                     
-                        </tr>
-                                    
-                        <tr>
-                            <td>Wybierz Kolejke:</td>
-                            <td>
-								<input list="round" name="League_round" class="inputclass"/>
-                                <datalist id="round">
-									<option value="1">
-									<option value="2">  
-									<option value="3">
-									<option value="4">
-                                </datalist>
-                            </td>
-						</tr>
-                                    
-                        <tr>
-                            <td>Wybierz Spotkanie:</td>
-                            <td>
-								<input list="chosen_round" name="League_chosen_round" class="inputclass"/>
-                                <datalist id="chosen_round">
-									<option value="Piast Gliwice - Wisła Kraków">
-									<option value="Górnik Zabrze - Gks Katowice">  
-									<option value="LKS Spocone Trampki - korkotrampki">      
-                                </datalist>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Gospodarz: </td>
-                            <td>                                <input type="number" value="" class="inputclass"/></td>                      
-                        </tr>
-						
-                        <tr>
-                            <td>          </td>
-                            <td>VS</td>
-                        </tr>
-						
-                        <tr>
-                            <td>Gość: </td>
-							<td><input type="number" value="" class="inputclass"/></td>
-                        </tr>
-                          <tr>
-                                                        <td><input type="button" value="Usun"id="buttonarticles"/></td>
-                                                        <td> <input type="button" value="Dodaj" id="buttonarticles"/></td>
-                        </tr>
-                    </table>
-					
-                  
-                </div>
-				
-                <div id="articles">
-                    <table cellspacing="5">
-						<td>Wybierz Lige:</td>
-                        <td>
-							<input list="chosen_league" name="League" class="inputclass"/>
-                            <datalist id="chosen_league">
-								<option value="Włoska">
-								<option value="Angielska">  
-								<option value="LOTTO-Ekstraklasa">
-                                <option value="Gwatemalska">
-                            </datalist>
-                        </td>
-                        <tr>
-                            <td>Temat:</td>
-                            <td>                                <input type="text" value="" class="inputclass"/></td>
-                        </tr>
-                        <tr>
-                            <td>Treść:</td>
-                            <td> 
-								<textarea rows="5" cols="30">Wpisz Tutaj swoją treść</textarea>
-							</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>                                <input id="buttonarticles" type="submit" value="Dodaj"/></td>                              
-                        </tr>
-                        <tr>
-                            <td>Dodane artykuły: </td>
-                            <td>
-								<input list="chosen_article" name="articles" class="inputclass"/>
-                                <datalist id="chosen_article">
-									<option value="RojS czy Reus">
-									<option value="Lewandwoski i krecik">  
-									<option value="Pogoń Szczecin">
-									<option value="Piast na fali">
-                                </datalist>
-                            </td>                           
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>                                <input id="buttonarticles" type="submit" value="Usuń" ></td>
-                        </tr>
+                <div id="leagues" class="collapse">
+                    <h3>Ligi</h3>
+                    <br>
+                    <from method="POST" action="">
+                        <input type="text" name="league_name" id="league_name" placeholder="Nazwa ligi" value="" style="height: 39px;" required />  
+                        <select id="countryPicker" class="form-control" style="width: 130px; display: inline;">
+                            <div id="countyPickerContent"></div>
+                        </select>
+                        <input type="submit" name="addLeague-submit" id="addLeague-submit" class="btn btn-success" value="Dodaj nową ligę">
+                    </from>
+                    <br>
+                    <table class="table table-stripped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nazwa ligi</th>
+                                <th scope="col">Kraj</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div id="leagueTableContent"></div>
+                        </tbody>
                     </table>
                 </div>
-            </article>          
+                <div id="teams" class="collapse">
+                    <h3>Lista drużyn</h3>
+                    <br>
+                    <from method="POST" action="">
+                        <input type="text" name="team_name" id="team_name" placeholder="Nazwa drużyny" value="" style="height: 39px;" required />
+                        <select id="leaguePicker" class="form-control" style="width: 130px; display: inline;">
+                            <div id="leaguePickerContent"></div>
+                        </select>
+                        <input type="submit" name="addTeam-submit" id="addTeam-submit" class="btn btn-success" value="Dodaj nową drużynę">
+                    </from>
+                    <br>
+                    <table class="table table-stripped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nazwa drużyny</th>
+                                <th scope="col">Nazwa ligi</th>
+                                <th scope="col">Kraj</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div id="teamTableContent"></div>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="matchs" class="collapse">
+                    
+                    <h3>Spotkania</h3>
+                </div>
+                <div id="articles" class="collapse">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#allArticles" data-toggle="collapse">Wszystkie artykuły</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#myArticles" data-toggle="collapse">Moje artykuły</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#addArticle" data-toggle="collapse"s>Dodaj nowy artykuł</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <br>
+                    <div class="container-fluid">
+                        <div id="allArticles" class="collapse">
+                            <h3>Wszystkie artykuły</h3>
+                        </div>
+                        <div id="myArticles" class="collapse">
+                            <h3>Moje artykuły</h3>
+                        </div>
+                        <div id="addArticle" class="collapse">
+                            <h3>Dodaj nowy artykuły</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+            
         </div>
     </body>
+    
 </html>

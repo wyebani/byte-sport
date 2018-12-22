@@ -1,9 +1,9 @@
 window.onload = function() {
   var number=0;
   var temporary=0;
-  var menu = ["user", "league", "teams","match", "articles"];
+  var menu = ["users", "leagues", "teams","match", "articles"];
   init();
-  
+ 
   function Click_panel(){
     for(var i=0; i < menu.length; i++){
         if(i === temporary)
@@ -18,7 +18,6 @@ window.onload = function() {
   }
   
   function _user() {
-    number=0;
     
     $('#usersList').html('');
     $.ajax({

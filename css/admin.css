@@ -1,70 +1,75 @@
-				*{
-    padding: 0;
-    margin : 0;
-    
-}				
-body{
-    background:#f5f2e9;
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
 }
 
-header {
-    margin: 0 auto;
-    width: 100%;
-    height: 200px;
-   
+a[data-toggle="collapse"] {
+    position: relative;
 }
-h2
-{
-	text-align: center;
-}
-#admin-login
-				{
-					background-color:white;
-					margin-top:70px;
-					margin-left:300px;
-					width:700px;
-					padding:10px;
-					border:solid;
-					
-				}
-input[type=submit]
-{
-	background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-	width:200px;
-	height:50px;
-	margin-right:100px;
-	margin-left:20%;
-}
-.cancel-button
-{
-	background-color: #f44336;
-    color: white;
-    border: none;
-    cursor: pointer;
-	height:50px;
-	width:100px;
 
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
 }
-input[type=text]
-{
-	margin-right:20px;
-	height:20px;
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
 }
-input[type=password]
-{
-	margin-right:20px;
-	height:20px;
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #4a515b;
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+    display: inline-block;
+    float: left;
 }
-label[for=username]
-{
-	font-size:20px;
-	margin-left:50px;
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #4a515b;
 }
-label[for=password]
-{
-	font-size:20px;
-	
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #4a515b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #4a515b;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #5c6066;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+#content {
+    position: relative;
+    display: inline-block;
+    margin: 25px;
 }
