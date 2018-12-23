@@ -25,7 +25,7 @@
             </div>
 
             <div id="description">
-                    <h3>Thiago Cionek powołany do reprezentacji Polski</h3>
+                    <h1>Thiago Cionek powołany do reprezentacji Polski</h1>
 
                     Thiago Cionek został powołany do reprezentacji Polski na 
                     towarzyski mecz z Czechami i spotkanie Ligi Narodów z Portugalią
@@ -44,7 +44,7 @@
                     <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
             </div>
             <div id="description">
-                    <h3>Niemieckie media: karate-gol Lewandowskiego, Bayern może na nim polegać</h3>
+                    <h1>Niemieckie media: karate-gol Lewandowskiego, Bayern może na nim polegać</h1>
 
                Reprezentant Polski najpierw wykorzystał rzut karny, 
                który z resztą sam wywalczył. Eksperci nie do końca 
