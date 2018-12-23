@@ -23,12 +23,12 @@ if($aUsers) {
             if($value['active'] == 0) {
                 echo '<td scope="col">'.
                         '<a class="activateUser" title="Aktywuj"><i class="fa fa-check text-success"></i></a>'.
-                        '<i class="fa fa-edit text-warning"> </i>'.
+                        '<a class="editUser" data-toggle="modal" data-target="#editUserModal"><i class="fa fa-edit text-warning"></i></a>'.
                         '<a class="deleteUser" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
                         '</th>';
             } else {
                 echo '<td scope="col">'.
-                        '<i class="fa fa-edit text-warning"> </i>'.
+                        '<a class="editUser" data-toggle="modal" data-target="#editUserModal"><i class="fa fa-edit text-warning"></i></a>'.
                         '<a class="deleteUser" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
                         '</th>';
             }
