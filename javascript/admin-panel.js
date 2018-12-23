@@ -123,7 +123,34 @@ $( document ).ready(function() {
         });
     });
     
-    // EDIT USER TO DO
+    $(document).on("click", ".editUser", function(){
+        var USERID = $('th:first', $(this).parents('tr')).text();
+        $('#editUserModal-content').html('');
+        $.ajax({
+            method: "GET",
+            url: "../functions/admin_panel/user/editUser-modal.php",
+            data: { userId: USERID }
+        }).done(function (msg) {
+            $('#editUserModal-content').html(msg);
+        });
+        
+        $("#editUserModal").modal({
+            keyboard: true
+        });
+    });
+    
+    $( "#editUserForm-submit" ).click(function(e) {
+       $.ajax({
+           method: "POST",
+           url: "../functions/admin_panel/user/editUser.php",
+           data: $( "#editUserForm" ).serialize(),
+           success: function(msg) {
+               $("#editUserModal").modal('toggle');
+           }
+       });
+       e.preventDefault();
+    });
+
     
 /*******************************************************************************
  * League functions
