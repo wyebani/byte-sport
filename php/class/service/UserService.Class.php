@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../Crud.Class.php';
+require_once __DIR__.'/../Crud.Class.php';
 
 /*******************************************************************************
  * @brief Service for entity User                                              *
@@ -81,9 +81,9 @@ class UserService extends Crud {
                         'active' => 1));
         
         if($iId != null) {
-            $this->oMySql->insert('user_details',
-                        array('email' => $sEmail),
-                        array('id' => $iId));
+            $this->addOne('user_details',
+                        array('id' => $iId,
+                        'email' => $sEmail));
         } else {
             return false;
         }

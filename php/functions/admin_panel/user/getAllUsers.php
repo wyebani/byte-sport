@@ -15,14 +15,14 @@ if($aUsers) {
             echo '<td scope="col">'.$value['email'].'</th>';
             if($value['active'] == 0) {
                 echo '<td scope="col">'.
-                        '<i class="fa fa-check text-success"> </i>'.
+                        '<a class="activateUser" title="Aktywuj"><i class="fa fa-check text-success"></i></a>'.
                         '<i class="fa fa-edit text-warning"> </i>'.
-                        '<i class="fa fa-trash text-danger"></i>'.
+                        '<a class="deleteUser" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
                         '</th>';
             } else {
                 echo '<td scope="col">'.
                         '<i class="fa fa-edit text-warning"> </i>'.
-                        '<i class="fa fa-trash text-danger"></i>'.
+                        '<a class="deleteUser" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
                         '</th>';
             }
         echo '</tr>';

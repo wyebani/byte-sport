@@ -1,17 +1,26 @@
 <?php
 
 require __DIR__.'/../../../class/service/TeamService.Class.php';
+require __DIR__.'/../../../class/service/LeagueService.Class.php';
 
 $oTeamService = new TeamService();
+$oLeagueService = new LeagueService();
 $aTeams = $oTeamService->getAllTeams();
 
+
 if($aTeams) {
-    echo '<input list="all_teams" name="team" class="inputclass"/>';
-    echo '<datalist id="all_teams">';
-    foreach ($aTeams as $key => $value) {
-        echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+    foreach($aTeams as $key => $value) {
+        echo '<tr>';
+            echo '<th scope="col">'.$value['id'].'</th>';
+            echo '<td scope="col">'.$value['name'].'</th>';
+            $aLeague = $oLeagueService->getLeague($value['league_id']);
+            echo '<td scope="col">'.$aLeague['name'].'</th>';
+            echo '<td scope="col">'.
+                        '<i class="fa fa-edit text-warning"> </i>'.
+                        '<a class="deleteTeam" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
+                        '</th>';
+        echo '</tr>';
     }
-    echo '</datalist>';
 } else {
     echo '<strong style="color: red; font-size: 14px">Brak drużyn w bazie danych!</strong>';
 }

@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../Crud.Class.php';
+require_once __DIR__.'/../Crud.Class.php';
 require __DIR__.'/TeamService.Class.php';
 
 /*******************************************************************************

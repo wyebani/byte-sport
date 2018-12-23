@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../Crud.Class.php';
+require_once __DIR__.'/../Crud.Class.php';
 
 /*******************************************************************************
  * @brief Service for entity Team																						*
@@ -35,7 +35,7 @@ class TeamService extends Crud {
  ******************************************************************************/
     
     public function getTeam($iId) {
-        return $this->getAll('team', $iId);
+        return $this->getById('team', $iId);
     }     
     
 /*******************************************************************************
