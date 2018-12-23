@@ -20,7 +20,13 @@ class UserService extends Crud {
  ******************************************************************************/
     
     public function getAllUsers() {
-        return $this->getAll('user');
+        $sQuery = 'SELECT u.id, u.username, u.password, u.permissions, u.active, ';
+        $sQuery .= 'ud.name, ud.surname, ud.date_of_birth, ud.email, ud.login_success, ud.login_failure ';
+        $sQuery .= 'FROM `user` as u ';
+        $sQuery .= 'INNER JOIN `user_details` as ud ';
+        $sQuery .= 'ON u.id = ud.id;';
+        var_dump($sQuery);
+        return $this->oMySql->otherQuery($sQuery);
     }
     
  /*******************************************************************************
@@ -63,8 +69,8 @@ class UserService extends Crud {
  *      - false when fail                                                      *
  ******************************************************************************/
     
-    public function addNewUser($sUsername) {
-        if(empty($sUsername)) {
+    public function addNewUser($sUsername, $sEmail) {
+        if(empty($sUsername) || empty($sEmail)) {
             return false;
         }
         
@@ -75,7 +81,8 @@ class UserService extends Crud {
                         'active' => 1));
         
         if($iId != null) {
-            $this->addOne('user_details',
+            $this->oMySql->insert('user_details',
+                        array('email' => $sEmail),
                         array('id' => $iId));
         } else {
             return false;

@@ -1,6 +1,6 @@
 <?php
 
-    require '../class/LoginUser.Class.php';
+    require __DIR__.'/../class/LoginUser.Class.php';
     
 /*******************************************************************************
  * @brief Logout fuctionality                                                  *
@@ -11,7 +11,6 @@
     
     $loginController = new LoginUser();
     $loginController->Logout();
-    header("Location: ../../index.php");
     
 /*******************************************************************************
  *                              END OF FILE                                    *
