@@ -57,8 +57,10 @@ a, a:hover, a:focus {
     color: #4a515b;
     background: #fff;
 }
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li a:focus {
+    background: none;
+}
+#sidebar ul li.active > a {
     color: #fff;
     background: #5c6066;
 }
@@ -72,4 +74,5 @@ ul ul a {
     position: relative;
     display: inline-block;
     margin: 25px;
+    width: calc(100% - 300px);
 }
