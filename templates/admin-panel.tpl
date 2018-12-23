@@ -10,18 +10,21 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <!-- Add bootstrap -->
+        <!-- Bootstrap -->
         <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
         <link rel="stylesheet" href="../../css/fonts.css"/>
-        <script src="../../bootstrap/js/bootstrapjquery.js"></script>
+        <script src="../../javascript/jquery.js"></script>
         <script src="../../bootstrap/js/bootstrap.js"></script>
         <script src="../../bootstrap/js/popper.js"></script>
+        <script src="../../bootstrap/js/bootstrap-validator.js"></script>
+        <link rel="stylesheet" href="../../bootstrap/css/fonts.css"/>
         
         <!-- Side menu styles -->
         <link rel="stylesheet" href="../../css/admin.css"/>
         
-        <!-- Change view by click on menu -->
-        <script src="../../javascript/Click_admin.js"></script>
+        <!-- Admin panel scripts -->
+        <script src="../../javascript/admin-panel.js"></script>
+       
     </head>
     
     <body>
@@ -29,10 +32,8 @@ and open the template in the editor.
             <header>
                 <img src="../../image/banner.jpg" width="100%" height="200" alt="Baner"/>
             </header>
-
-            <!-- Side menu -->
-
-                <!-- Sidebar -->
+            
+            <!-- Sidebar -->
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <h3>Panel Administratora</h3>
@@ -40,44 +41,46 @@ and open the template in the editor.
                 
                 <ul class="list-unstyled components">
                     <li>
-                        <a href="#users" data-toggle="collapse">
+                        <a href="#users" id="usersBtn" data-toggle="collapse">
                             Użytkownicy
                         </a>
                     </li>
                     <li>
-                        <a href="#leagues" data-toggle="collapse">
+                        <a href="#leagues" id="leaguesBtn" data-toggle="collapse">
                             Ligi
                         </a>
                     </li>
                     <li>
-                        <a href="#teams" data-toggle="collapse">
+                        <a href="#teams" id="teamsBtn" data-toggle="collapse">
                             Drużyny
                         </a>
                     </li>
                     <li>
-                        <a href="#matches" data-toggle="collapse">
+                        <a href="#matches" id="matchesBtn" data-toggle="collapse">
                             Spotkania
                         </a>
                     </li>
                     <li>
-                        <a href="#articles" data-toggle="collapse">
+                        <a href="#articles" id="articlesBtn" data-toggle="collapse">
                             Artykuły
                         </a>
                     </li>
                     <li>
-                        <a href="#logout">
+                        <a href="#logout" id="logoutBtn">
                             Wyloguj
                         </a>
                     </li>
                 </ul>
             </nav>
 
-                <!-- Page Content -->
+            <!-- Page Content -->
             <div id="content">
+                
+                <!-- Users -->
                 <div id="users" class="collapse">
                     <h3>Lista użytkowników</h3>
                     <br>
-                    <form method="POST" action="">
+                    <form id="addUserForm" data-toggle="validator" novalidate="true">
                         <input type="text" name="username" id="username" placeholder="Nazwa użytkownika" value="" style="height: 39px;" required />  
                         <input type="email" name="email" id="email" placeholder="Adres email" value="" style="height: 39px;" required />  
                         <input type="submit" name="addUser-submit" id="addUser-submit" class="btn btn-success" value="Dodaj nowego użytkownika">
@@ -94,12 +97,12 @@ and open the template in the editor.
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <div id="usersTableContent"></div>
+                        <tbody id="usersTableContent">
                         </tbody>
                     </table>
-                    
                 </div>
+                
+                <!-- Leagues -->
                 <div id="leagues" class="collapse">
                     <h3>Ligi</h3>
                     <br>
@@ -125,6 +128,8 @@ and open the template in the editor.
                         </tbody>
                     </table>
                 </div>
+                
+                <!-- Teams -->
                 <div id="teams" class="collapse">
                     <h3>Lista drużyn</h3>
                     <br>
@@ -151,10 +156,28 @@ and open the template in the editor.
                         </tbody>
                     </table>
                 </div>
-                <div id="matchs" class="collapse">
-                    
-                    <h3>Spotkania</h3>
+                
+                <!-- Matches -->
+                <div id="matches" class="collapse">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#allArticles" data-toggle="collapse">Wszystkie spotkania</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#myArticles" data-toggle="collapse">Trwające spotkania</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#addArticle" data-toggle="collapse">Zakończone spotkania</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#addArticle" data-toggle="collapse">Dodaj spotkanie</a>
+                            </li>
+                        </ul>
+                    </nav>                   
                 </div>
+                
+                <!-- Articles -->
                 <div id="articles" class="collapse">
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <ul class="navbar-nav">
@@ -165,7 +188,7 @@ and open the template in the editor.
                                 <a class="nav-link" href="#myArticles" data-toggle="collapse">Moje artykuły</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#addArticle" data-toggle="collapse"s>Dodaj nowy artykuł</a>
+                                <a class="nav-link" href="#addArticle" data-toggle="collapse">Dodaj nowy artykuł</a>
                             </li>
                         </ul>
                     </nav>
@@ -184,8 +207,6 @@ and open the template in the editor.
                 </div>
             </div>
         </div>       
-            
-        </div>
     </body>
     
 </html>
