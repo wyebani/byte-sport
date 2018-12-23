@@ -1,4 +1,4 @@
-<div id="menu-bar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <form method="post" action="php/functions/logout.php">    
         <input type="submit" id="logout-button" value="Wyloguj"></input>	
     </form>
@@ -18,7 +18,7 @@
         <h3 style="display:inline-block">Zalogowany:</h3>  
         <input type="text" value="{$smarty.session.userDetails.name} {$smarty.session.userDetails.surname}" class="name-surname" readonly ></input>
     </div>
-</div>
+</nav>
 
 					
 				

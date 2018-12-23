@@ -1,26 +1,28 @@
-<div id="menu-bar">
-    <form action="php/functions/logout.php" method="post">    
-        <input type="submit" id="logout-button" value="Wyloguj"></input>	
-    </form>	
-    <div id="user-menu">
-        <ol>
-            <li>
-                <a href="#">Menu</a>
-                <ul>
-                    <li><form action="php/functions/userPanel.php"><input type="submit" value="Panel użytkownika"/></form></li>
-                    <li><a href="#">Moja Ulubiona Liga</a></li>
-                    <li><a href="admin-login.html">Panel Administratora</a></li>
-                </ul>
-            </li>
-        </ol>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div>
+       <h3 class="text-white" style="display: inline;">Zalogowany:</h3>  
+       <p class="form-control-static text-white" style="display: inline;">{$smarty.session.userDetails.name} {$smarty.session.userDetails.surname}</p>
     </div>
 
-    <div id="user-name">
-        <h3 style="display:inline-block">Zalogowany:</h3>  
-        <input type="text" value="{$smarty.session.userDetails.name} {$smarty.session.userDetails.surname}" class="name-surname" readonly ></input>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Panel użytkownika</a>
+              <a class="dropdown-item" href="#">Moja ulubiona liga</a>
+              <a class="dropdown-item" href="admin-login.html">Panel administratora</a>
+            </div>
+        </li>
+    </ul>
+    
+    <div>
+        <form action="php/functions/logout.php" method="post">    
+           <input type="submit" name="logout" id="logout-button" class="btn btn-danger" value="Wyloguj">
+        </form>
     </div>
-</div>
-
+</nav>
 					
 				
 				

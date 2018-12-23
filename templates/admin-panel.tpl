@@ -12,11 +12,12 @@ and open the template in the editor.
         
         <!-- Bootstrap -->
         <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
-        <link rel="stylesheet" href="../../css/fonts.css"/>
         <script src="../../javascript/jquery.js"></script>
         <script src="../../bootstrap/js/bootstrap.js"></script>
         <script src="../../bootstrap/js/popper.js"></script>
         <script src="../../bootstrap/js/bootstrap-validator.js"></script>
+        
+        <!-- Font-awesome icons -->
         <link rel="stylesheet" href="../../bootstrap/css/fonts.css"/>
         
         <!-- Side menu styles -->
@@ -106,10 +107,18 @@ and open the template in the editor.
                 <div id="leagues" class="collapse">
                     <h3>Ligi</h3>
                     <br>
-                    <from method="POST" action="">
+                    <from id="addLeagueFrom" data-toggle="validator" novalidate="true">
                         <input type="text" name="league_name" id="league_name" placeholder="Nazwa ligi" value="" style="height: 39px;" required />  
-                        <select id="countryPicker" class="form-control" style="width: 130px; display: inline;">
-                            <div id="countyPickerContent"></div>
+                        <select id="countryPicker" class="form-control" style="width: 130px; display: inline;" required>
+                            <option>Polska</option>
+                            <option>Niemcy</option>
+                            <option>Hiszpania</option>
+                            <option>Portugalia</option>
+                            <option>Rosja</option>
+                            <option>Włochy</option>
+                            <option>Brazylia</option>
+                            <option>Francja</option>
+                            <option>Anglia</option>
                         </select>
                         <input type="submit" name="addLeague-submit" id="addLeague-submit" class="btn btn-success" value="Dodaj nową ligę">
                     </from>
@@ -123,8 +132,7 @@ and open the template in the editor.
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <div id="leagueTableContent"></div>
+                        <tbody id="leagueTableContent">
                         </tbody>
                     </table>
                 </div>
@@ -133,10 +141,9 @@ and open the template in the editor.
                 <div id="teams" class="collapse">
                     <h3>Lista drużyn</h3>
                     <br>
-                    <from method="POST" action="">
+                    <from id="addTeamForm" data-toggle="validator" novalidate="true">
                         <input type="text" name="team_name" id="team_name" placeholder="Nazwa drużyny" value="" style="height: 39px;" required />
                         <select id="leaguePicker" class="form-control" style="width: 130px; display: inline;">
-                            <div id="leaguePickerContent"></div>
                         </select>
                         <input type="submit" name="addTeam-submit" id="addTeam-submit" class="btn btn-success" value="Dodaj nową drużynę">
                     </from>
@@ -151,8 +158,7 @@ and open the template in the editor.
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <div id="teamTableContent"></div>
+                        <tbody id="teamTableContent">
                         </tbody>
                     </table>
                 </div>
@@ -161,34 +167,53 @@ and open the template in the editor.
                 <div id="matches" class="collapse">
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#allArticles" data-toggle="collapse">Wszystkie spotkania</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#allMatchesBtn" data-toggle="collapse">Wszystkie spotkania</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#myArticles" data-toggle="collapse">Trwające spotkania</a>
+                                <a class="nav-link" href="#ongoingMatchesBtn" data-toggle="collapse">Trwające spotkania</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#addArticle" data-toggle="collapse">Zakończone spotkania</a>
+                                <a class="nav-link" href="#finishedMatchesBtn" data-toggle="collapse">Zakończone spotkania</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#addArticle" data-toggle="collapse">Dodaj spotkanie</a>
+                                <a class="nav-link" href="#addMatchBtn" data-toggle="collapse">Dodaj spotkanie</a>
                             </li>
                         </ul>
-                    </nav>                   
+                    </nav>
+                    
+                    <div id="container-fluid">
+                        <div id="allMatches" class="collapse">
+                            <h3>Wszystkie spotkania</h3>
+                        </div>
+                        
+                        <div id="ongoingMatches" class="collapse">
+                            <h3>Trwające spotkania</h3>
+                        </div>
+                        
+                        <div id="finishedMatches" class="collapse">
+                            <h3>Zakończone spotkania</h3>
+                        </div>
+                        
+                        <div id="addMatch" class="collapse">
+                            <h3>Dodaj spotkanie</h3>
+                        </div>
+                    </div>
+                    
                 </div>
                 
                 <!-- Articles -->
                 <div id="articles" class="collapse">
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#allArticles" data-toggle="collapse">Wszystkie artykuły</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#allArticlesBtn" data-toggle="collapse">Wszystkie artykuły</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#myArticles" data-toggle="collapse">Moje artykuły</a>
+                                <a class="nav-link" href="#myArticlesBtn" data-toggle="collapse">Moje artykuły</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#addArticle" data-toggle="collapse">Dodaj nowy artykuł</a>
+                                <a class="nav-link" href="#addArticleBtn" data-toggle="collapse">Dodaj nowy artykuł</a>
                             </li>
                         </ul>
                     </nav>
