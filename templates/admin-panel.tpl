@@ -101,6 +101,15 @@ and open the template in the editor.
                         <tbody id="usersTableContent">
                         </tbody>
                     </table>
+                    
+                    <!-- Modal for edit user -->
+                    <div class="modal fade bd-example-modal-lg" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content" id="editUserModal-content">
+                          </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 
                 <!-- Leagues -->
