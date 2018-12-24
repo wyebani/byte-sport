@@ -36,7 +36,7 @@ class ArticleService extends Crud {
     
     public function getArticle($iId) {
         if($iId) {
-            return $this->getAll('article', $iId);
+            return $this->getById('article', $iId);
         } else {
             return false;
         }
