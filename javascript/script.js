@@ -1,19 +1,54 @@
 $("document").ready(function(){
-   var height_main; 
-  var avatar=$("#avatar").height();
-  var description=$("#description").height();
-if(avatar>description){
-   $("article").height(avatar+8); 
-}
-  if(avatar<description)$("article").height(description +8); 
-                   
-    for(var i=0;i<5;i++){
-       height_main+=$("article:nth-child("+ i+")").height();
-    }
+    
+    var iterator=1;
+    var arrayarticle=["First","Second","Third"];
+    var numberofarticles=0;
+     start();
+       
+    
+       
    
-     $("main").height(height_main+10);
+   function start()
+    {
+         $.ajax({
+            method: "POST",
+            url: "../projekt/php/functions/articles_main/GetAllArticles.php"
+        }).done(function (msg) {
+            
+              
+         ChangeContentOfArticle(msg);
+       });
+      
+    }
+   function getoneArticles(article){
      
-     
+        $('#'+arrayarticle[article]).html('');
+        $.ajax({
+            method: "POST",
+            url: "../projekt/php/functions/articles_main/GetOneArticle.php",
+            data: {id: iterator}
+          
+        }).done(function (msg)
+                     {
+            
+             $('#'+arrayarticle[article]).html(msg);
+          
+                    });
+                   
+                     iterator=iterator+1;
+      
+   }
+   function ChangeContentOfArticle(number)
+        {
+           numberofarticles=number;
+            for( var i=0; i<3;i++)
+            {
+                getoneArticles(i);
+                
+            }
+        }
+     document.getElementById("next").onclick = function() { ChangeContentOfArticle(numberofarticles); };
+      document.getElementById("previous").onclick = function() { if(iterator>3)iterator-=3; };
 });
     
     
