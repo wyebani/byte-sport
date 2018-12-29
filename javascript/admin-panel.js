@@ -125,26 +125,65 @@ $( document ).ready(function() {
     
     $(document).on("click", ".editUser", function(){
         var USERID = $('th:first', $(this).parents('tr')).text();
-        $('#editUserModal-content').html('');
+        
         $.ajax({
             method: "GET",
-            url: "../functions/admin_panel/user/editUser-modal.php",
+            url: "../functions/admin_panel/user/getUserById.php",
             data: { userId: USERID }
         }).done(function (msg) {
-            $('#editUserModal-content').html(msg);
-        });
-        
-        $("#editUserModal").modal({
-            keyboard: true
-        });
+            var userData = jQuery.parseJSON(msg);
+            $( "#editUserForm #userId_edit" ).val(userData.id);
+            $( "#editUserForm #old_password_edit" ).val(userData.password);
+            $( "#editUserForm #username_edit").val(userData.username);
+            $( "#editUserForm #name_edit" ).val(userData.name);
+            $( "#editUserForm #surname_edit" ).val(userData.surname);
+            $( "#editUserForm #email_edit" ).val(userData.email);
+            $( "#editUserForm #dateOfBirth_edit" ).val(userData.date_of_birth);
+            if(userData.permissions === "1") {
+                $( "#editUserForm #permissions_edit" ).attr('checked', true);
+            }
+            
+            if(userData.active === "1") {
+                $( "#editUserForm #active_edit" ).attr('checked', true);
+            }
+            
+            $("#editUserModal").modal({
+                show: true
+            });
+        });  
     });
     
     $( "#editUserForm-submit" ).click(function(e) {
+        var id = document.getElementById("userId_edit").value;
+        var old_password = document.getElementById("old_password_edit").value;
+        var username = document.getElementById("username_edit").value;
+        var name = document.getElementById("name_edit").value;
+        var surname = document.getElementById("surname_edit").value;
+        var email = document.getElementById("email_edit").value;
+        var date_of_birth = document.getElementById("date_of_birth_edit").value;
+        var new_password = document.getElementById("new_password_edit").value;
+        var password_confirm = document.getElementById("password_confirm_edit").value;
+        var permissions = $('#permissions_edit').prop('checked') ? 1 : 0;
+        var active = $('#active_edit').prop('checked') ? 1 : 0;
+        
        $.ajax({
            method: "POST",
            url: "../functions/admin_panel/user/editUser.php",
-           data: $( "#editUserForm" ).serialize(),
+           data: {
+               id: id,
+               old_password: old_password,
+               username: username,
+               name: name,
+               surname: surname,
+               email: email,
+               date_of_birth: date_of_birth,
+               new_password: new_password,
+               password_confirm: password_confirm,
+               permissions: permissions,
+               active: active
+           },
            success: function(msg) {
+               $( "#usersBtn" ).click();
                $("#editUserModal").modal('toggle');
            }
        });
@@ -183,7 +222,51 @@ $( document ).ready(function() {
         });
     });
     
-    // EDIT LEAGUE TO DO
+    $(document).on("click", ".editLeague", function(){
+        var LEAGUEID = $('th:first', $(this).parents('tr')).text();
+        
+        $.ajax({
+            method: "GET",
+            url: "../functions/admin_panel/league/getLeagueById.php",
+            data: { leagueId: LEAGUEID }
+        }).done(function (msg) {
+            var leagueData = jQuery.parseJSON(msg);
+            $( "#editLeagueForm #leagueId_edit" ).val(leagueData.id);
+            $( "#editLeagueForm #leagueName_edit" ).val(leagueData.name);
+            $( "#editLeagueForm #leagueCountry_edit" ).val(leagueData.country);
+            $( "#editLeagueForm #organizer_edit" ).val(leagueData.organizer);
+            $( "#editLeagueForm #date_of_found_edit" ).val(leagueData.date_of_found);
+            
+            $("#editLeagueModal").modal({
+                show: true
+            });
+        });  
+    });
+    
+    $( "#editLeagueForm-submit" ).click(function(e) {
+        var id = document.getElementById("leagueId_edit").value;
+        var name = document.getElementById("leagueName_edit").value;
+        var country = document.getElementById("leagueCountry_edit").value;
+        var organizer = document.getElementById("organizer_edit").value;
+        var date_of_found = document.getElementById("date_of_found_edit").value;
+        
+       $.ajax({
+           method: "POST",
+           url: "../functions/admin_panel/league/editLeague.php",
+           data: {
+              id: id,
+              name: name,
+              country: country,
+              organizer: organizer,
+              date_of_found: date_of_found
+           },
+           success: function(msg) {
+               $( "#leaguesBtn" ).click();
+               $("#editLeagueModal").modal('toggle');
+           }
+       });
+       e.preventDefault();
+    });
     
 /*******************************************************************************
  * Team functions
@@ -216,77 +299,49 @@ $( document ).ready(function() {
         });
     });
     
+    $(document).on("click", ".editTeam", function(){
+        var TEAMID = $('th:first', $(this).parents('tr')).text();
+        
+        $.ajax({
+            method: "GET",
+            url: "../functions/admin_panel/team/getTeamById.php",
+            data: { teamId: TEAMID }
+        }).done(function (msg) {
+            var teamData = jQuery.parseJSON(msg);
+            
+            $('#teamLeague_edit').html('');
+            $.ajax({
+                method: "GET",
+                url: "../functions/admin_panel/league/getAllLeagues_picker.php"
+            }).done(function (picker) {
+                $('#teamLeague_edit').html(picker);
+            });
+            
+            $( "#editTeamForm #teamId_edit" ).val(teamData.id);
+            $( "#editTeamForm #teamName_edit" ).val(teamData.name);
+            $( "#editTeamForm #teamLeague_edit" ).val(teamData.league);
+            $( "#editTeamForm #teamGround_edit" ).val(teamData.ground);
+            $( "#editTeamForm #teamCoach_edit" ).val(teamData.head_coach);
+            $( "#editTeamForm #teamWebsite_edit" ).val(teamData.website);
+            
+            $("#editTeamModal").modal({
+                show: true
+            });
+        });  
+    });
+    
 /*******************************************************************************
  * Matches submenu
  ******************************************************************************/
 
-    $( "#allMatchesBtn" ).click(function() {
-        $('.components li').removeClass('active');
-        $(this).parent().addClass('active');
-        
-        // TO DO
-        
-        show('allMatches');
-    });
-    
-    $( "#ongoingMatchesBtn" ).click(function() {
-        $('.components li').removeClass('active');
-        $(this).parent().addClass('active');
-        
-        // TO DO
-        
-        show('ongoingMatches');
-    });
-    
-    $( "#finishedMatchesBtn" ).click(function() {
-        $('.components li').removeClass('active');
-        $(this).parent().addClass('active');
-        
-        // TO DO
-        
-        show('finishedMatches');
-    });
-    
-    $( "#addMatchBtn" ).click(function() {
-        $('.components li').removeClass('active');
-        $(this).parent().addClass('active');
-        
-        // TO DO
-        
-        show('addMatch');
-    });
+
     
 
 /*******************************************************************************
  * Articles submenu
  ******************************************************************************/
 
-    $( "#allArticlesBtn" ).click(function() {
-        $('.components li').removeClass('active');
-        $(this).parent().addClass('active');
-        
-        // TO DO
-        
-        show('allArticles');
-    });
-    
-    $( "#myArticlesBtn" ).click(function() {
-        $('.components li').removeClass('active');
-        $(this).parent().addClass('active');
-        
-        // TO DO
-        
-        show('myArticles');
-    });
-    
-    $( "#addArticleBtn" ).click(function() {
-        $('.components li').removeClass('active');
-        $(this).parent().addClass('active');
-        
-        // TO DO
-        
-        show('addArticle');
-    });
+  
     
 });
 
