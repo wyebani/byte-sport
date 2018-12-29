@@ -1,21 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="bg-dark" style="margin-top: 10px;">
 
-    <div>
-        <p><a href="index.html">News</a></p>
-    </div>
 
-	
-    <div>
-        <div id="images">
-            <a href="poland.html"><img src="image/poland.png" class="image" width="45" height="35" alt="poland"/></a>  
-            <a> <img src="image/germany.png" class="image" width="45" height="35" alt="germany"/> </a>
-            <a> <img src="image/spain.png" class="image" width="45" height="35" alt="spain"/> </a>
-            <a> <img src="image/portugal.png" class="image"  width="45" height="35" alt="portugal"/> </a>
-            <a> <img src="image/russia.png" class="image"  width="45" height="35" alt="russia"/> </a>
-            <a> <img src="image/italy.png" class="image" width="45" height="35" alt="italy"/> </a>
-            <a> <img src="image/brazil.png" class="image" width="45" height="35" alt="brazil"/> </a>
-            <a> <img src="image/france.png" class="image" width="45" height="35" alt="france"/> </a>
-            <a> <img src="image/england.png" class="image" width="45" height="35" alt="england"/> </a>
+    <div class="container">
+
+        <div class="row justify-content-md-center" style="margin: 5px;">
+
+
+            <div class="col-md-1" id="news" style="margin-bottom:10px; margin-right:10px; margin-top:10px;">
+                <a class="btn btn-primary" href="index.php" role="button" id="news_button">News</a>
+            </div>
+
+
+            <div class="col-3 col-md-1" style="margin-bottom:10px; margin-top:10px;">
+                <a href="poland.html"><img src="image/poland.png" class="image" width="45" height="35" alt="poland"/></a>  
+            </div>
+
+            <div class="col-3 col-md-1" style="margin-bottom:10px; margin-top:10px;">
+                <a> <img src="image/germany.png" class="image" width="45" height="35" alt="germany"/> </a>
+            </div>
+
+            <div class="col-3 col-md-1" style="margin-bottom:10px; margin-top:10px;">
+                <a> <img src="image/spain.png" class="image" width="45" height="35" alt="spain"/> </a>
+            </div>
+
+            <div class="col-3 col-md-1" style="margin-bottom:10px; margin-top:10px;">
+                <a> <img src="image/portugal.png" class="image"  width="45" height="35" alt="portugal"/> </a>
+            </div>
+
+            <div class="col-3 col-md-1" style="margin-bottom:10px; margin-top:10px;">
+                <a> <img src="image/italy.png" class="image" width="45" height="35" alt="italy"/> </a>
+            </div>
+
+            <div class="col-3 col-md-1" style="margin-bottom:10px; margin-top:10px;">
+                <a> <img src="image/brazil.png" class="image" width="45" height="35" alt="brazil"/> </a>
+            </div>
+
+            <div class="col-3 col-md-1" style="margin-bottom:10px; margin-top:10px;">
+                <a> <img src="image/france.png" class="image" width="45" height="35" alt="france"/> </a>
+            </div>
+
+            <div class="col-3 col-md-1" style="margin-bottom:10px; margin-top:10px;">
+                <a> <img src="image/england.png" class="image" width="45" height="35" alt="england"/> </a>
+            </div>
         </div>
+
+
     </div>
+
+
 </nav>

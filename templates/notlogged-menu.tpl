@@ -1,64 +1,121 @@
- <div id="menu-bar">
-    <input type="button" id="login-button"  href="" class="open-window" data-okienkoId="#popup-login" value="Zaloguj"></input>
-	<div id="popup-login" class="window-base">
-		<div class="window-inside">
-			<span class="window-close">&times;</span>
-			<h1>Logowanie<h1><br>
-	
-			<div id="logowanie">
-				<form method="post" action="php/functions/login.php">
-					<label for="username">Nazwa użytkownika:</label>
-					<input type="text" id="username" name="username">
-					<label for="password">Hasło:</label>
-					<input type="password" id="password" name="password">
-					<br><br>
-							
-					<input type="submit" value="Zaloguj">
-						
-					<div id="forgot-exit">	
-						<button class="cancel-button">Wyjdź</a></button>
-						<span class="forgot-password"><a href="#">Zapomniałeś hasła?</a></span>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+<nav class="navbar navbar-dark bg-dark navbar-expand">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainmenu">
+
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+
+            </li>
+        </ul>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LoginModal" id="login_button" style="margin-left: 15px; margin-right: 15px;">
+            Logowanie
+        </button>
+
+        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered" role="document" >
+                <div class="modal-content" >
+                    <div class="modal-header" >
+                        <h5 class="modal-title" id="exampleModalLongTitle">Logowanie</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form method="post" action="php/functions/login.php">
+                            <div class="form-group col-md-6">
+                                <label for="username">Nazwa użytkownika</label>
+                                <input tpe="text" name="username" class="form-control" id="username" placeholder="Nazwa użytkownika">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="password">Hasło</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Hasło">
+                            </div>				
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <span class="forgot-password"><a href="#">Zapomniałeś hasła?</a></span>
+                        <button type="button" class="btn btn-primary">Zaloguj</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Wyjdź</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration -->
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#RegistrationModal" id="registration_button" >
+            Rejestracja
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="RegistrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Rejestracja</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form method="post" action="php/functions/register.php">
 
 
-    <input type="button" id="registration-button" value="Rejestruj" href="" class="open-window" data-okienkoId="#popup-registration"> </input>				
-	<div id="popup-registration" class="window-base">
-		<div class="window-inside2">
-			<span class="window-close">&times;</span>
-			<h1>Rejestracja<h1>
-	
-			<div id="registration">
-				<form method="post" action="php/functions/register.php">
-					<label for="username">Nazwa użytkownika:</label>
-					<input type="text" id="username" name="username" placeholder=" Nazwa użytkownika">
-					
-					<label for="email">Email:</label>
-					<input type="text" id="email" name="email" placeholder="E-mail">
-					
-					<label for="password">Hasło:</label>
-					<input type="password" id="password" name="password" placeholder="Hasło">
-					
-					<label for="repeat_passord">Powtórz hasło:</label>						
-					<input type="passord" id="repeat_passord" name="repeat_passord" placeholder="Powtórz hasło">
-					
-					<label for="name">Imie:</label>
-					<input type="text" id="name" name="name" placeholder="Imie">
-					
-					<label for="surname">Nazwisko:</label>
-					<input type="text" id="surname" name="surname" placeholder="Nazwisko">
-					
-					<label for="date_of_birth">Data Urodzenia:</label>
-					<input type="date" id="date_of_birth" name="date_of_birth" value="2018-01-01" min="1950-01-01" max="2020-01-31">
-					
-					
-					<br><br>
-					<input type="submit" value="Zarejestruj się">
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+                            <div class="form-group col-md-6">
+                                <label for="ex-surname">Nazwa użytkownika</label>
+                                <input type="username" class="form-control" id="ex-surname" placeholder="Nazwa użytkownika">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="ex-email">Email</label>
+                                <input type="email" class="form-control" id="ex-email" placeholder="Email">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="ex-password">Hasło</label>
+                                <input type="password" class="form-control" id="ex-password" placeholder="Hasło">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="ex-password">Powtórz hasło</label>
+                                <input type="password" class="form-control" id="ex-password" placeholder="Hasło">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="ex-name">Imię</label>
+                                <input type="text" class="form-control" id="ex-name" placeholder="Imię">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="ex-surname">Nazwisko</label>
+                                <input type="text" class="form-control" id="ex-surname" placeholder="Nazwisko">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="ex-date">Data urodzenia</label>
+                                <input type="date" class="form-control" id="ex-date" placeholder="Data">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Zarejestruj</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Wyjdź</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</nav>
