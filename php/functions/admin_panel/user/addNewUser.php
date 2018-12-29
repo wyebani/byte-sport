@@ -22,14 +22,14 @@ if($aUsers) {
             echo '<td scope="col">'.$value['email'].'</th>';
             if($value['active'] == 0) {
                 echo '<td scope="col">'.
-                        '<a class="activateUser" title="Aktywuj"><i class="fa fa-check text-success"></i></a>'.
-                        '<a class="editUser" data-toggle="modal" data-target="#editUserModal"><i class="fa fa-edit text-warning"></i></a>'.
-                        '<a class="deleteUser" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
+                        '<a class="activateUser" title="Aktywuj"><i class="fas fa-check text-success"></i></a>'.
+                        '<a class="editUser" data-toggle="modal" data-target="#editUserModal"><i class="fas fa-edit text-warning"></i></a>'.
+                        '<a class="deleteUser" title="Usuń"><i class="fas fa-trash text-danger"></i></a>'.
                         '</th>';
             } else {
                 echo '<td scope="col">'.
-                        '<a class="editUser" data-toggle="modal" data-target="#editUserModal"><i class="fa fa-edit text-warning"></i></a>'.
-                        '<a class="deleteUser" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
+                        '<a class="editUser" data-toggle="modal" data-target="#editUserModal"><i class="fas fa-edit text-warning"></i></a>'.
+                        '<a class="deleteUser" title="Usuń"><i class="fas fa-trash text-danger"></i></a>'.
                         '</th>';
             }
         echo '</tr>';

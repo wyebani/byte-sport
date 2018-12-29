@@ -111,13 +111,13 @@ class LeagueService extends Crud {
         
         $bResult = $this->update('league', 
                 array('name' => $aLeagueData['name'],
-                            'country' => $aLeagueData['country']),                            
+                'country' => $aLeagueData['country']),                            
                 array('id' => $aLeagueData['id']));
         
         if($bResult) {
              $this->update('league_details',
                     array('organizer' => $aLeagueData['organizer'],
-                            'date_of_found' => $aLeagueData['date_of_found']),
+                    'date_of_found' => $aLeagueData['date_of_found']),
                     array('id' => $aLeagueData['id']));
         }
         

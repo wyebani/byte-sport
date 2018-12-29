@@ -12,8 +12,8 @@ if($aLeagues) {
             echo '<td scope="col">'.$value['name'].'</th>';
             echo '<td scope="col">'.$value['country'].'</th>';
             echo '<td scope="col">'.
-                        '<i class="fa fa-edit text-warning"> </i>'.
-                        '<a class="deleteLeague" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
+                        '<a class="editLeague" title="Edytuj"><i class="fas fa-edit text-warning"></i></a>'.
+                        '<a class="deleteLeague" title="Usuń"><i class="fas fa-trash text-danger"></i></a>'.
                         '</th>';
         echo '</tr>';
     }

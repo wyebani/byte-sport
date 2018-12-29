@@ -62,14 +62,15 @@ class TeamService extends Crud {
  * @brief                                                                      													*
  *       Method adds new team into database.																		*
  * @params:                                                                    												*
- *      -$sTeamName - team name                                         											*                                             
+ *      -$sTeamName - team name    
+ *      -$iLeague - league id                                     											*                                             
  * @returns:       	                                                           												*
  *      - team ID when success																							*
  *      - false when fail                                                      												*
  ******************************************************************************/    
     
     public function addNewTeam($sTeamName, $iLeague) {
-        if(empty($sTeamName)) {
+        if(empty($sTeamName) || !isset($iLeague)) {
             return false;
         }
         
@@ -122,18 +123,15 @@ class TeamService extends Crud {
         $bResult = false;
         
         $bResult = $this->update('team', 
-                array('name' => $aTeamData['name']),                            
+                array('name' => $aTeamData['name'],
+                      'league_id' => $aTeamData['league_id']),                            
                 array('id' => $aTeamData['id']));
         
         if($bResult) {
              $this->update('team_details',
-                    array('founder' => $aTeamData['founder'],
-                            'date_of_found' => $aTeamData['date_of_found'],
-							'ground' => $aTeamData['ground'],
-							'president' => $aTeamData['president'],
-							'head_couch' => $aTeamData['head_couch'],
-							'league_id' => $aTeamData['league_id'],
-							'website' => $aTeamData['website']),
+                    array(ground => $aTeamData['ground'],
+                        'head_coach' => $aTeamData['head_coach'],
+                        'website' => $aTeamData['website']),
                     array('id' => $aTeamData['id']));
         }
         

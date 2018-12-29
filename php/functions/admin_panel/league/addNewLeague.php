@@ -7,7 +7,7 @@ $sLeagueName = $_POST['leagueName'];
 $sCountry = $_POST['country'];
 
 if(!empty($sLeagueName) && !empty($sCountry)) {
-    $bResult = $oLeagueService->addNewLeague($sLeagueName, $sCounty);
+    $bResult = $oLeagueService->addNewLeague($sLeagueName, $sCountry);
     
     if($bResult) {
         $aLeagues = $oLeagueService->getAllLeagues();
@@ -19,7 +19,7 @@ if(!empty($sLeagueName) && !empty($sCountry)) {
                     echo '<td scope="col">'.$value['name'].'</th>';
                     echo '<td scope="col">'.$value['country'].'</th>';
                     echo '<td scope="col">'.
-                                '<i class="fa fa-edit text-warning"> </i>'.
+                                '<a class="editLeague" title="Edytuj"><i class="fa fa-edit text-warning"></i></a>'.
                                 '<a class="deleteLeague" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
                                 '</th>';
                 echo '</tr>';

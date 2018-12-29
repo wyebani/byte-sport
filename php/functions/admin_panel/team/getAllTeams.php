@@ -16,8 +16,8 @@ if($aTeams) {
             $aLeague = $oLeagueService->getLeague($value['league_id']);
             echo '<td scope="col">'.$aLeague['name'].'</th>';
             echo '<td scope="col">'.
-                        '<i class="fa fa-edit text-warning"> </i>'.
-                        '<a class="deleteTeam" title="Usuń"><i class="fa fa-trash text-danger"></i></a>'.
+                        '<a class="editTeam" title="Edytuj"><i class="fas fa-edit text-warning"></i></a>'.
+                        '<a class="deleteTeam" title="Usuń"><i class="fas fa-trash text-danger"></i></a>'.
                         '</th>';
         echo '</tr>';
     }
