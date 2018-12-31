@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-12-31 12:34:52
+  from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c29fedc428526_40077656',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '3288c3394ee3067fec5c72127cef14a7f42e486e' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\admin-panel.tpl',
+      1 => 1546256040,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5c29fedc428526_40077656 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -12,10 +35,18 @@ and open the template in the editor.
         
         <!-- Bootstrap -->
         <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
-        <script src="../../javascript/jquery.js"></script>
-        <script src="../../bootstrap/js/bootstrap.js"></script>
-        <script src="../../bootstrap/js/popper.js"></script>
-        <script src="../../bootstrap/js/bootstrap-validator.js"></script>
+        <?php echo '<script'; ?>
+ src="../../javascript/jquery.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="../../bootstrap/js/bootstrap.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="../../bootstrap/js/popper.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="../../bootstrap/js/bootstrap-validator.js"><?php echo '</script'; ?>
+>
         
         <!-- Font-awesome icons -->
         <link rel="stylesheet" href="../../fontawesome/css/all.css"/>
@@ -24,7 +55,9 @@ and open the template in the editor.
         <link rel="stylesheet" href="../../css/admin.css"/>
         
         <!-- Admin panel scripts -->
-        <script src="../../javascript/admin-panel.js"></script>
+        <?php echo '<script'; ?>
+ src="../../javascript/admin-panel.js"><?php echo '</script'; ?>
+>
        
     </head>
     
@@ -452,4 +485,5 @@ and open the template in the editor.
         </div>       
     </body>
     
-</html>
+</html><?php }
+}

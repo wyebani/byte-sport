@@ -19,12 +19,8 @@
         'email' => $_POST['email']);
     
     $result = $registerController->Register($aUserData);
+    echo json_encode($result);
     
-    if($result) {
-        echo "Zarejestrowano pomyślnie";
-    } else {
-        echo "Wystąpił błąd";
-    }
     
 /*******************************************************************************
  *                              END OF FILE                                    *

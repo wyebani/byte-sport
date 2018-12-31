@@ -15,13 +15,12 @@
 
         </ul>
 
-        <form class="form-inline">
+        <div class="form-inline">
 
             <ul class="nav navbar-nav" style="margin-right:10px">
 
                 <li class="nav-item" style="margin-right:50px;">
-                    <h4 style="display:inline-block; color:white">Zalogowany:</h4>  
-                    <input type="text" value="{$smarty.session.userDetails.name} {$smarty.session.userDetails.surname}" class="name-surname" readonly ></input>
+                    <h4 style="display:inline-block; color:white">Zalogowany: {$smarty.session.userDetails.name} {$smarty.session.userDetails.surname}</h4>  
                 </li>
                 <div class="dropdown-divider"></div>
 
@@ -36,9 +35,9 @@
                     </div>
                 </li>
                 <div class="dropdown-divider"></div>
-                <li class="nav-item" >
+                <li class="nav-item">
                     <form method="post" action="php/functions/logout.php">    
-                        <button type="submit" class="btn btn-danger" data-toggle="modal"  id="logaut_button" >Wyloguj</button>
+                        <button type="submit" class="btn btn-danger" id="logaut_button">Wyloguj</button>
                     </form>
                 </li>
             </ul>

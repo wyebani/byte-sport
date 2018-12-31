@@ -5,9 +5,6 @@ $("document").ready(function () {
     var numberofarticles = new Array();
     start();
 
-
-
-
     function start()
     {
         id_numbers = new Array();
@@ -82,6 +79,37 @@ $("document").ready(function () {
         }
 
     };
+
+    $("#registerForm").submit(function (e) {
+        var USERNAME = $('input[id=ex-username]').val();
+        var EMAIL = $('input[id=ex-email]').val();
+        var PASSWORD = $('input[id=ex-password]').val();
+        var NAME = $('input[id=ex-name]').val();
+        var SURNAME = $('input[id=ex-surname]').val();
+        var DATE = $('input[id=ex-dateOfBirth]').val();
+        
+        $.ajax({
+            method: "POST",
+            url: "php/functions/register.php",
+            data: {
+                username: USERNAME,
+                email: EMAIL,
+                password: PASSWORD,
+                name: NAME,
+                surname: SURNAME,
+                date_of_birth: DATE
+            }            
+        }).done(function (msg) {
+            var result = jQuery.parseJSON(msg);
+            if(result === true) {
+                alert("Rejestracja przebiegła pomyślnie! Poczekaj na aktywację konta!");
+            } else {
+                alert(result);
+            }
+        });
+
+        e.preventDefault();
+    });
 });
 
 

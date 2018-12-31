@@ -14,7 +14,7 @@ if($aLeagues) {
             echo '<td scope="col">'.
                         '<a class="editLeague" title="Edytuj"><i class="fas fa-edit text-warning"></i></a>'.
                         '<a class="deleteLeague" title="Usuń"><i class="fas fa-trash text-danger"></i></a>'.
-                        '</th>';
+                 '</th>';
         echo '</tr>';
     }
 } else {

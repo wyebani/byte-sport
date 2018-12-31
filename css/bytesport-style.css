@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin : 0;
+
+}
+body{
+    background: -moz-linear-gradient(269deg, rgba(224,224,224,1) 1%, rgba(224,224,224,1) 49%, rgba(235,235,235,1) 52%, rgba(239,239,239,1) 53%, rgba(255,255,255,1) 57%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgba(224,224,224,1)), color-stop(49%, rgba(224,224,224,1)), color-stop(52%, rgba(235,235,235,1)), color-stop(53%, rgba(239,239,239,1)), color-stop(57%, rgba(255,255,255,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(269deg, rgba(224,224,224,1) 1%, rgba(224,224,224,1) 49%, rgba(235,235,235,1) 52%, rgba(239,239,239,1) 53%, rgba(255,255,255,1) 57%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(269deg, rgba(224,224,224,1) 1%, rgba(224,224,224,1) 49%, rgba(235,235,235,1) 52%, rgba(239,239,239,1) 53%, rgba(255,255,255,1) 57%); /* opera 11.10+ */
+    background: -ms-linear-gradient(269deg, rgba(224,224,224,1) 1%, rgba(224,224,224,1) 49%, rgba(235,235,235,1) 52%, rgba(239,239,239,1) 53%, rgba(255,255,255,1) 57%); /* ie10+ */
+    background: linear-gradient(181deg, rgba(224,224,224,1) 1%, rgba(224,224,224,1) 49%, rgba(235,235,235,1) 52%, rgba(239,239,239,1) 53%, rgba(255,255,255,1) 57%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E0E0E0', endColorstr='#ffffff',GradientType=0 ); /* ie6-9 */
+}
+
+a:link, a:visited
+{
+    color:black;
+}
+
+a:hover
+{
+    color:#BBBBBB;
+    text-decoration:none;
+}
+
+header {
+    margin: 0 auto;
+    width: 100%;
+    height: 200px;
+}
+
+footer{
+    margin : 0px 0px;
+    margin-top: 20px;
+    height: auto;
+
+}
+#registration_button
+{
+    margin-right:20px;
+    background : #009900;
+    border-color: #006600;
+}
+#login_button
+{
+    margin-right:20px;
+    background : #009900;
+    border-color: #006600;
+}
+#news_button
+{
+    background : white;
+    border-color: #006600;
+
+}
+.navbar
+{
+    margin-top:10px;
+    background-color:#212529;
+}
+
+#news
+{
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 50px;
+}
+
+#submenu
+{
+    text-align:center;
+    width:100px;
+    color:white;
+    background-color:#009900;
+}

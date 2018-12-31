@@ -341,7 +341,27 @@ $( document ).ready(function() {
  * Articles submenu
  ******************************************************************************/
 
+    $( "#allArticlesBtn" ).click(function (e) {
+        $('#articlesTableContent').html('');
+        
+        $.ajax({
+           method: "GET",
+           url: "../functions/admin_panel/article/getAllArticles.php"
+        }).done(function(msg) {
+            $('#articlesTableContent').html(msg);
+        });
+    });
   
+    $( "#myArticlesBtn" ).click(function (e) {
+        $('#myArticlesTableContent').html('');
+        
+        $.ajax({
+           method: "GET",
+           url: "../functions/admin_panel/article/getMyArticles.php"
+        }).done(function(msg) {
+            $('#myArticlesTableContent').html(msg);
+        });
+    });
     
 });
 

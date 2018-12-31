@@ -81,7 +81,7 @@ class RegisterUser extends PageAction {
           }
        } else {
            $this->setMesagges();
-           return false;
+           return $this->aError;
        }
    }
    

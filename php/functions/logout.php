@@ -11,6 +11,7 @@
     
     $loginController = new LoginUser();
     $loginController->Logout();
+    header("Location: ../../index.php");
     
 /*******************************************************************************
  *                              END OF FILE                                    *
