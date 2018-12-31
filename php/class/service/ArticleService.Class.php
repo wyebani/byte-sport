@@ -71,11 +71,11 @@ class ArticleService extends Crud {
  ******************************************************************************/ 
 
     public function deleteArticle($iId) {
-        if($iId) {
+        if($iId != null) {
+            return $this->delete('article', $iId);
+        } else {
             return false;
         }
-        
-        return $this->delete('article', $iId);
     }
     
 /*******************************************************************************
