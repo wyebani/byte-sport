@@ -363,6 +363,64 @@ $( document ).ready(function() {
         });
     });
     
+    $( "#addArticleBtn" ).click(function (e) {
+        $('#articleLeaguePicker').html('');
+        
+        $.ajax({
+           method: "GET",
+           url: "../functions/admin_panel/league/getAllLeagues_picker.php"
+        }).done(function(msg) {
+            $('#articleLeaguePicker').html(msg);
+        });
+    });
+    
+/*******************************************************************************
+ * Articles content
+ ******************************************************************************/
+
+    $( "#addArticleForm" ).submit(function (e) {
+        var TITLE = document.getElementById("titleInput").value;
+        var LEAGUEID = document.getElementById("articleLeaguePicker").value;
+        var CONTENT = document.getElementById("contentInput").value;
+        
+        $.ajax({
+            method: "POST",
+            url: "../functions/admin_panel/article/addArticle.php",
+            data: {
+                title : TITLE,
+                leagueId : LEAGUEID,
+                content : CONTENT
+            }
+        }).done(function (msg) {
+            var data = jQuery.parseJSON(msg);
+            if(data === true) {
+                alert("Pomyślnie dodano artykuł!");
+            } else {
+                alert(msg);
+            }
+        });
+        
+        e.preventDefault();
+    });
+    
+    $(document).on("click", ".deleteArticle", function(){
+        var ARTICLEID = $('th:first', $(this).parents('tr')).text();
+        var THIS = $(this);
+        $.ajax({
+            method: "POST",
+            url: "../functions/admin_panel/article/deleteArticle.php",
+            data: { articleId: ARTICLEID }
+        }).done(function (msg) {
+            var result = jQuery.parseJSON(msg);
+            if(result === true) {
+                THIS.parents("tr").remove();
+            } else {
+                alert("Nie udało się usunąć artykułu, spróbuj później!");
+            }
+        });
+    });
+    
+    
 });
 
 

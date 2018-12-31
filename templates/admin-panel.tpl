@@ -444,7 +444,27 @@ and open the template in the editor.
                             </table>
                         </div>
                         <div id="addArticle" class="tab-pane fade" role="tabpanel" aria-labelledby="addArticle">
-                            <h3>Dodaj nowy artykuły</h3>
+                            <h3>Dodaj nowy artykuł</h3>
+                            <br>
+                            <form id="addArticleForm" role="form" data-toggle="validator">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="titleInput" name="title" placeholder="Tytuł" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="articleLeaguePicker">Liga: </label>
+                                    <select id="articleLeaguePicker" class="form-control" name="league" style="width: 130px; display: inline;">
+                                    </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="contentInput" name="content" rows="10" placeholder="Treść artykułu..." required></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info">Dodaj artykuł</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
