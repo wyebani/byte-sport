@@ -21,29 +21,22 @@ $("document").ready(function () {
         });
     }
     function getoneArticles(article) {
-
-        if (iterator >= numberofarticles.length)
+       
+          if (iterator >= numberofarticles.length)
         {
-            $('#' + arrayarticle[article]).html('');
+             $('#' + arrayarticle[article]+"description").html("");
+             iterator = iterator + 1;
+             
 
-        } else {
-            $('#' + arrayarticle[article]).html('');
-            $.ajax({
-                method: "POST",
-                url: "php/functions/articles_main/GetOneArticle.php",
-                data: {id: numberofarticles[iterator]}
+        } 
+        else {
+         
+           $('#' + arrayarticle[article]+"description").html("");
+          $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].title+"</h1>"+numberofarticles[iterator].content);
+        
+            iterator = iterator + 1;
 
-            }).done(function (msg)
-            {
-
-                $('#' + arrayarticle[article]).html(msg);
-
-            });
-
-
-        }
-        iterator = iterator + 1;
-
+            }
     }
     function getarray(number) {
         numberofarticles = number;
@@ -54,7 +47,7 @@ $("document").ready(function () {
     {
 
 
-        for (var i = 0; i < 3; i++)
+        for (var i = 0; i <= 2; i++)
         {
             getoneArticles(i);
 
@@ -72,7 +65,7 @@ $("document").ready(function () {
     document.getElementById("previous").onclick = function ()
     {
 
-        if (iterator >= 6)
+        if (iterator >= 5)
         {
             iterator = iterator - 6;
             ChangeContentOfArticle(numberofarticles);
@@ -98,18 +91,34 @@ $("document").ready(function () {
                 name: NAME,
                 surname: SURNAME,
                 date_of_birth: DATE
-            }            
-        }).done(function (msg) {
+                  }            
+        }).done(function (msg)
+        {
             var result = jQuery.parseJSON(msg);
-            if(result === true) {
+            if(result === true) 
+            {
                 alert("Rejestracja przebiegła pomyślnie! Poczekaj na aktywację konta!");
-            } else {
+            } else 
+             {
                 alert(result);
-            }
-        });
+             }
+         });
 
         e.preventDefault();
     });
+    //flags
+        document.getElementById("poland").onclick = function (){openwindow("Ekstraklasa");}
+        document.getElementById("germany").onclick = function (){openwindow("Bundesliga");}
+        document.getElementById("spain").onclick = function (){openwindow("LaLiga");}
+        document.getElementById("portugal").onclick = function (){openwindow("Portugalska");}
+        document.getElementById("italy").onclick = function (){openwindow("Seria_A");}
+        document.getElementById("brazil").onclick = function (){openwindow("Brazylijska");}
+        document.getElementById("england").onclick = function (){openwindow("Angielska");}
+    
+    function openwindow(leaguename){
+        
+         myWindow = window.open("selected_league.php?league="+leaguename);   // Opens a new window
+    }
 });
 
 
