@@ -32,7 +32,7 @@ $("document").ready(function () {
         else {
          
            $('#' + arrayarticle[article]+"description").html("");
-          $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].title+"</h1>"+numberofarticles[iterator].content);
+           $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].title+"</h1>"+numberofarticles[iterator].content);
         
             iterator = iterator + 1;
 

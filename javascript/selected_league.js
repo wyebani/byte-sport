@@ -24,44 +24,48 @@ $("document").ready(function () {
             method: "GET",
             url: "php/functions/articles_main/GetAllArticlesFromSelectedLeague.php?league="+geturl,
             
-            success: function (data) {
+            success: function (data) 
+            {
 
                 id_numbers = JSON.parse(data);
                 
                 getarray(id_numbers);
             }
-        });
+                 });
         
         }
-         function getoneArticles(article) {
-
+         function getoneArticles(article) 
+          {
+             
         if (iterator >= numberofarticles.length)
         {
-            $('#' + arrayarticle[article]).html('');
-            iterator = iterator + 1;
-
-        } else {
-         
            $('#' + arrayarticle[article]+"description").html("");
+            iterator = iterator + 1;
+              
+        } else 
+               {
+         
+                 $('#' + arrayarticle[article]+"description").html("");
           
             
                     
-                $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].TITLE+"</h1>"+numberofarticles[iterator].CONTENT);
+                 $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].TITLE+"</h1>"+numberofarticles[iterator].CONTENT);
              
-        iterator = iterator + 1;
+                iterator = iterator + 1;
 
-    }
-         }
-    function getarray(number) {
+               }   
+          }
+    function getarray(number) 
+         {
         numberofarticles = number;
        
         ChangeContentOfArticle();
-    }
+         }
     function ChangeContentOfArticle()
     {
 
 
-        for (var i = 0; i < 3; i++)
+        for (var i = 0; i <=2; i++)
         {
             getoneArticles(i);
 
@@ -85,18 +89,20 @@ $("document").ready(function () {
     document.getElementById("previous").onclick = function ()
     {
 
-        if (iterator >= 6)
+        if (iterator >= 5)
         {
             iterator = iterator - 6;
             ChangeContentOfArticle(numberofarticles);
         }
 
     };
-       function getUrlVars() {
+       function getUrlVars()
+{
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value)
+         {
+            vars[key] = value;
+         });
     return vars;
 }
     
