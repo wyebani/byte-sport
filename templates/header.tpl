@@ -19,7 +19,7 @@
         
         <script src="javascript/jquery.js"></script>
 	<script src="javascript/popup.js"></script>
-        <script src="javascript/script.js" async></script>
+        
 
     </head>
 
