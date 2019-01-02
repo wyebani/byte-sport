@@ -12,6 +12,7 @@ background: -ms-linear-gradient(269deg, rgba(224,224,224,1) 1%, rgba(224,224,224
 background: linear-gradient(181deg, rgba(224,224,224,1) 1%, rgba(224,224,224,1) 49%, rgba(235,235,235,1) 52%, rgba(239,239,239,1) 53%, rgba(255,255,255,1) 57%); /* w3c */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E0E0E0', endColorstr='#ffffff',GradientType=0 ); /* ie6-9 */
 }
+
 header {
     margin: 0 auto;
     width: 100%;
@@ -85,24 +86,8 @@ article{
 
       
 }
-#avatar{
-    float : left;
-    width: 100px;
-    border: solid 1px;
-    text-align: center;
-    
-  
-}
-#description{
-    
-    width: 75%;
-    margin-left: 20px;
-   text-align: justify;
-}
 
-#description h1 {
-    text-align: center;
-}
+
 #box_article{
     width: 50%;
     height: auto;
