@@ -23,7 +23,7 @@ if(isset($_POST['email'])) {
 if(isset($_POST['date_of_birth'])) {
     $aUserData['date_of_birth'] = $_POST['date_of_birth'];
 }
-if(isset($_POST['new_password']) && isset($_POST['password_confirm'])) {
+if(!empty($_POST['new_password']) && !empty($_POST['password_confirm'])) {
     if($_POST['new_password'] == $_POST['password_confirm']) {
         $aUserData['password'] = $_POST['new_password'];
     }

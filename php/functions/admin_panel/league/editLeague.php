@@ -11,8 +11,8 @@ if(isset($_POST['id'])) {
 if(isset($_POST['name'])) {
     $aLeagueData['name'] = $_POST['name'];
 }
-if(isset($_POST['country'])) {
-    $aLeagueData['country'] = $_POST['country'];
+if(isset($_POST['country_id'])) {
+    $aLeagueData['country_id'] = $_POST['country_id'];
 }
 if(isset($_POST['organizer'])) {
     $aLeagueData['organizer'] = $_POST['organizer'];

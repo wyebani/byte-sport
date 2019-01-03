@@ -3,128 +3,103 @@
 require_once __DIR__.'/../Crud.Class.php';
 
 /*******************************************************************************
- * @brief Service for entity League                                            *
+ * @brief Service for entity Contry                                            *
  * @author Marek                                                               *
  * @date 03.12.2018                                                            *
  ******************************************************************************/
 
-class LeagueService extends Crud {
+class CountryService extends Crud {
     
 /*******************************************************************************
  * @brief                                                                      *
- *       Method gets all Leagues from database.                                *
+ *       Method gets all Countries from database.                              *
  * @params:                                                                    *
  *      - none                                                                 *
  * @returns:                                                                   *
- *      - array with leagues                                                   *
+ *      - array with countries                                                 *
  *      - false when fail                                                      *
  ******************************************************************************/
     
-    public function getAllLeagues() {
-        return $this->getAll('league');
-    } 
-    
-/*******************************************************************************
- * @brief                                                                      *
- *       Method gets one League from database.                                 *
- * @params:                                                                    *
- *      - $iId - league ID                                                     *
- * @returns:                                                                   *
- *      - array with league                                                    *
- *      - false when fail                                                      *
- ******************************************************************************/
-    
-    public function getLeague($iId) {
-        return $this->getById('league', $iId);
+    public function getAllCountries() {
+        return $this->getAll('country');
     }     
     
 /*******************************************************************************
  * @brief                                                                      *
- *       Method adds new league into database.                                 *
+ *       Method gets one Country from database.                                *
  * @params:                                                                    *
- *      -$sLeagueName - league name                                            *
- *      -$sCounty - league country                                             *
+ *      - $iId - country ID                                                    *
  * @returns:                                                                   *
- *      - league ID when success                                               *
+ *      - array with country                                                   *
+ *      - false when fail                                                      *
+ ******************************************************************************/
+    
+    public function getCountry($iId) {
+        return $this->getById('country', $iId);
+    }   
+    
+/*******************************************************************************
+ * @brief                                                                      *
+ *       Method adds new country into database.                                *
+ * @params:                                                                    *
+ *      -$sCountryName - country name                                          *
+ * @returns:                                                                   *
+ *      - country ID when success                                              *
  *      - false when fail                                                      *
  ******************************************************************************/    
     
-    public function addNewLeague($sLeagueName, $iCountryId) {
-        if(empty($sLeagueName) && $iCountryId == null) {
+    public function addNewCountry($sCountryName) {
+        if(empty($sCountryName)) {
             return false;
         }
         
-        $iId = $this->addOne('league',
-                        array('name' => $sLeagueName,
-                        'country_id' => $iCountryId));
+        $iId = $this->addOne('country',
+                        array('name' => $sCountryName));
         
         if($iId != null) {
-            $this->addOne('league_details',
-                        array('id' => $iId));
+            return $iId;
         } else {
             return false;
         }
-        
-        return $iId;
-    }
+    }   
     
 /*******************************************************************************
  * @brief                                                                      *
- *       Method deletes league from database.                                  *
+ *       Method deletes country from database.                                 *
  * @params:                                                                    *
- *      -$iId - league ID                                                      *
+ *      -$iId - country ID                                                     *
  * @returns:                                                                   *
  *      - true when success                                                    *
  *      - false when fail                                                      *
  ******************************************************************************/    
     
-    public function deleteLeague($iId) {
-        $bResult = false;
-        
+    public function deleteCountry($iId) {      
         if($iId != null) {
-            $bResult = $this->delete('league', $iId);
-            if($bResult) {
-                $bResult = $this->delete('league_details', $iId);
-            } else {
-                return false;
-            }
+            return $this->delete('country', $iId);
+        } else {
+            return false;
         }     
-        return $bResult;
-    }
+    }    
     
 /*******************************************************************************
  * @brief                                                                      *
- *       Method for update league.                                             *
+ *       Method updates country.                                               *
  * @params:                                                                    *
- *      -$aLeagueData - array with league fields                               *
+ *      -$aCountryData - array with country details                            *
  * @returns:                                                                   *
  *      - true when success                                                    *
  *      - false when fail                                                      *
  ******************************************************************************/
 
-    public function updateLeague($aLeagueData) {
-        if(empty($aLeagueData)) {
+    public function updateCountry($aCountryData) {
+        if(empty($aCountryData)) {
             return false;
         }
         
-        $bResult = false;
-        
-        $bResult = $this->update('league', 
-                array('name' => $aLeagueData['name'],
-                'country_id' => $aLeagueData['country_id']),                            
-                array('id' => $aLeagueData['id']));
-        
-        if($bResult) {
-             $this->update('league_details',
-                    array('organizer' => $aLeagueData['organizer'],
-                    'date_of_found' => $aLeagueData['date_of_found']),
-                    array('id' => $aLeagueData['id']));
-        }
-        
-        return $bResult;
-    }    
+        return $this->update('country',
+                        array('name' => $aCountryData['name']),
+                        array('id' => $aCountryData['id']));
+    }
+    
 }
 
-/*******************************************************************************
- *                              END OF FILE                                    *
- ******************************************************************************/
