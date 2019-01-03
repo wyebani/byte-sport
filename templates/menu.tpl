@@ -15,7 +15,7 @@
 
         </ul>
 
-        <form class="form-inline">
+        <div class="form-inline">
 
             <ul class="nav navbar-nav" style="margin-right:10px">
 
@@ -36,12 +36,12 @@
                 <div class="dropdown-divider"></div>
                 <li class="nav-item" >
                     <form method="post" action="php/functions/logout.php">    
-                        <input type="submit" class="btn btn-danger" id="logout_button" >Wyloguj</input>
+                        <button type="submit" class="btn btn-danger" id="logout_button" >Wyloguj</button>
                     </form>
                 </li>
             </ul>
 
-        </form>
+        </div>
 
     </div>
 

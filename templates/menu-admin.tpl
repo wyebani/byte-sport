@@ -37,7 +37,7 @@
                 <div class="dropdown-divider"></div>
                 <li class="nav-item">
                     <form method="post" action="php/functions/logout.php">    
-                        <button type="submit" class="btn btn-danger" id="logaut_button">Wyloguj</button>
+                        <button type="submit" class="btn btn-danger" id="logout_button">Wyloguj</button>
                     </form>
                 </li>
             </ul>
