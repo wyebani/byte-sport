@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 17 Gru 2018, 22:01
+-- Czas generowania: 03 Sty 2019, 16:43
 -- Wersja serwera: 10.1.32-MariaDB
 -- Wersja PHP: 7.2.5
 
@@ -37,6 +37,14 @@ CREATE TABLE `article` (
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Zrzut danych tabeli `article`
+--
+
+INSERT INTO `article` (`id`, `title`, `content`, `author_id`, `league_id`, `date`) VALUES
+(12, 'Sokół Orzech wygrywa z Barceloną!', 'hgytfuhkbutfvh', 5, 12, '2019-01-02 19:53:17'),
+(13, 'guyg', 'ihun', 8, 13, '2019-01-02 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -46,8 +54,16 @@ CREATE TABLE `article` (
 CREATE TABLE `league` (
   `id` int(11) NOT NULL,
   `name` varchar(45) COLLATE utf8_polish_ci NOT NULL,
-  `country` varchar(45) COLLATE utf8_polish_ci NOT NULL
+  `country_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `league`
+--
+
+INSERT INTO `league` (`id`, `name`, `country_id`) VALUES
+(12, 'Ekstraklasa', 1),
+(13, 'Bundesliga', 2);
 
 -- --------------------------------------------------------
 
@@ -64,23 +80,6 @@ CREATE TABLE `league_details` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `match`
---
-
-CREATE TABLE `match` (
-  `id` int(11) NOT NULL,
-  `host_id` int(11) NOT NULL,
-  `guest_id` int(11) NOT NULL,
-  `date_time` datetime NOT NULL,
-  `host_score` int(11) NOT NULL,
-  `guest_score` int(11) NOT NULL,
-  `season` varchar(10) COLLATE utf8_polish_ci NOT NULL,
-  `league_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `team`
 --
 
@@ -90,22 +89,13 @@ CREATE TABLE `team` (
   `league_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
--- --------------------------------------------------------
-
 --
--- Struktura tabeli dla tabeli `team_bilans`
+-- Zrzut danych tabeli `team`
 --
 
-CREATE TABLE `team_bilans` (
-  `id` int(11) NOT NULL,
-  `matches_played` int(11) NOT NULL,
-  `wins` int(11) NOT NULL,
-  `draws` int(11) NOT NULL,
-  `losses` int(11) NOT NULL,
-  `scored_goals` int(11) NOT NULL,
-  `lost_goals` int(11) NOT NULL,
-  `points` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+INSERT INTO `team` (`id`, `name`, `league_id`) VALUES
+(12, 'Piast Gliwice', 12),
+(13, 'Sokół Orzech', 12);
 
 -- --------------------------------------------------------
 
@@ -115,11 +105,8 @@ CREATE TABLE `team_bilans` (
 
 CREATE TABLE `team_details` (
   `id` int(11) NOT NULL,
-  `founder` varchar(45) COLLATE utf8_polish_ci NOT NULL,
-  `date_of_found` date NOT NULL,
   `ground` varchar(45) COLLATE utf8_polish_ci NOT NULL,
-  `president` varchar(45) COLLATE utf8_polish_ci NOT NULL,
-  `head_couch` varchar(45) COLLATE utf8_polish_ci NOT NULL,
+  `head_coach` varchar(45) COLLATE utf8_polish_ci NOT NULL,
   `website` varchar(45) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
@@ -144,8 +131,15 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`, `permissions`, `active`) VALUES
 (5, 'tomczyk.marek', '7fcf4ba391c48784edde599889d6e3f1e47a27db36ecc050cc92f259bfac38afad2c68a1ae804d77075e8fb722503f3eca2b2c1006ee6f6c7b7628cb45fffd1d', 1, 1),
 (7, 'dworak.adrian', 'ee17fe75e3b25a0d051043a0c028c03a2e38f56520c2d31e1f7d45d99116c56876c5db067b9f819ed722cce1919356b7b5b7855d6ecf56a61452058f3ca93cbc', 0, 1),
-(8, 'lebiedzinski.michal', 'd02fa70ed1c58b74e07a59c54af55ac3f3beb02e365ae613c26be62fe76130d46bc1da349b99e81dee3d34c4efe841d58003574e5d6ddb38cd99bf81bafb9a08', 0, 1),
-(9, 'stachel.pawel', '23dc50aa0f767f7d0ec25073038770d366bc5a3f4e0660d774c79e1d7a5dde6cac173e0f835da69b1d2733f42a65e276f82a8b0da2b63582991cc9cd37e1a641', 0, 0);
+(8, 'lebiedzinski.michal', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
+(47, 'asd', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
+(48, 'dsa', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
+(49, 'glg', '013c6889f799cd986a735118e1888727d1435f7f623d05d58c61bf2cd8b49ac90105e5786ceaabd62bbc27336153d0d316b2d13b36804080c44aa6198c533215', 0, 1),
+(50, 's', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
+(51, 'qwe', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
+(56, 'ss', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
+(57, 'eqw', '013c6889f799cd986a735118e1888727d1435f7f623d05d58c61bf2cd8b49ac90105e5786ceaabd62bbc27336153d0d316b2d13b36804080c44aa6198c533215', 0, 1),
+(58, 'test', '013c6889f799cd986a735118e1888727d1435f7f623d05d58c61bf2cd8b49ac90105e5786ceaabd62bbc27336153d0d316b2d13b36804080c44aa6198c533215', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -168,10 +162,16 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `name`, `surname`, `date_of_birth`, `email`, `login_success`, `login_failure`) VALUES
-(5, 'Marek', 'Tomczyk', '2018-11-18', 'tomczykmarek33@gmail.com', '2018-12-17 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Marek', 'Tomczyk', '2018-11-18', 'tomczykmarek33@gmail.com', '2019-01-02 00:00:00', '0000-00-00 00:00:00'),
 (7, 'Adrian', 'Dworak', '1997-04-05', 'dworak.adrian97@gmail.com', '2018-12-05 00:00:00', '0000-00-00 00:00:00'),
-(8, 'Michał', 'Lebiedziński', '1997-10-05', 'lebio97@gmail.com', '2018-12-05 00:00:00', '0000-00-00 00:00:00'),
-(9, 'Paweł', 'Stachel', '1997-06-15', 'pawel.stachel97@gmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(8, 'Michał', 'Lebiedziński', '0000-00-00', 'lebio97@gmail.com', '2018-12-05 00:00:00', '0000-00-00 00:00:00'),
+(47, 'dasdas', 'sdasda', '0000-00-00', 'asd@dsa.pl', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(48, 'xdddddddddddddddd', 'TEST', '0000-00-00', 'sss@sss.pl', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(50, 'dasda', 'adqwdqdwaq', '0000-00-00', 's@s', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(51, 'xxxxxxxxxxxxxxxxx', 'dsadasd', '0000-00-00', 'w@w', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(56, 'xczczxz', 'dsadasda', '0000-00-00', 's@ssss', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(57, '', '', '0000-00-00', 'eq@qwe', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(58, '', '', '0000-00-00', 'test@t', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -182,15 +182,16 @@ INSERT INTO `user_details` (`id`, `name`, `surname`, `date_of_birth`, `email`, `
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `author_id` (`author_id`),
-  ADD UNIQUE KEY `league_id` (`league_id`);
+  ADD KEY `author_id` (`author_id`) USING BTREE,
+  ADD KEY `league_id` (`league_id`) USING BTREE;
 
 --
 -- Indeksy dla tabeli `league`
 --
 ALTER TABLE `league`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD UNIQUE KEY `name` (`name`),
+  ADD KEY `country_id` (`country_id`);
 
 --
 -- Indeksy dla tabeli `league_details`
@@ -199,27 +200,12 @@ ALTER TABLE `league_details`
   ADD UNIQUE KEY `league_id` (`id`);
 
 --
--- Indeksy dla tabeli `match`
---
-ALTER TABLE `match`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `t_id` (`guest_id`),
-  ADD KEY `tt_id` (`host_id`),
-  ADD KEY `l_id` (`league_id`);
-
---
 -- Indeksy dla tabeli `team`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
-  ADD UNIQUE KEY `league_id` (`league_id`);
-
---
--- Indeksy dla tabeli `team_bilans`
---
-ALTER TABLE `team_bilans`
-  ADD UNIQUE KEY `id` (`id`);
+  ADD KEY `league_id` (`league_id`) USING BTREE;
 
 --
 -- Indeksy dla tabeli `team_details`
@@ -249,31 +235,25 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT dla tabeli `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT dla tabeli `league`
 --
 ALTER TABLE `league`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `match`
---
-ALTER TABLE `match`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT dla tabeli `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -287,30 +267,22 @@ ALTER TABLE `article`
   ADD CONSTRAINT `league` FOREIGN KEY (`league_id`) REFERENCES `league` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Ograniczenia dla tabeli `league`
+--
+ALTER TABLE `league`
+  ADD CONSTRAINT `country_id` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Ograniczenia dla tabeli `league_details`
 --
 ALTER TABLE `league_details`
   ADD CONSTRAINT `league_id` FOREIGN KEY (`id`) REFERENCES `league` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `match`
---
-ALTER TABLE `match`
-  ADD CONSTRAINT `l_id` FOREIGN KEY (`league_id`) REFERENCES `league` (`id`),
-  ADD CONSTRAINT `t_id` FOREIGN KEY (`guest_id`) REFERENCES `team` (`id`),
-  ADD CONSTRAINT `tt_id` FOREIGN KEY (`host_id`) REFERENCES `team` (`id`);
-
---
 -- Ograniczenia dla tabeli `team`
 --
 ALTER TABLE `team`
   ADD CONSTRAINT `leaguee` FOREIGN KEY (`league_id`) REFERENCES `league` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ograniczenia dla tabeli `team_bilans`
---
-ALTER TABLE `team_bilans`
-  ADD CONSTRAINT `ttt_id` FOREIGN KEY (`id`) REFERENCES `team` (`id`);
 
 --
 -- Ograniczenia dla tabeli `team_details`
