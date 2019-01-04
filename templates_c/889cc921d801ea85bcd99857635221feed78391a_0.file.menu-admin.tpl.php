@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-29 16:03:39
+/* Smarty version 3.1.33, created on 2019-01-04 17:10:08
   from 'D:\xampp\htdocs\byte-sport\templates\menu-admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c278ccbd5a608_38853391',
+  'unifunc' => 'content_5c2f85603ddc76_32975608',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '889cc921d801ea85bcd99857635221feed78391a' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\menu-admin.tpl',
-      1 => 1546095818,
+      1 => 1546618206,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c278ccbd5a608_38853391 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c2f85603ddc76_32975608 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-dark bg-dark navbar-expand-md">
 
 
@@ -54,7 +54,7 @@ function content_5c278ccbd5a608_38853391 (Smarty_Internal_Template $_smarty_tpl)
 
                     <div class="dropdown-menu" aria-labelledby="submenu">
 
-                        <a class="dropdown-item" href="#"> Mój profil </a>
+                        <a class="dropdown-item" href="php/functions/showMyProfil.php"> Mój profil </a>
                         <a class="dropdown-item" href="#"> Moja ulubiona Liga </a>
                         <a class="dropdown-item" href="admin-login.html"> Panel Administratora </a>
                     </div>
@@ -62,7 +62,7 @@ function content_5c278ccbd5a608_38853391 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="dropdown-divider"></div>
                 <li class="nav-item">
                     <form method="post" action="php/functions/logout.php">    
-                        <button type="submit" class="btn btn-danger" id="logaut_button">Wyloguj</button>
+                        <button type="submit" class="btn btn-danger" id="logout_button">Wyloguj</button>
                     </form>
                 </li>
             </ul>

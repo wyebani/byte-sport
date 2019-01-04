@@ -29,7 +29,7 @@
 
                     <div class="dropdown-menu" aria-labelledby="submenu">
 
-                        <a class="dropdown-item" href="#"> Mój profil </a>
+                        <a class="dropdown-item" href="php/functions/showMyProfil.php"> Mój profil </a>
                         <a class="dropdown-item" href="#"> Moja ulubiona Liga </a>
                     </div>
                 </li>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-31 12:34:52
+/* Smarty version 3.1.33, created on 2019-01-04 17:28:18
   from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c29fedc428526_40077656',
+  'unifunc' => 'content_5c2f89a272b2d1_24287911',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3288c3394ee3067fec5c72127cef14a7f42e486e' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\admin-panel.tpl',
-      1 => 1546256040,
+      1 => 1546619151,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c29fedc428526_40077656 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c2f89a272b2d1_24287911 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -146,7 +146,6 @@ and open the template in the editor.
                               <form id="editUserForm" data-toggle="validator" role="form" method="POST">
                                   <br>
                                   <input type="hidden" id="userId_edit" name="userId" value=""/>
-                                  <input type="hidden" id="old_password_edit" name="old_password" value="">
                                   
                                   <div class="form-group row">
                                       <label for="username" class="col-md-4 col-form-label text-md-right">Nazwa użytkownika:</label>
@@ -186,14 +185,14 @@ and open the template in the editor.
                                   <div class="form-group row">
                                       <label for="newPassword" class="col-md-4 col-form-label text-md-right">Zmień hasło:</label>
                                       <div class="col-md-6">
-                                          <input type="password" id="new_password_edit" class="form-control" name="new_password" value="" data-minlength="6">
+                                          <input type="password" id="new_password_edit" class="form-control" name="new_password" data-minlength="6">
                                           <div class="help-block">Minimalna długość hasła 6 znaków</div>
                                       </div>
                                       
                                       <label for="passworConfirm" class="col-md-4 col-form-label text-md-right">Potwierdź hasło:</label>
                                       <div class="col-md-6">
-                                          <input type="password" id="password_confirm_edit" class="form-control" name="password_confirm" value="" 
-                                                 data-match="#newPassword" data-match-error="Podane hasła rożnią się">
+                                          <input type="password" id="password_confirm_edit" class="form-control" name="password_confirm"
+                                                 data-match="#new_password" data-match-error="Podane hasła rożnią się">
                                           <div class="help-block with-errors"></div>
                                       </div>
                                   </div>
@@ -222,16 +221,7 @@ and open the template in the editor.
                     <br>
                     <form id="addLeagueForm" data-toggle="validator" novalidate="true">
                         <input type="text" name="league_name" id="league_name" placeholder="Nazwa ligi" value="" style="height: 39px;" required />  
-                        <select id="countryPicker" class="form-control" style="width: 130px; display: inline;" required>
-                            <option>Polska</option>
-                            <option>Niemcy</option>
-                            <option>Hiszpania</option>
-                            <option>Portugalia</option>
-                            <option>Rosja</option>
-                            <option>Włochy</option>
-                            <option>Brazylia</option>
-                            <option>Francja</option>
-                            <option>Anglia</option>
+                        <select id="countryPicker" class="form-control" style="width: 130px; display: inline;" required>                           
                         </select>
                         <input type="submit" name="addLeague-submit" id="addLeague-submit" class="btn btn-success" value="Dodaj nową ligę">
                     </form>
@@ -270,15 +260,6 @@ and open the template in the editor.
                                     <div class="form-group row">
                                         <label for="leagueCountry_edit" class="col-md-4 col-form-label text-md-right">Kraj: </label>
                                         <select id="leagueCountry_edit" class="form-control" style="width: 130px; display: inline; margin-left: 14px;" required>
-                                            <option>Polska</option>
-                                            <option>Niemcy</option>
-                                            <option>Hiszpania</option>
-                                            <option>Portugalia</option>
-                                            <option>Rosja</option>
-                                            <option>Włochy</option>
-                                            <option>Brazylia</option>
-                                            <option>Francja</option>
-                                            <option>Anglia</option>
                                         </select>
                                     </div>
                                     
@@ -363,7 +344,7 @@ and open the template in the editor.
                                     </div>
                                     
                                     <div class="form-group row">
-                                        <label for="teamCoach_edit" class="col-md-4 col-form-label text-md-right">Stadion: </label>
+                                        <label for="teamCoach_edit" class="col-md-4 col-form-label text-md-right">Trener: </label>
                                         <div class="col-md-6">
                                             <input type="text" id="teamCoach_edit" class="form-control" name="teamCoach" value="">
                                         </div>
@@ -477,7 +458,82 @@ and open the template in the editor.
                             </table>
                         </div>
                         <div id="addArticle" class="tab-pane fade" role="tabpanel" aria-labelledby="addArticle">
-                            <h3>Dodaj nowy artykuły</h3>
+                            <h3>Dodaj nowy artykuł</h3>
+                            <br>
+                            <form id="addArticleForm" role="form" data-toggle="validator">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="titleInput" name="title" placeholder="Tytuł" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="articleLeaguePicker">Liga: </label>
+                                    <select id="articleLeaguePicker" class="form-control" name="league" style="width: 130px; display: inline;">
+                                    </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="contentInput" name="content" rows="10" placeholder="Treść artykułu..." required></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info">Dodaj artykuł</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Edit article -->
+                    <div class="modal fade bd-example-modal-lg" id="editArticleModal" tabindex="-1" role="dialog" aria-labelledby="editArticle" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4>Edycja artykułu</h4>
+                                </div>
+                                <form id="editArticleForm" data-toggle="validator" role="form" method="POST">
+                                    <br>
+                                    <input type="hidden" id="articleId_edit" name="articleId" value=""/>
+                                    <input type="hidden" id="authorId_edit" name="authorId" value=""/>
+                                    
+                                    <div class="form-group row">
+                                        <label for="articleTitle_edit" class="col-md-4 col-form-label text-md-right">Tytuł: </label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="articleTitle_edit" class="form-control" name="title" value="">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <label for="articleLeague_edit" class="col-md-4 col-form-label text-md-right">Liga: </label>
+                                        <select id="articleLeague_edit" class="form-control" style="width: 130px; display: inline; margin-left: 14px;" required>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <label for="articleContent_edit" class="col-md-4 col-form-label text-md-right">Treść artykułu: </label>
+                                        <div class="col-md-6">
+                                            <textarea class="form-control" id="articleContent_edit" name="content" rows="10"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <label for="articleAuthor_edit" class="col-md-4 col-form-label text-md-right">Autor: </label>
+                                        <div class="col-md-6">
+                                            <input class="form-control" id="articleAuthor_edit" name="author" type="text" value="" readonly>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <label for="articleDate_edit" class="col-md-4 col-form-label text-md-right">Data publikacji: </label>
+                                        <div class="col-md-6">
+                                            <input class="form-control" id="articleDate_edit" name="date" type="text" value="" readonly>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                      <input type="submit" id="editArticleForm-submit" class="btn btn-success" value="Zapisz"/>
+                                    </div>
+                                    
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

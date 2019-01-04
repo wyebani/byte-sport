@@ -343,7 +343,32 @@ $( document ).ready(function() {
         });  
     });
     
-    // TO DO EDIT SUBMIT CLICK 
+    $( "#editTeamForm-submit" ).click(function(e) {
+        var id = document.getElementById("teamId_edit").value;
+        var name = document.getElementById("teamName_edit").value;
+        var league_id = document.getElementById("teamLeague_edit").value;
+        var ground = document.getElementById("teamGround_edit").value;
+        var coach = document.getElementById("teamCoach_edit").value;
+        var website = document.getElementById("teamWebsite_edit").value;
+        
+       $.ajax({
+           method: "POST",
+           url: "../functions/admin_panel/team/editTeam.php",
+           data: {
+              id: id,
+              name: name,
+              league_id: league_id,
+              ground: ground,
+              coach: coach,
+              website: website
+           },
+           success: function(msg) {
+               $( "#teamsBtn" ).click();
+               $("#editTeamModal").modal('toggle');
+           }
+       });
+       e.preventDefault();
+    });
    
     
 /*******************************************************************************
