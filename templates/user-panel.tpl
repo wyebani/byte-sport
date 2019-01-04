@@ -1,157 +1,199 @@
 <!DOCTYPE html>
-
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
         <title>Panel Użytkownika</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, maximum-scale=1.3, initial-scale=1.0"> 
-        <link rel="stylesheet" href="../../css/user.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
+        <script src="../../javascript/jquery.js"></script>
+        <script src="../../bootstrap/js/bootstrap.js"></script>
+        <script src="../../bootstrap/js/popper.js"></script>
+        <script src="../../bootstrap/js/bootstrap-validator.js"></script>
+        
+        <!-- Font-awesome icons -->
+        <link rel="stylesheet" href="../../fontawesome/css/all.css"/>
+        
+        <!-- Side menu styles -->
+        <link rel="stylesheet" href="../../css/admin.css"/>
+        
+        <!-- Admin panel scripts -->
+        <script src="../../javascript/admin-panel.js"></script>
+       
     </head>
-    <body >
-      
-	<header>
-            <img src="../../image/banner.jpg" width="100%" height="200" alt="Baner"/>
-	</header>	
-		
-        <div id="container">
-            <nav>
-              
-                <ul>
-                      
-                <li id="text" margin="0px" >Login: PolskaGola</li>
-                <li id="text">Twoja ulubiona liga: Polska</li>
-                <li id="text">Godzina: 12:38</li>
-                 
-                </ul>
-               
-            </nav>
+    
+    <body>
+        <div class="container">
+            <header>
+                <img src="../../image/banner.jpg" width="100%" height="200" alt="Baner"/>
+            </header>
+			
             
-                <aside>
-                    <a href="../../index.php"> <p class="myButton">Strona Głowna</p> </a>
-                    <p class="myButton">Dane Osobowe </p> 
-                    <p class="myButton">Zmień hasło</p>
-                    <p class="myButton">Zmień mail'a</p>
-                    <p class="myButton">Dodaj/Usun ligi</p>
-                   <p <form method="POST" action="logout.php">
-                        <input type="submit" class="myButton" value="Wyloguj"/>
-                   </form></p>
-                </aside>
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Panel Użytkownika</h3>
+                </div>
                 
-            
-            <article>
-                <div id="personal_data">
-                    <table>
-                        <tr>
-                            <td>Imie: </td>
-                            <td>        <input type="text" value={$smarty.session.userDetails.name} class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Nazwisko:  </td>
-                            <td>        <input type="text" value={$smarty.session.userDetails.surname} class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Wiek:  </td>
-                            <td>        <input type="text" value={$smarty.session.userDetails.date_of_birth} class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Twoja ulubiona drużyna: </td>
-                            <td>        <input type="text" value="Piast Gliwice" class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>        <input type="button" value="ok" id="buttonarticles"/></td>
-                        </tr>
-                    </table>
-                  
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#home" id="homePageBtn" data-toggle="collapse">
+                            Strona Główna
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#personalDate" id="personalDateBtn" data-toggle="collapse">
+                            Dane Osobowe
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#favoriteTeams" id="favoriteTeamsBtn" data-toggle="collapse">
+                            Moja Ulubiona Liga
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#password" id="passwordBtn" data-toggle="collapse">
+                            Zmiana Hasła
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#logout" id="logoutBtn">
+                            Wyloguj
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Page Content -->
+            <div id="content">
+                
+                <!-- Personal Date -->
+                <div id="personalDate" class="collapse">
+                    <h3>Dane Osobowe</h3>
+                    <br>
+                    
+                    <form id="editUserForm" data-toggle="validator" role="form" method="POST">
+                                  <br>
+                                  <input type="hidden" id="userId_edit" name="userId" value=""/>
+                                  
+                                  <div class="form-group row">
+                                      <label for="username" class="col-md-4 col-form-label text-md-right">Nazwa użytkownika:</label>
+                                      <div class="col-md-6">
+                                          <input type="text" id="username_edit" class="form-control" name="username" value="">
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group row">
+                                      <label for="name" class="col-md-4 col-form-label text-md-right">Imie:</label>
+                                      <div class="col-md-6">
+                                          <input type="text" id="name_edit" class="form-control" name="name" value="">
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group row">
+                                      <label for="surname" class="col-md-4 col-form-label text-md-right">Nazwisko:</label>
+                                      <div class="col-md-6">
+                                          <input type="text" id="surname_edit" class="form-control" name="surname" value="">
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group row">
+                                      <label for="email" class="col-md-4 col-form-label text-md-right">Email:</label>
+                                      <div class="col-md-6">
+                                          <input type="email" id="email_edit" class="form-control" name="email" value="">
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="form-group row">
+                                      <label for="dateOfBirth" class="col-md-4 col-form-label text-md-right">Data urodzenia:</label>
+                                      <div class="col-md-6">
+                                          <input type="date" id="date_of_birth_edit" class="form-control" name="date_of_birth" value="">
+                                      </div>
+                                  </div>
+
+                                  <div class="modal-footer">
+                                      <input type="submit" id="editUserForm-submit" class="btn btn-success" value="Zapisz zmiany"/>
+                                  </div>
+                              </form>
+                               
                 </div>
-                <div id="change_password">
-                    <table>
-                        <tr>
-                            <td>Aktualne hasło: </td>
-                            <td>     <input type="Password"  class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Nowe Hasło: </td>
-                            <td>      <input type="Password" class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Potwiedz Hasło: </td>
-                            <td>       <input type="Password"  class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                              <td></td>
-                            <td>        <input type="button" value="ok" id="buttonarticles"/></td>
-                        </tr>
-                    </table>
-                     
-                </div>
-                <div id="change_mail">
-                    <table>
-                         <tr>
-                            <td>Twoj mail to: </td>
-                            <td>           <input type="text" value="PolskaGola@gmail.com"  class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Nowy mail: </td>
-                            <td>            <input type="text" class="inputclass"/></td>
-                            
-                        </tr>
-                        <tr>
-                            
-                            <td></td>
-                                
-                            
-                            <td>            <input type="button" value="ok" id="buttonarticles"/></td>
-                            
-                        </tr>
+                
+                <!-- My favorite teams -->
+                <div id="favoriteTeams" class="collapse">
+                    <h3>Ulubione Ligi</h3>
+                    <br>
+                   
+                        <select id="countryPicker" class="form-control" style="width: 130px; display: inline;" required>
+                            <option>Polska</option>
+                            <option>Niemcy</option>
+                            <option>Hiszpania</option>
+                            <option>Portugalia</option>
+                            <option>Rosja</option>
+                            <option>Włochy</option>
+                            <option>Brazylia</option>
+                            <option>Francja</option>
+                            <option>Anglia</option>
+                        </select>
+                        <input type="submit" name="addLeague-submit" id="addLeague-submit" class="btn btn-success" value="Dodaj ulubioną ligę">
+                   
+                    <br>
+                    <table class="table table-stripped text-center">
+                        <thead>
+                            <tr>
+							
+                                <th scope="col">ID</th>
+                                <th scope="col">Nazwa ligi</th>
+                                <th scope="col"></th>
+								
+                            </tr>
+                        </thead>
+                        <tbody id="myLeagues">
+                        </tbody>
                     </table>
                     
+                                
                 </div>
-                <div id="add_or_delete_league">
-                    <table>
-                         <tr>
-                            <td>Dodaj Lige</td>
-                            <td>          <input list="add_league" name="add"   class="inputclass"/>
-                            <datalist id="add_league"  >
-                                   <option value="Włochy">
-                                   <option value="Anglia">  
-                                   <option value="Niemcy">
-                            </datalist>
-                          </td>
-                        
-                            
-                        </tr>
-                        <tr>
-                             <td>Usun Lige</td>
-                            <td>          <input list="delete_league" name="delete"   class="inputclass"/>
-                                <datalist id="delete_league"  >
-                                    <option value="Polska">
-                                </datalist>
-                          </td>
-                            
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>        <input type="submit" value="ok" id="buttonarticles"/></td>
-                        </tr>
-                    </table>
-                     
-                     
-                     
-                    <!-- Zrobcie sobie <form action="User.php" method="post"> tak zmiencie typ na php
-                    najlepiej, nastepnie jak przechwycic liste? isset($_POST['add']) 
-                    podlozyc backend pod wszystkie datalist pod login haslo ,mail-->
+                
+                <!-- Change Password -->
+                <div id="password" class="collapse">
+                    <h3>Zmiana Hasła</h3>
+					
+						<div class="form-group row">
+                                   
+								    <label for="oldPassword" class="col-md-4 col-form-label text-md-right">Stare Hasło:</label>
+                                      <div class="col-md-6">
+                                          <input type="password" id="old_password_edit" class="form-control" name="old_password" value="" data-minlength="6">
+										  <br>
+                                      </div>
+								   
+								   <label for="newPassword" class="col-md-4 col-form-label text-md-right">Nowe Hasło:</label>
+                                      <div class="col-md-6">
+                                          <input type="password" id="new_password_edit" class="form-control" name="new_password" value="" data-minlength="6">
+                                          <div class="help-block">Minimalna długość hasła 6 znaków</div>
+                                      </div>
+                                      
+                                      <label for="passworConfirm" class="col-md-4 col-form-label text-md-right">Potwierdź hasło:</label>
+                                      <div class="col-md-6">
+                                          <input type="password" id="password_confirm_edit" class="form-control" name="password_confirm" value="" 
+                                                 data-match="#newPassword" data-match-error="Podane hasła rożnią się">
+                                          <div class="help-block with-errors"></div>
+                                      </div>
+									  
+									  
+                        </div>
+						 <div class="modal-footer">
+                                      <input type="submit" id="editUserForm-submit" class="btn btn-success" value="Zapisz"/>
+                                  </div>
+                   
                 </div>
-                </article>
-        </div>
-		
+            </div>
+        </div>       
     </body>
+    
 </html>
