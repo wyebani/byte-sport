@@ -7,10 +7,10 @@ $oService = new ArticleService();
 if(isset($_GET["league"]))$league=$_GET['league'];
 else $league='Ekstraklasa';//faworyzowanie Ligi Polskiej !!!!
 
-$sql = "SELECT A.ID, A.TITLE, A.CONTENT,"
-        . " L.NAME FROM article AS A LEFT JOIN "
-        . "league AS L ON A.league_id=L.id "
-        . "WHERE L.name='".$league."'";
+$sql = "SELECT A.TITLE, A.CONTENT,C.NAME FROM article "
+        . "AS A LEFT JOIN league AS L ON"
+        . " A.league_id=L.id LEFT JOIN country AS C "
+        . "ON C.ID = L.country_id  WHERE L.name='".$league."'";
 //echo $sql;
 $aArticles = $oService->oMySql->otherQuery($sql);
 
