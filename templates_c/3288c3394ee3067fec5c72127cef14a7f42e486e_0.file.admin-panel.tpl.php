@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-05 13:33:02
+/* Smarty version 3.1.33, created on 2019-01-05 17:28:53
   from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c30a3fe3b2cb8_67519002',
+  'unifunc' => 'content_5c30db4566e934_66428376',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3288c3394ee3067fec5c72127cef14a7f42e486e' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\admin-panel.tpl',
-      1 => 1546691456,
+      1 => 1546705731,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c30a3fe3b2cb8_67519002 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c30db4566e934_66428376 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -32,7 +32,7 @@ and open the template in the editor.
         <title>Panel Administratora</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <!-- Bootstrap -->
         <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
         <?php echo '<script'; ?>
@@ -47,32 +47,32 @@ and open the template in the editor.
         <?php echo '<script'; ?>
  src="../../bootstrap/js/bootstrap-validator.js"><?php echo '</script'; ?>
 >
-        
+
         <!-- Font-awesome icons -->
         <link rel="stylesheet" href="../../fontawesome/css/all.css"/>
-        
+
         <!-- Side menu styles -->
         <link rel="stylesheet" href="../../css/admin.css"/>
-        
+
         <!-- Admin panel scripts -->
         <?php echo '<script'; ?>
  src="../../javascript/admin-panel.js"><?php echo '</script'; ?>
 >
-       
+
     </head>
-    
+
     <body>
         <div class="container">
             <header>
                 <img src="../../image/banner.jpg" width="100%" height="200" alt="Baner"/>
             </header>
-            
+
             <!-- Sidebar -->
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <h3>Panel Administratora</h3>
                 </div>
-                
+
                 <ul class="list-unstyled components">
                     <li>
                         <a href="#users" id="usersBtn" data-toggle="collapse">
@@ -109,7 +109,7 @@ and open the template in the editor.
 
             <!-- Page Content -->
             <div id="content">
-                
+
                 <!-- Users -->
                 <div id="users" class="collapse">
                     <h3>Lista użytkowników</h3>
@@ -134,87 +134,87 @@ and open the template in the editor.
                         <tbody id="usersTableContent">
                         </tbody>
                     </table>
-                    
+
                     <!-- Modal for edit user -->
                     <div class="modal fade bd-example-modal-lg" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUser" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
-                          <div class="modal-content">
-                              <div class="modal-header">
-                                  <h4>Edycja użytkownika</h4>
-                              </div>
-                              
-                              <form id="editUserForm" data-toggle="validator" role="form" method="POST">
-                                  <br>
-                                  <input type="hidden" id="userId_edit" name="userId" value=""/>
-                                  
-                                  <div class="form-group row">
-                                      <label for="username" class="col-md-4 col-form-label text-md-right">Nazwa użytkownika:</label>
-                                      <div class="col-md-6">
-                                          <input type="text" id="username_edit" class="form-control" name="username" value="">
-                                      </div>
-                                  </div>
-                                  
-                                  <div class="form-group row">
-                                      <label for="name" class="col-md-4 col-form-label text-md-right">Imie:</label>
-                                      <div class="col-md-6">
-                                          <input type="text" id="name_edit" class="form-control" name="name" value="">
-                                      </div>
-                                  </div>
-                                  
-                                  <div class="form-group row">
-                                      <label for="surname" class="col-md-4 col-form-label text-md-right">Nazwisko:</label>
-                                      <div class="col-md-6">
-                                          <input type="text" id="surname_edit" class="form-control" name="surname" value="">
-                                      </div>
-                                  </div>
-                                  
-                                  <div class="form-group row">
-                                      <label for="email" class="col-md-4 col-form-label text-md-right">Email:</label>
-                                      <div class="col-md-6">
-                                          <input type="email" id="email_edit" class="form-control" name="email" value="">
-                                      </div>
-                                  </div>
-                                  
-                                  <div class="form-group row">
-                                      <label for="dateOfBirth" class="col-md-4 col-form-label text-md-right">Data urodzenia:</label>
-                                      <div class="col-md-6">
-                                          <input type="date" id="date_of_birth_edit" class="form-control" name="date_of_birth" value="">
-                                      </div>
-                                  </div>
-                                  
-                                  <div class="form-group row">
-                                      <label for="newPassword" class="col-md-4 col-form-label text-md-right">Zmień hasło:</label>
-                                      <div class="col-md-6">
-                                          <input type="password" id="new_password_edit" class="form-control" name="new_password" data-minlength="6">
-                                          <div class="help-block">Minimalna długość hasła 6 znaków</div>
-                                      </div>
-                                      
-                                      <label for="passworConfirm" class="col-md-4 col-form-label text-md-right">Potwierdź hasło:</label>
-                                      <div class="col-md-6">
-                                          <input type="password" id="password_confirm_edit" class="form-control" name="password_confirm"
-                                                 data-match="#new_password" data-match-error="Podane hasła rożnią się">
-                                          <div class="help-block with-errors"></div>
-                                      </div>
-                                  </div>
-                                  
-                                  <div class="form-group row" style="display: inline;">
-                                      <input type="checkbox" class="form-check-input" id="permissions_edit">
-                                      <label class="form-check-label" for="permissions_edit">Administrator</label>     
-                                      
-                                      <input type="checkbox" class="form-check-input" id="active_edit">
-                                      <label class="form-check-label" for="active">Aktywny</label>
-                                  </div>
-                                  
-                                  
-                                  <div class="modal-footer">
-                                      <input type="submit" id="editUserForm-submit" class="btn btn-success" value="Zapisz"/>
-                                  </div>
-                              </form>
-                          </div>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4>Edycja użytkownika</h4>
+                                </div>
+
+                                <form id="editUserForm" data-toggle="validator" role="form" method="POST">
+                                    <br>
+                                    <input type="hidden" id="userId_edit" name="userId" value=""/>
+
+                                    <div class="form-group row">
+                                        <label for="username" class="col-md-4 col-form-label text-md-right">Nazwa użytkownika:</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="username_edit" class="form-control" name="username" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="name" class="col-md-4 col-form-label text-md-right">Imie:</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="name_edit" class="form-control" name="name" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="surname" class="col-md-4 col-form-label text-md-right">Nazwisko:</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="surname_edit" class="form-control" name="surname" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-md-4 col-form-label text-md-right">Email:</label>
+                                        <div class="col-md-6">
+                                            <input type="email" id="email_edit" class="form-control" name="email" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="dateOfBirth" class="col-md-4 col-form-label text-md-right">Data urodzenia:</label>
+                                        <div class="col-md-6">
+                                            <input type="date" id="date_of_birth_edit" class="form-control" name="date_of_birth" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="newPassword" class="col-md-4 col-form-label text-md-right">Zmień hasło:</label>
+                                        <div class="col-md-6">
+                                            <input type="password" id="new_password_edit" class="form-control" name="new_password" data-minlength="6">
+                                            <div class="help-block">Minimalna długość hasła 6 znaków</div>
+                                        </div>
+
+                                        <label for="passworConfirm" class="col-md-4 col-form-label text-md-right">Potwierdź hasło:</label>
+                                        <div class="col-md-6">
+                                            <input type="password" id="password_confirm_edit" class="form-control" name="password_confirm"
+                                                   data-match="#new_password" data-match-error="Podane hasła rożnią się">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row" style="display: inline;">
+                                        <input type="checkbox" class="form-check-input" id="permissions_edit">
+                                        <label class="form-check-label" for="permissions_edit">Administrator</label>     
+
+                                        <input type="checkbox" class="form-check-input" id="active_edit">
+                                        <label class="form-check-label" for="active">Aktywny</label>
+                                    </div>
+
+
+                                    <div class="modal-footer">
+                                        <input type="submit" id="editUserForm-submit" class="btn btn-success" value="Zapisz"/>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>            
                 </div>
-                
+
                 <!-- Leagues -->
                 <div id="leagues" class="collapse">
                     <h3>Ligi</h3>
@@ -238,55 +238,55 @@ and open the template in the editor.
                         <tbody id="leagueTableContent">
                         </tbody>
                     </table>
-                    
+
                     <div class="modal fade bd-example-modal-lg" id="editLeagueModal" tabindex="-1" role="dialog" aria-labelledby="editLeague" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4>Edycja ligi</h4>
                                 </div>
-                              
+
                                 <form id="editLeagueForm" data-toggle="validator" role="form" method="POST">
                                     <br>
                                     <input type="hidden" id="leagueId_edit" name="leagueId" value=""/>
-                                  
+
                                     <div class="form-group row">
                                         <label for="leagueName_edit" class="col-md-4 col-form-label text-md-right">Nazwa ligi:</label>
                                         <div class="col-md-6">
                                             <input type="text" id="leagueName_edit" class="form-control" name="leaguneName" value="">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="leagueCountry_edit" class="col-md-4 col-form-label text-md-right">Kraj: </label>
                                         <select id="leagueCountry_edit" class="form-control" style="width: 130px; display: inline; margin-left: 14px;" required>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="organizer_edit" class="col-md-4 col-form-label text-md-right">Założyciel: </label>
                                         <div class="col-md-6">
                                             <input type="text" id="organizer_edit" class="form-control" name="leagueOrganizer" value="">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="date_of_found_edit" class="col-md-4 col-form-label text-md-right">Data założenia: </label>
                                         <div class="col-md-6">
                                             <input type="date" id="date_of_found_edit" class="form-control" name="date_of_found" value="">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="modal-footer">
-                                      <input type="submit" id="editLeagueForm-submit" class="btn btn-success" value="Zapisz"/>
+                                        <input type="submit" id="editLeagueForm-submit" class="btn btn-success" value="Zapisz"/>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                                
+
                 </div>
-                
+
                 <!-- Teams -->
                 <div id="teams" class="collapse">
                     <h3>Lista drużyn</h3>
@@ -311,7 +311,7 @@ and open the template in the editor.
                         <tbody id="teamTableContent">
                         </tbody>
                     </table>
-                    
+
                     <!-- Edit team -->
                     <div class="modal fade bd-example-modal-lg" id="editTeamModal" tabindex="-1" role="dialog" aria-labelledby="editTeam" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -322,51 +322,51 @@ and open the template in the editor.
                                 <form id="editTeamForm" data-toggle="validator" role="form" method="POST">
                                     <br>
                                     <input type="hidden" id="teamId_edit" name="teamId" value=""/>
-                                    
+
                                     <div class="form-group row">
                                         <label for="teamName_edit" class="col-md-4 col-form-label text-md-right">Nazwa drużyny: </label>
                                         <div class="col-md-6">
                                             <input type="text" id="teamName_edit" class="form-control" name="teamName" value="">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="teamLeague_edit" class="col-md-4 col-form-label text-md-right">Liga: </label>
                                         <select id="teamLeague_edit" class="form-control" style="width: 130px; display: inline; margin-left: 14px;" required>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="teamGround_edit" class="col-md-4 col-form-label text-md-right">Stadion: </label>
                                         <div class="col-md-6">
                                             <input type="text" id="teamGround_edit" class="form-control" name="teamGround" value="">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="teamCoach_edit" class="col-md-4 col-form-label text-md-right">Trener: </label>
                                         <div class="col-md-6">
                                             <input type="text" id="teamCoach_edit" class="form-control" name="teamCoach" value="">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="teamWebsite_edit" class="col-md-4 col-form-label text-md-right">Strona internetowa: </label>
                                         <div class="col-md-6">
                                             <input type="text" id="teamWebsite_edit" class="form-control" name="teamWebsite" value="">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="modal-footer">
-                                      <input type="submit" id="editTeamForm-submit" class="btn btn-success" value="Zapisz"/>
+                                        <input type="submit" id="editTeamForm-submit" class="btn btn-success" value="Zapisz"/>
                                     </div>
-                                    
+
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Matches -->
                 <div id="matches" class="collapse">
                     <nav>
@@ -386,25 +386,142 @@ and open the template in the editor.
                     </nav>
                     <br>
                     <div class="tab-content" id="nav-matchContent">                        
-                        <div id="upcomingMatches" class="tab-pane fade" role="tabpanel" aria-labelledby="upcomingMatchesBtn">
+                        <div id="upcomingMatches" class="tab-pane fade show active" role="tabpanel" aria-labelledby="upcomingMatchesBtn">
                             <h3>Nadchodzące spotkania</h3>
+                            <br>
+                            <table class="table table-stripped text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Gospodarz</th>
+                                        <th scope="col">Gość</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Sezon</th>
+                                        <th scope="col">Liga</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="upcomingMatchesTableContent">
+                                </tbody>
+                            </table>
                         </div>
-                        
+
                         <div id="ongoingMatches" class="tab-pane fade" role="tabpanel" aria-labelledby="ongoingMatchesBtn">
                             <h3>Trwające spotkania</h3>
+                            <br>
+                            <table class="table table-stripped text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Gospodarz</th>
+                                        <th scope="col">Gość</th>
+                                        <th scope="col">Wynik</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Sezon</th>
+                                        <th scope="col">Liga</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ongoingMatchesTableContent">
+                                </tbody>
+                            </table>
                         </div>
-                        
+
                         <div id="finishedMatches" class="tab-pane fade" role="tabpanel" aria-labelledby="finishedMatches">
                             <h3>Zakończone spotkania</h3>
+                            <br>
+                            <table class="table table-stripped text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Gospodarz</th>
+                                        <th scope="col">Gość</th>
+                                        <th scope="col">Wynik</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Sezon</th>
+                                        <th scope="col">Liga</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="finishedMatchesTableContent">
+                                </tbody>
+                            </table>
                         </div>
-                        
-                        <div id="addMatch" class="tab-pane fade" role="tabpanel" aria-labelledby="addMatch">
+
+                        <div id="addMatch" class="tab-pane fade" role="tabpanel" aria-labelledby="addMatch">       
                             <h3>Dodaj spotkanie</h3>
+                            <br>
+                            <form id="addMatch-form" data-toggle="validator" role="form" method="POST">
+                                <br>
+                                <div class="form-group row">
+                                    <label for="matchLeaguePicker" class="col-md-4 col-form-label text-md-right">Liga: </label>
+                                    <div class="col-md-6">
+                                        <select id="matchLeaguePicker" class="form-control" style="width: 160px; display: inline; margin-left: 14px;" required>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="matchStatusPicker" class="col-md-4 col-form-label text-md-right">Status: </label>
+                                    <div class="col-md-6">
+                                        <select id="matchStatusPicker" class="form-control" style="width: 160px; display: inline; margin-left: 14px;" required>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="matchHostPicker" class="col-md-4 col-form-label text-md-right">Gospodarz: </label>
+                                    <div class="col-md-6">
+                                        <select id="matchHostPicker" class="form-control" style="width: 160px; display: inline; margin-left: 14px;" required>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="matchGuestPicker" class="col-md-4 col-form-label text-md-right">Gość: </label>
+                                    <div class="col-md-6">
+                                        <select id="matchGuestPicker" class="form-control" style="width: 160px; display: inline; margin-left: 14px;" required>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="matchResult" class="col-md-4 col-form-label text-md-right">Wynik: </label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="matchResult" class="form-control" name="matchResult" value="" style="width: 160px; display: inline; margin-left: 14px;">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="matchSeason" class="col-md-4 col-form-label text-md-right">Sezon: </label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="matchSeason" class="form-control" name="matchSeason" value="" style="width: 160px; display: inline; margin-left: 14px;">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="matchDate" class="col-md-4 col-form-label text-md-right">Data: </label>
+                                    <div class="col-md-6">
+                                        <input type="date" id="matchDate" class="form-control" name="matchDate" value="" style="width: 160px; display: inline; margin-left: 14px;">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="matchHour" class="col-md-4 col-form-label text-md-right">Godzina: </label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="matchHour" class="form-control" name="matchHour" value="" style="width: 160px; display: inline; margin-left: 14px;">
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <input type="submit" id="editTeamForm-submit" class="btn btn-success" value="Zapisz"/>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
                 <!-- Articles -->
                 <div id="articles" class="collapse">
                     <nav>
@@ -481,7 +598,7 @@ and open the template in the editor.
                             </form>
                         </div>
                     </div>
-                    
+
                     <!-- Edit article -->
                     <div class="modal fade bd-example-modal-lg" id="editArticleModal" tabindex="-1" role="dialog" aria-labelledby="editArticle" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -493,45 +610,45 @@ and open the template in the editor.
                                     <br>
                                     <input type="hidden" id="articleId_edit" name="articleId" value=""/>
                                     <input type="hidden" id="authorId_edit" name="authorId" value=""/>
-                                    
+
                                     <div class="form-group row">
                                         <label for="articleTitle_edit" class="col-md-4 col-form-label text-md-right">Tytuł: </label>
                                         <div class="col-md-6">
                                             <input type="text" id="articleTitle_edit" class="form-control" name="title" value="">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="articleLeague_edit" class="col-md-4 col-form-label text-md-right">Liga: </label>
                                         <select id="articleLeague_edit" class="form-control" style="width: 130px; display: inline; margin-left: 14px;" required>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="articleContent_edit" class="col-md-4 col-form-label text-md-right">Treść artykułu: </label>
                                         <div class="col-md-6">
                                             <textarea class="form-control" id="articleContent_edit" name="content" rows="10"></textarea>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="articleAuthor_edit" class="col-md-4 col-form-label text-md-right">Autor: </label>
                                         <div class="col-md-6">
                                             <input class="form-control" id="articleAuthor_edit" name="author" type="text" value="" readonly>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row">
                                         <label for="articleDate_edit" class="col-md-4 col-form-label text-md-right">Data publikacji: </label>
                                         <div class="col-md-6">
                                             <input class="form-control" id="articleDate_edit" name="date" type="text" value="" readonly>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="modal-footer">
-                                      <input type="submit" id="editArticleForm-submit" class="btn btn-success" value="Zapisz"/>
+                                        <input type="submit" id="editArticleForm-submit" class="btn btn-success" value="Zapisz"/>
                                     </div>
-                                    
+
                                 </form>
                             </div>
                         </div>
@@ -540,6 +657,6 @@ and open the template in the editor.
             </div>
         </div>       
     </body>
-    
+
 </html><?php }
 }
