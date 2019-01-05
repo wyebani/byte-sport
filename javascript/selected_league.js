@@ -3,6 +3,7 @@ $("document").ready(function () {
     var arrayarticle = ["First", "Second", "Third"];
     var numberofarticles = new Array();
      start();
+     gettable();
     
     //flags
         document.getElementById("poland").onclick = function (){openwindow("Ekstraklasa");}
@@ -39,16 +40,19 @@ $("document").ready(function () {
              
         if (iterator >= numberofarticles.length)
         {
+           $('#' + arrayarticle[article]+"image").html("");
            $('#' + arrayarticle[article]+"description").html("");
+           
             iterator = iterator + 1;
               
         } else 
                {
-         
+                 $('#' + arrayarticle[article]+"image").html("");
                  $('#' + arrayarticle[article]+"description").html("");
           
             
-                    
+                  $('#' + arrayarticle[article]+"image").html('<img  src=image/'+numberofarticles[iterator].NAME+'.png width="60" height="60"\n\
+            alt="avatar" style ="border : 2px solid black" />');  
                  $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].TITLE+"</h1>"+numberofarticles[iterator].CONTENT);
              
                 iterator = iterator + 1;
@@ -58,8 +62,9 @@ $("document").ready(function () {
     function getarray(number) 
          {
         numberofarticles = number;
-       
-        ChangeContentOfArticle();
+        
+       ChangeContentOfArticle();
+        
          }
     function ChangeContentOfArticle()
     {
@@ -70,6 +75,24 @@ $("document").ready(function () {
             getoneArticles(i);
 
         }
+    }
+    function gettable(){
+        var geturl = getUrlVars()["league"];//return _$GET from ?league=
+        $.ajax({
+            method: "GET",
+            url: "php/functions/table_league.php?league="+geturl,
+            
+            success: function (data) 
+            {
+                
+                 $('#table_league').html(data);
+                
+                
+               
+            }
+            
+                 });
+        
     }
     function openwindow(leaguename)
         {

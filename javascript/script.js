@@ -25,15 +25,19 @@ $("document").ready(function () {
           if (iterator >= numberofarticles.length)
         {
              $('#' + arrayarticle[article]+"description").html("");
+              $('#' + arrayarticle[article]+"image").html("");
+              
              iterator = iterator + 1;
              
 
         } 
         else {
-         
+            $('#' + arrayarticle[article]+"image").html("");
            $('#' + arrayarticle[article]+"description").html("");
+           $('#' + arrayarticle[article]+"image").html('<img  src=image/'+numberofarticles[iterator].name+'.png width="60" height="60"\n\
+            alt="avatar" style ="border : 2px solid black" />');
            $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].title+"</h1>"+numberofarticles[iterator].content);
-        
+           
             iterator = iterator + 1;
 
             }
