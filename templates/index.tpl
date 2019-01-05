@@ -23,8 +23,8 @@
                 <div class="col"> 
                   <article id="First" >
                          <div class="row">
-                             <div class="col-2">
-                                 <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+                             <div class="col-2" id="Firstimage" >
+                                 
                              </div>
                              <div class="col-9">
                                  <div id="Firstdescription" style="border-bottom: solid red 1px"  >
@@ -37,8 +37,8 @@
                      </article>
                     <article id="Second">
                              <div class="row">
-                             <div class="col-2">
-                                 <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+                             <div class="col-2" id="Secondimage">
+                                
                              </div>
                              <div class="col-9">
                                  <div id="Seconddescription" style="border-bottom: solid red 1px"  >
@@ -50,8 +50,8 @@
                      </article>
                       <article id="Third" >
                              <div class="row">
-                             <div class="col-2">
-                                 <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+                             <div class="col-2" id="Thirdimage">
+                                 
                              </div>
                              <div class="col-9">
                                  <div id="Thirddescription" style="border-bottom: solid red 1px"  >
