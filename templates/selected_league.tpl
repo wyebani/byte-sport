@@ -19,8 +19,8 @@
          <div class="col" style="border-right: 1px solid" >
                      <article id="First" style="font-size: 12px">
                          <div class="row">
-                             <div class="col-2">
-                                 <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+                             <div class="col-2" id="Firstimage">
+                                
                              </div>
                              <div class="col-9">
                                  <div id="Firstdescription" style="border-bottom: solid red 1px"  >
@@ -34,8 +34,8 @@
              
                     <article id="Second" style="font-size: 12px">
                              <div class="row">
-                             <div class="col-2">
-                                 <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+                             <div class="col-2" id="Secondimage">
+                                
                              </div>
                              <div class="col-9">
                                  <div id="Seconddescription" style="border-bottom: solid red 1px"  >
@@ -48,8 +48,8 @@
              
                     <article id="Third" style="font-size: 12px">
                              <div class="row">
-                             <div class="col-2">
-                                 <img src="image/avatar.png" width="100" height="100" alt="avatar"/>
+                             <div class="col-2" id="Thirdimage">
+                                
                              </div>
                              <div class="col-9">
                                  <div id="Thirddescription" style="border-bottom: solid red 1px"  >
@@ -63,7 +63,11 @@
     <button type="button" id="previous" style="margin-top: 5px" class="btn btn-primary">Poprzednie</button>
          </div>
       
-         <div class="col">Tabela</div>
+        <div class="col">
+            <div id="table_league">
+                
+            </div>
+        </div>
    
      </div>
           </div>
