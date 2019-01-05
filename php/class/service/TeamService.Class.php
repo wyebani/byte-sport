@@ -78,6 +78,11 @@ class TeamService extends Crud {
                         array('name' => $sTeamName,
                         'league_id' => $iLeague));
         
+        if($iId) {
+            $this->addOne('team_details',
+                        array('id' => $iId));
+        }
+        
         return $iId;
     }
     
@@ -129,7 +134,7 @@ class TeamService extends Crud {
         
         if($bResult) {
              $this->update('team_details',
-                    array(ground => $aTeamData['ground'],
+                    array('ground' => $aTeamData['ground'],
                         'head_coach' => $aTeamData['head_coach'],
                         'website' => $aTeamData['website']),
                     array('id' => $aTeamData['id']));

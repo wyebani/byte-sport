@@ -359,13 +359,12 @@ $( document ).ready(function() {
               name: name,
               league_id: league_id,
               ground: ground,
-              coach: coach,
+              head_coach: coach,
               website: website
-           },
-           success: function(msg) {
-               $( "#teamsBtn" ).click();
-               $("#editTeamModal").modal('toggle');
-           }
+           }          
+       }).done(function (msg) {
+           $( "#teamsBtn" ).click();
+           $("#editTeamModal").modal('toggle');
        });
        e.preventDefault();
     });

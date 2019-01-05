@@ -337,9 +337,9 @@ and open the template in the editor.
                 <!-- Matches -->
                 <div id="matches" class="collapse">
                     <nav>
-                        <div class="nav nav-tabs" id="maches-submenu" role="tablist">
-                            <a class="nav-item nav-link active" id="allMatchesBtn" data-toggle="tab" href="#allMatches"
-                               role="tab" aria-controls="nav-allMatches" aria-selected="true">Wszystkie spotkania</a>
+                        <div class="nav nav-tabs" id="maches-submenu" role="tablist">                          
+                            <a class="nav-item nav-link active" id="upcomingMatchesBtn" data-toggle="tab" href="#upcomingMatches"
+                               role="tab" aria-controls="nav-allMatches" aria-selected="true">Nadchodzące spotkania</a>
 
                             <a class="nav-item nav-link" id="ongoingMatchesBtn" data-toggle="tab" href="#ongoingMatches"
                                role="tab" aria-controls="nav-ongoing" aria-selected="false">Trwające spotkania</a>
@@ -352,9 +352,9 @@ and open the template in the editor.
                         </div>
                     </nav>
                     <br>
-                    <div class="tab-content" id="nav-matchContent">
-                        <div id="allMatches" class="tab-pane fade show active" role="tabpanel" aria-labelledby="allMatchesBtn">
-                            <h3>Wszystkie spotkania</h3>
+                    <div class="tab-content" id="nav-matchContent">                        
+                        <div id="upcomingMatches" class="tab-pane fade" role="tabpanel" aria-labelledby="upcomingMatchesBtn">
+                            <h3>Nadchodzące spotkania</h3>
                         </div>
                         
                         <div id="ongoingMatches" class="tab-pane fade" role="tabpanel" aria-labelledby="ongoingMatchesBtn">

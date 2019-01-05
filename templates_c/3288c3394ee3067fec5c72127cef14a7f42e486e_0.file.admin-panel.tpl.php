@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-04 17:28:18
+/* Smarty version 3.1.33, created on 2019-01-05 13:33:02
   from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c2f89a272b2d1_24287911',
+  'unifunc' => 'content_5c30a3fe3b2cb8_67519002',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3288c3394ee3067fec5c72127cef14a7f42e486e' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\admin-panel.tpl',
-      1 => 1546619151,
+      1 => 1546691456,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c2f89a272b2d1_24287911 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c30a3fe3b2cb8_67519002 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -370,9 +370,9 @@ and open the template in the editor.
                 <!-- Matches -->
                 <div id="matches" class="collapse">
                     <nav>
-                        <div class="nav nav-tabs" id="maches-submenu" role="tablist">
-                            <a class="nav-item nav-link active" id="allMatchesBtn" data-toggle="tab" href="#allMatches"
-                               role="tab" aria-controls="nav-allMatches" aria-selected="true">Wszystkie spotkania</a>
+                        <div class="nav nav-tabs" id="maches-submenu" role="tablist">                          
+                            <a class="nav-item nav-link active" id="upcomingMatchesBtn" data-toggle="tab" href="#upcomingMatches"
+                               role="tab" aria-controls="nav-allMatches" aria-selected="true">Nadchodzące spotkania</a>
 
                             <a class="nav-item nav-link" id="ongoingMatchesBtn" data-toggle="tab" href="#ongoingMatches"
                                role="tab" aria-controls="nav-ongoing" aria-selected="false">Trwające spotkania</a>
@@ -385,9 +385,9 @@ and open the template in the editor.
                         </div>
                     </nav>
                     <br>
-                    <div class="tab-content" id="nav-matchContent">
-                        <div id="allMatches" class="tab-pane fade show active" role="tabpanel" aria-labelledby="allMatchesBtn">
-                            <h3>Wszystkie spotkania</h3>
+                    <div class="tab-content" id="nav-matchContent">                        
+                        <div id="upcomingMatches" class="tab-pane fade" role="tabpanel" aria-labelledby="upcomingMatchesBtn">
+                            <h3>Nadchodzące spotkania</h3>
                         </div>
                         
                         <div id="ongoingMatches" class="tab-pane fade" role="tabpanel" aria-labelledby="ongoingMatchesBtn">
