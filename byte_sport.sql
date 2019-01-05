@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Sty 2019, 16:43
+-- Czas generowania: 05 Sty 2019, 13:53
 -- Wersja serwera: 10.1.32-MariaDB
 -- Wersja PHP: 7.2.5
 
@@ -42,8 +42,7 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`id`, `title`, `content`, `author_id`, `league_id`, `date`) VALUES
-(12, 'Sokół Orzech wygrywa z Barceloną!', 'hgytfuhkbutfvh', 5, 12, '2019-01-02 19:53:17'),
-(13, 'guyg', 'ihun', 8, 13, '2019-01-02 00:00:00');
+(12, 'Sokół Orzech wygrywa z Barceloną!', 'hgytfuhkbutfvh', 5, 12, '2019-01-02 19:53:17');
 
 -- --------------------------------------------------------
 
@@ -63,7 +62,8 @@ CREATE TABLE `league` (
 
 INSERT INTO `league` (`id`, `name`, `country_id`) VALUES
 (12, 'Ekstraklasa', 1),
-(13, 'Bundesliga', 2);
+(13, 'Bundesliga', 2),
+(15, 'Napoli', 5);
 
 -- --------------------------------------------------------
 
@@ -76,6 +76,13 @@ CREATE TABLE `league_details` (
   `organizer` varchar(45) COLLATE utf8_polish_ci NOT NULL,
   `date_of_found` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `league_details`
+--
+
+INSERT INTO `league_details` (`id`, `organizer`, `date_of_found`) VALUES
+(15, '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -94,8 +101,8 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`id`, `name`, `league_id`) VALUES
-(12, 'Piast Gliwice', 12),
-(13, 'Sokół Orzech', 12);
+(17, 'Bayern Monachium', 13),
+(18, 'Borussia Dortmund', 13);
 
 -- --------------------------------------------------------
 
@@ -109,6 +116,14 @@ CREATE TABLE `team_details` (
   `head_coach` varchar(45) COLLATE utf8_polish_ci NOT NULL,
   `website` varchar(45) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `team_details`
+--
+
+INSERT INTO `team_details` (`id`, `ground`, `head_coach`, `website`) VALUES
+(17, 'Alianz Arena', 'Niko Kovač', 'fcbayern.com'),
+(18, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -130,16 +145,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `permissions`, `active`) VALUES
 (5, 'tomczyk.marek', '7fcf4ba391c48784edde599889d6e3f1e47a27db36ecc050cc92f259bfac38afad2c68a1ae804d77075e8fb722503f3eca2b2c1006ee6f6c7b7628cb45fffd1d', 1, 1),
-(7, 'dworak.adrian', 'ee17fe75e3b25a0d051043a0c028c03a2e38f56520c2d31e1f7d45d99116c56876c5db067b9f819ed722cce1919356b7b5b7855d6ecf56a61452058f3ca93cbc', 0, 1),
-(8, 'lebiedzinski.michal', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
-(47, 'asd', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
-(48, 'dsa', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
-(49, 'glg', '013c6889f799cd986a735118e1888727d1435f7f623d05d58c61bf2cd8b49ac90105e5786ceaabd62bbc27336153d0d316b2d13b36804080c44aa6198c533215', 0, 1),
-(50, 's', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
-(51, 'qwe', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
-(56, 'ss', 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e', 0, 1),
-(57, 'eqw', '013c6889f799cd986a735118e1888727d1435f7f623d05d58c61bf2cd8b49ac90105e5786ceaabd62bbc27336153d0d316b2d13b36804080c44aa6198c533215', 0, 1),
-(58, 'test', '013c6889f799cd986a735118e1888727d1435f7f623d05d58c61bf2cd8b49ac90105e5786ceaabd62bbc27336153d0d316b2d13b36804080c44aa6198c533215', 0, 1);
+(64, 'dworak.adrian', 'bfb23ce8b5f0c64866f097439f15307d21e219c4440e901328befefff6af26e38ea5182eebf252033ecd9c7abe8040eaaed97aaf192d9c1621f83280f12adc70', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -162,16 +168,8 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `name`, `surname`, `date_of_birth`, `email`, `login_success`, `login_failure`) VALUES
-(5, 'Marek', 'Tomczyk', '2018-11-18', 'tomczykmarek33@gmail.com', '2019-01-02 00:00:00', '0000-00-00 00:00:00'),
-(7, 'Adrian', 'Dworak', '1997-04-05', 'dworak.adrian97@gmail.com', '2018-12-05 00:00:00', '0000-00-00 00:00:00'),
-(8, 'Michał', 'Lebiedziński', '0000-00-00', 'lebio97@gmail.com', '2018-12-05 00:00:00', '0000-00-00 00:00:00'),
-(47, 'dasdas', 'sdasda', '0000-00-00', 'asd@dsa.pl', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(48, 'xdddddddddddddddd', 'TEST', '0000-00-00', 'sss@sss.pl', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(50, 'dasda', 'adqwdqdwaq', '0000-00-00', 's@s', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(51, 'xxxxxxxxxxxxxxxxx', 'dsadasd', '0000-00-00', 'w@w', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(56, 'xczczxz', 'dsadasda', '0000-00-00', 's@ssss', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(57, '', '', '0000-00-00', 'eq@qwe', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(58, '', '', '0000-00-00', 'test@t', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(5, 'Marek', 'Tomczyk', '2018-11-18', 'tomczykmarek33@gmail.com', '2019-01-05 00:00:00', '0000-00-00 00:00:00'),
+(64, 'dsadsa', '', '0000-00-00', 'dworak.adrian97@gmail.com', '2019-01-03 00:00:00', '0000-00-00 00:00:00');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -241,19 +239,19 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT dla tabeli `league`
 --
 ALTER TABLE `league`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT dla tabeli `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Ograniczenia dla zrzutów tabel
