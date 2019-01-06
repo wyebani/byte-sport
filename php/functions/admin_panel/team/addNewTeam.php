@@ -9,7 +9,6 @@ $sTeamName = $_POST['teamName'];
 $iLeagueId = $_POST['leagueId'];
 
 $bResult = $oTeamService->addNewTeam($sTeamName, $iLeagueId);
-var_dump($bResult);
 
 if($bResult) {
     $aTeams = $oTeamService->getAllTeams();

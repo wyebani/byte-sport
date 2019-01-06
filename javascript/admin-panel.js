@@ -406,6 +406,23 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+    
+    $( "#addMatchBtn" ).click(function(e) {
+       $("#matchLeaguePicker").html(''); 
+       $("#matchHostPicker").html(''); 
+       $("#matchGuestPicker").html(''); 
+       
+       $.ajax({
+            method: "GET",
+            url: "../functions/admin_panel/league/getAllLeagues_picker.php"
+        }).done(function (picker) {
+            $('#matchLeaguePicker').html(picker);
+        });
+        
+        changeLeague();
+        document.getElementById("matchResult").disabled = true;
+
+    });
 
 
     /*******************************************************************************
@@ -443,6 +460,7 @@ $(document).ready(function () {
         }).done(function (msg) {
             $('#articleLeaguePicker').html(msg);
         });
+        
     });
 
     /*******************************************************************************
@@ -530,3 +548,26 @@ function show(id) {
     $('.collapse').removeClass('show');
     $(id).addClass('show');
 }
+
+function changeLeague() {
+    var LEAGUEID = $("#matchLeaguePicker").val();
+    $.ajax({
+        method: "GET",
+        url: "../functions/admin_panel/team/getAllByLeague_picker.php",
+        data: { leagueId: LEAGUEID }
+    }).done( function(msg) {
+        $("#matchHostPicker").html(msg); 
+        $("#matchGuestPicker").html(msg);
+    });
+}
+
+function chagneStatus() {
+    var STATUSID = $("#matchStatusPicker").val();
+    
+    if(STATUSID == 1) {
+        document.getElementById("matchResult").disabled = true;
+    } else {
+        document.getElementById("matchResult").disabled = false;
+    }
+}
+

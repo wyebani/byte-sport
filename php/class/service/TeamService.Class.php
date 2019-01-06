@@ -48,10 +48,10 @@ class TeamService extends Crud {
  *      - false when fail																										*
  ******************************************************************************/    
     
-    public function getTeamByLeagueId($iLeagueId) {
+    public function getTeamsByLeagueId($iLeagueId) {
         if($iLeagueId) {
-            return $this->oMySql->select('team', 
-                    NULL,
+            return $this->oMySql->select('team',
+                    null,
                     array('league_id' => $iLeagueId));
         } else {
             return false;

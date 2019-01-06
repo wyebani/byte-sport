@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-29 14:15:21
+/* Smarty version 3.1.33, created on 2019-01-06 12:44:20
   from 'D:\xampp\htdocs\byte-sport\templates\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c2773698f92d4_00379217',
+  'unifunc' => 'content_5c31ea14601c82_90630412',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c337c5716cfc5f3f073f0acfff3205e85ab28c31' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\index.tpl',
-      1 => 1546012445,
+      1 => 1546775028,
       2 => 'file',
     ),
   ),
@@ -26,10 +26,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5c2773698f92d4_00379217 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c31ea14601c82_90630412 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container"> 
     <?php $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+    <?php echo '<script'; ?>
+ src="javascript/script.js" async><?php echo '</script'; ?>
+>
 
     <?php if (!empty($_SESSION['isLogin'])) {?>
         <?php if ($_SESSION['permissions'] == 1) {?>
@@ -51,22 +54,52 @@ function content_5c2773698f92d4_00379217 (Smarty_Internal_Template $_smarty_tpl)
         <div id="main" style="text-align: center">
             <div class="row">
                 <div class="col"> 
-                    <article id="First">
+                  <article id="First" >
+                         <div class="row">
+                             <div class="col-2" id="Firstimage" >
+                                 
+                             </div>
+                             <div class="col-9">
+                                 <div id="Firstdescription" style="border-bottom: solid red 1px"  >
+                                     <h1 id="Firsth1"></h1>
+                                     
+                                 </div>
+                             </div>
+                         </div>
 
-
-                    </article>
+                     </article>
                     <article id="Second">
-
-                    </article>
-                    <article id="Third">
-
-                    </article>
+                             <div class="row">
+                             <div class="col-2" id="Secondimage">
+                                
+                             </div>
+                             <div class="col-9">
+                                 <div id="Seconddescription" style="border-bottom: solid red 1px"  >
+                                     <h1 id="Secodh1"></h1>
+                                     
+                                 </div>
+                             </div>
+                         </div>
+                     </article>
+                      <article id="Third" >
+                             <div class="row">
+                             <div class="col-2" id="Thirdimage">
+                                 
+                             </div>
+                             <div class="col-9">
+                                 <div id="Thirddescription" style="border-bottom: solid red 1px"  >
+                                     <div id="Thirdh1"></div>
+                                     
+                                 </div>
+                             </div>
+                         </div>
+                     </article>
                 </div>
             </div>	
         </div>
     </div>
-    <button type="button" id="next" class="btn btn-primary">Następne</button>
-    <button type="button" id="previous" class="btn btn-primary">Poprzednie</button>
+    <button type="button" id="next" style="margin-top: 5px" class="btn btn-primary">Następne</button>
+    <button type="button" id="previous" style="margin-top: 5px" class="btn btn-primary">Poprzednie</button>
     <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 </div><?php }
