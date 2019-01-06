@@ -25,7 +25,6 @@ class UserService extends Crud {
         $sQuery .= 'FROM `user` as u ';
         $sQuery .= 'INNER JOIN `user_details` as ud ';
         $sQuery .= 'ON u.id = ud.id;';
-        var_dump($sQuery);
         return $this->oMySql->otherQuery($sQuery);
     }
     
