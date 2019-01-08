@@ -44,6 +44,6 @@ if($aTeam)
             }
         else 
             {
-                 echo  0;
+                  echo "Brak drużyn dla danej ligi";
             }
 ?>
