@@ -65,7 +65,24 @@
       
         <div class="col">
             <div id="table_league">
-                
+                <table class='table table-stripped' text-center>
+                       <thead>
+                          <tr>
+                               <th scope='col'>Miejsce</th>
+                                <th scope='col'>Nazwa drużyny</th>
+                                 <th scope='col'>RM</th>
+                               <th scope='col'>BZ</th>
+                               <th scope='col'>BS</th>
+                                <th scope='col'>PKT</th>
+                           </tr>
+                        </thead>
+                        <tbody id='teamTableContent'>
+    
+       
+                       </tbody>
+        
+                    </table>
+                    
             </div>
         </div>
    
