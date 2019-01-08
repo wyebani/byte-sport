@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
-    /*******************************************************************************
-     * Menu functions
-     ******************************************************************************/
+/*******************************************************************************
+* Menu functions
+******************************************************************************/
 
     $("#usersBtn").click(function () {
         $('.components li').removeClass('active');
@@ -88,9 +88,9 @@ $(document).ready(function () {
         $(this).parent().addClass('active');
     });
 
-    /*******************************************************************************
-     * User functions
-     ******************************************************************************/
+/*******************************************************************************
+* User functions
+******************************************************************************/
 
     $("#addUserForm").submit(function (e) {
         var USERNAME = document.getElementById("username").value;
@@ -196,9 +196,9 @@ $(document).ready(function () {
     });
 
 
-    /*******************************************************************************
-     * League functions
-     ******************************************************************************/
+/*******************************************************************************
+* League functions
+******************************************************************************/
 
     $("#addLeagueForm").submit(function (e) {
         var LEAGUENAME = document.getElementById("league_name").value;
@@ -281,9 +281,9 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    /*******************************************************************************
-     * Team functions
-     ******************************************************************************/
+/*******************************************************************************
+* Team functions
+*******************************************************************************/
 
     $("#addTeamForm").submit(function (e) {
         var TEAMNAME = document.getElementById("team_name").value;
@@ -370,9 +370,9 @@ $(document).ready(function () {
     });
 
 
-    /*******************************************************************************
-     * Matches submenu
-     ******************************************************************************/
+/*******************************************************************************
+* Matches submenu
+*******************************************************************************/
 
     $("#upcomingMatchesBtn").click(function (e) {
         $('#upcomingMatchesTableContent').html('');
@@ -424,10 +424,49 @@ $(document).ready(function () {
 
     });
 
+/***************************************************************************
+* Matches content
+**************************************************************************/
 
-    /*******************************************************************************
-     * Articles submenu
-     ******************************************************************************/
+    $( "#addMatch-form" ).submit(function(e) {
+        var LEAGUEID = document.getElementById('matchLeaguePicker').value;
+        var MATCHSTATUSID = document.getElementById('matchStatusPicker').value;
+        var HOSTID = document.getElementById('matchHostPicker').value;
+        var GUESTID = document.getElementById('matchGuestPicker').value;
+        var RESULT = document.getElementById('matchResult').value;
+        var SEASON = document.getElementById('matchSeason').value;
+        var DATE = document.getElementById('matchDate').value;
+        var TIME = document.getElementById('matchHour').value;
+        
+        $.ajax({
+            method: "POST",
+            url: "../functions/admin_panel/match/addMatch.php",
+            data: {
+                league_id : LEAGUEID,
+                status_id : MATCHSTATUSID,
+                host_id : HOSTID,
+                guest_id : GUESTID,
+                result : RESULT,
+                season : SEASON,
+                date : DATE,
+                time : TIME
+            }
+        }).done(function (msg) {
+            var result = jQuery.parseJSON(msg);
+            if(result !== false) {
+                alert('Pomyślnie dodano spotkanie');
+            } else {
+                alert('Wystąpił błąd, spróbuj później');
+            }
+        });
+        
+        $( "#addMatchBtn" ).click();
+        e.preventDefault();
+    });
+
+/*******************************************************************************
+* Articles submenu
+******************************************************************************/
 
     $("#allArticlesBtn").click(function (e) {
         $('#articlesTableContent').html('');
@@ -463,9 +502,9 @@ $(document).ready(function () {
         
     });
 
-    /*******************************************************************************
-     * Articles content
-     ******************************************************************************/
+/*******************************************************************************
+* Articles content
+******************************************************************************/
 
     $("#addArticleForm").submit(function (e) {
         var TITLE = document.getElementById("titleInput").value;
@@ -570,3 +609,7 @@ function chagneStatus() {
         document.getElementById("matchResult").disabled = false;
     }
 }
+
+/*******************************************************************************
+ *                              END OF FILE
+ ******************************************************************************/

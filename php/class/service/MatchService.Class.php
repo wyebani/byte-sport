@@ -72,11 +72,11 @@ class MatchSerice extends Crud {
  ******************************************************************************/    
     
     public function addMatch($aMatchData) {
-        if(!empty($aMatchData)) {
-            return $this->addOne('match', $aMatchData);
-        } else {
+        if(empty($aMatchData)) {
             return false;
-        }
+        } 
+        
+        return $this->addOne('match', $aMatchData);
     }
     
 /*******************************************************************************

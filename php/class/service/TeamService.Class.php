@@ -81,6 +81,9 @@ class TeamService extends Crud {
         if($iId) {
             $this->addOne('team_details',
                         array('id' => $iId));
+            
+            $this->addOne('team_bilans',
+                        array('id' => $iId));
         }
         
         return $iId;
