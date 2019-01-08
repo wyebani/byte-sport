@@ -128,7 +128,10 @@ $("document").ready(function () {
          });
     return vars;
 }
-    
+    document.getElementById("My_favourite_leagues").onclick = function (){
+          myWindow = window.open("my_favourite_leagues.php");  
+         
+     }
         
 });
 

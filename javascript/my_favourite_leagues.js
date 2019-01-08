@@ -11,11 +11,12 @@ $("document").ready(function () {
 
         $.ajax({
             method: "GET",
-            url: "php/functions/articles_main/GetAllArticles.php",
+            url: "php/functions/articles_main/GetAllArticlesFromFavouriteLeagues.php",
 
             success: function (data) {
 
                 id_numbers = JSON.parse(data);
+                
                 getarray(id_numbers);
             }
         });
@@ -34,9 +35,9 @@ $("document").ready(function () {
         else {
             $('#' + arrayarticle[article]+"image").html("");
            $('#' + arrayarticle[article]+"description").html("");
-           $('#' + arrayarticle[article]+"image").html('<img  src=image/'+numberofarticles[iterator].name+'.png width="60" height="60"\n\
+           $('#' + arrayarticle[article]+"image").html('<img  src=image/'+numberofarticles[iterator].NAME+'.png width="60" height="60"\n\
             alt="avatar" style ="border : 2px solid black" />');
-           $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].title+"</h1>"+numberofarticles[iterator].content);
+           $('#' + arrayarticle[article]+"description").html("<h1>"+numberofarticles[iterator].TITLE+"</h1>"+numberofarticles[iterator].CONTENT);
            
             iterator = iterator + 1;
 
@@ -44,7 +45,7 @@ $("document").ready(function () {
     }
     function getarray(number) {
         numberofarticles = number;
-
+        
         ChangeContentOfArticle();
     }
     function ChangeContentOfArticle()
@@ -77,39 +78,7 @@ $("document").ready(function () {
 
     };
 
-    $("#registerForm").submit(function (e) {
-        var USERNAME = $('input[id=ex-username]').val();
-        var EMAIL = $('input[id=ex-email]').val();
-        var PASSWORD = $('input[id=ex-password]').val();
-        var NAME = $('input[id=ex-name]').val();
-        var SURNAME = $('input[id=ex-surname]').val();
-        var DATE = $('input[id=ex-dateOfBirth]').val();
-        
-        $.ajax({
-            method: "POST",
-            url: "php/functions/register.php",
-            data: {
-                username: USERNAME,
-                email: EMAIL,
-                password: PASSWORD,
-                name: NAME,
-                surname: SURNAME,
-                date_of_birth: DATE
-                  }            
-        }).done(function (msg)
-        {
-            var result = jQuery.parseJSON(msg);
-            if(result === true) 
-            {
-                alert("Rejestracja przebiegła pomyślnie! Poczekaj na aktywację konta!");
-            } else 
-             {
-                alert(result);
-             }
-         });
-
-        e.preventDefault();
-    });
+    
     //flags
         document.getElementById("poland").onclick = function (){openwindow("Ekstraklasa");}
         document.getElementById("germany").onclick = function (){openwindow("Bundesliga");}
@@ -123,15 +92,16 @@ $("document").ready(function () {
         
          myWindow = window.open("selected_league.php?league="+leaguename);   // Opens a new window
     }
-    //Favourites leagues
-     document.getElementById("My_favourite_leagues").onclick = function (){
-          myWindow = window.open("my_favourite_leagues.php");  
-         
-     }
-    
 });
 
 
 
+
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 
