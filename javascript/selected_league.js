@@ -85,7 +85,7 @@ $("document").ready(function () {
             success: function (data) 
             {
                 
-                 $('#table_league').html(data);
+                 $('#teamTableContent').html(data);
                 
                 
                
