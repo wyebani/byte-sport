@@ -30,7 +30,7 @@
                     <div class="dropdown-menu" aria-labelledby="submenu">
 
                         <a class="dropdown-item" href="php/functions/showMyProfil.php"> Mój profil </a>
-                        <a class="dropdown-item" href="#"> Moja ulubiona Liga </a>
+                        <a class="dropdown-item" id="My_favourite_leagues" style="cursor: pointer"> Moja ulubiona Liga </a>
                     </div>
                 </li>
                 <div class="dropdown-divider"></div>
