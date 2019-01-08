@@ -14,19 +14,7 @@ $position = 1;//League position
 
 if($aTeam) 
             {
-                 echo "<table class='table table-stripped' text-center>";
-                      echo"  <thead>";
-                          echo "  <tr>";
-                               echo " <th scope='col'>Miejsce</th>";
-                               echo " <th scope='col'>Nazwa drużyny</th>";
-                                echo "  <th scope='col'>RM</th>";
-                                echo "<th scope='col'>BZ</th>";
-                               echo "<th scope='col'>BS</th>";
-                                echo "<th scope='col'>PKT</th>";
-                            echo "</tr>";
-                       echo " </thead>";
-                       echo " <tbody id='teamTableContent'>";
-    
+                 
                 foreach ($aTeam as $key => $value)
         {
                      echo "  <tr style='text-align: center'>";
@@ -36,9 +24,7 @@ if($aTeam)
                                $position++;
                         echo "  </tr>";
         }
-                       echo "</tbody>";
-        
-                    echo "</table>";
+                    
                     
                     
             }
