@@ -1,35 +1,34 @@
 <?php
-require __DIR__ . '/../class/service/TeamService.Class.php';
 
-$oService = new TeamService();
+require __DIR__ . '/../class/service/TeamBilansService.Class.php';
 
-    if(isset($_GET["league"]))$league=$_GET['league'];
+$oTeamBilansService = new TeamBilansService();
 
-    else $league='Ekstraklasa';//faworyzowanie Ligi Polskiej !!!!
+if (isset($_GET["league"])) {
+    $sLeagueName = $_GET['league'];
+}
+else {
+    $sLeagueName = 'Ekstraklasa'; 
+}
 
-$sql = "SELECT T.NAME FROM TEAM AS T LEFT JOIN LEAGUE AS L ON T.league_id=L.id WHERE L.NAME='".$league."'";
-//echo $sql;
-$aTeam = $oService->oMySql->otherQuery($sql);
-$position = 1;//League position 
+$aTeams = $oTeamBilansService->getAllByLeagueSorted($sLeagueName);
+$iPosition = 1;
 
-if($aTeam) 
-            {
-                 
-                foreach ($aTeam as $key => $value)
-        {
-                     echo "  <tr style='text-align: center'>";
-         
-                               echo "<td scope='col'>".$position."</td>";
-                               echo "<td scope='col'>".$value["NAME"]."</td>";
-                               $position++;
-                        echo "  </tr>";
-        }
-                    
-                    
-                    
-            }
-        else 
-            {
-                  echo "Brak drużyn dla danej ligi";
-            }
-?>
+if ($aTeams) {
+    foreach ($aTeams as $key => $value) {
+        echo '<tr style="text-align: center">';
+            echo '<th scope="col">'.$iPosition.'</td>';
+            echo '<td scope="col">'.$value['name'].'</th>';
+            echo '<td scope="col">'.$value['matches_played'].'</th>';
+            echo '<td scope="col">'.$value['points'].'</th>';
+            echo '<td scope="col">'.$value['wins'].'</th>';
+            echo '<td scope="col">'.$value['draws'].'</th>';
+            echo '<td scope="col">'.$value['losses'].'</th>';
+            echo '<td scope="col">'.$value['scored_goals'].':'.$value['lost_goals'].'</th>';
+        echo '</tr>';
+        
+        $iPosition++;
+    }
+} else {
+    echo "Brak drużyn dla danej ligi";
+}

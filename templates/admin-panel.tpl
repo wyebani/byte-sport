@@ -443,7 +443,7 @@ and open the template in the editor.
                                 <div class="form-group row">
                                     <label for="matchHostPicker" class="col-md-4 col-form-label text-md-right">Gospodarz: </label>
                                     <div class="col-md-6">
-                                        <select id="matchHostPicker" class="form-control" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <select id="matchHostPicker" class="form-control" style="width: 180px; display: inline; margin-left: 14px;" required>
                                         </select>
                                     </div>
                                 </div>
@@ -451,7 +451,7 @@ and open the template in the editor.
                                 <div class="form-group row">
                                     <label for="matchGuestPicker" class="col-md-4 col-form-label text-md-right">Gość: </label>
                                     <div class="col-md-6">
-                                        <select id="matchGuestPicker" class="form-control" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <select id="matchGuestPicker" class="form-control" style="width: 180px; display: inline; margin-left: 14px;" required>
                                         </select>
                                     </div>
                                 </div>
@@ -459,28 +459,28 @@ and open the template in the editor.
                                 <div class="form-group row">
                                     <label for="matchResult" class="col-md-4 col-form-label text-md-right">Wynik: </label>
                                     <div class="col-md-6">
-                                        <input type="text" id="matchResult" class="form-control" name="matchResult" value="" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <input type="text" id="matchResult" class="form-control" name="matchResult" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group row">
                                     <label for="matchSeason" class="col-md-4 col-form-label text-md-right">Sezon: </label>
                                     <div class="col-md-6">
-                                        <input type="text" id="matchSeason" class="form-control" name="matchSeason" value="" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <input type="text" id="matchSeason" class="form-control" name="matchSeason" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group row">
                                     <label for="matchDate" class="col-md-4 col-form-label text-md-right">Data: </label>
                                     <div class="col-md-6">
-                                        <input type="date" id="matchDate" class="form-control" name="matchDate" value="" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <input type="date" id="matchDate" class="form-control" name="matchDate" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group row">
                                     <label for="matchHour" class="col-md-4 col-form-label text-md-right">Godzina: </label>
                                     <div class="col-md-6">
-                                        <input type="text" id="matchHour" class="form-control" name="matchHour" value="" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <input type="text" id="matchHour" class="form-control" name="matchHour" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
 

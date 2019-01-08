@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-06 22:43:05
+/* Smarty version 3.1.33, created on 2019-01-08 15:01:11
   from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c327669cd5df8_97424792',
+  'unifunc' => 'content_5c34ad2750a425_04581656',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3288c3394ee3067fec5c72127cef14a7f42e486e' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\admin-panel.tpl',
-      1 => 1546810983,
+      1 => 1546956068,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c327669cd5df8_97424792 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c34ad2750a425_04581656 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -476,7 +476,7 @@ and open the template in the editor.
                                 <div class="form-group row">
                                     <label for="matchHostPicker" class="col-md-4 col-form-label text-md-right">Gospodarz: </label>
                                     <div class="col-md-6">
-                                        <select id="matchHostPicker" class="form-control" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <select id="matchHostPicker" class="form-control" style="width: 180px; display: inline; margin-left: 14px;" required>
                                         </select>
                                     </div>
                                 </div>
@@ -484,7 +484,7 @@ and open the template in the editor.
                                 <div class="form-group row">
                                     <label for="matchGuestPicker" class="col-md-4 col-form-label text-md-right">Gość: </label>
                                     <div class="col-md-6">
-                                        <select id="matchGuestPicker" class="form-control" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <select id="matchGuestPicker" class="form-control" style="width: 180px; display: inline; margin-left: 14px;" required>
                                         </select>
                                     </div>
                                 </div>
@@ -492,28 +492,28 @@ and open the template in the editor.
                                 <div class="form-group row">
                                     <label for="matchResult" class="col-md-4 col-form-label text-md-right">Wynik: </label>
                                     <div class="col-md-6">
-                                        <input type="text" id="matchResult" class="form-control" name="matchResult" value="" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <input type="text" id="matchResult" class="form-control" name="matchResult" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group row">
                                     <label for="matchSeason" class="col-md-4 col-form-label text-md-right">Sezon: </label>
                                     <div class="col-md-6">
-                                        <input type="text" id="matchSeason" class="form-control" name="matchSeason" value="" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <input type="text" id="matchSeason" class="form-control" name="matchSeason" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group row">
                                     <label for="matchDate" class="col-md-4 col-form-label text-md-right">Data: </label>
                                     <div class="col-md-6">
-                                        <input type="date" id="matchDate" class="form-control" name="matchDate" value="" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <input type="date" id="matchDate" class="form-control" name="matchDate" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group row">
                                     <label for="matchHour" class="col-md-4 col-form-label text-md-right">Godzina: </label>
                                     <div class="col-md-6">
-                                        <input type="text" id="matchHour" class="form-control" name="matchHour" value="" style="width: 180px; display: inline; margin-left: 14px;">
+                                        <input type="text" id="matchHour" class="form-control" name="matchHour" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
 

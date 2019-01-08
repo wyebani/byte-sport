@@ -570,4 +570,3 @@ function chagneStatus() {
         document.getElementById("matchResult").disabled = false;
     }
 }
-
