@@ -111,23 +111,21 @@ $("document").ready(function () {
         e.preventDefault();
     });
     //flags
-        document.getElementById("poland").onclick = function (){openwindow("Ekstraklasa");}
-        document.getElementById("germany").onclick = function (){openwindow("Bundesliga");}
-        document.getElementById("spain").onclick = function (){openwindow("LaLiga");}
-        document.getElementById("portugal").onclick = function (){openwindow("Portugalska");}
-        document.getElementById("italy").onclick = function (){openwindow("Seria_A");}
-        document.getElementById("brazil").onclick = function (){openwindow("Brazylijska");}
-        document.getElementById("england").onclick = function (){openwindow("Angielska");}
-    
-    function openwindow(leaguename){
-        
-         myWindow = window.open("selected_league.php?league="+leaguename);   // Opens a new window
+        document.getElementById("poland").onclick = function (){openwindow("poland","Ekstraklasa");}
+        document.getElementById("germany").onclick = function (){openwindow("germany","Bundesliga");}
+        document.getElementById("spain").onclick = function (){openwindow("spain","LaLiga");}
+        document.getElementById("portugal").onclick = function (){openwindow("portugal","Portugalska");}
+        document.getElementById("italy").onclick = function (){openwindow("italy","Seria_A");}
+        document.getElementById("brazil").onclick = function (){openwindow("brazil","Brazylijska");}
+        document.getElementById("england").onclick = function (){openwindow("england","Angielska");}
+        document.getElementById("france").onclick = function (){openwindow("france","Ligue1");}
+    function openwindow(country,leaguename){
+        //alert('lala');
+        //myWindow = window.open("selected_league.php?league="+leaguename);   // Opens a new window
+          document.getElementById('a'+country).href="selected_league.php?league="+leaguename;
+            
     }
-    //Favourites leagues
-     document.getElementById("My_favourite_leagues").onclick = function (){
-          myWindow = window.open("my_favourite_leagues.php");  
-         
-     }
+   
     
 });
 
