@@ -109,7 +109,7 @@ class MatchSerice extends Crud {
             
     public function updateMatch($aMatchData) {
         if(!empty($aMatchData)) {
-            $this->update('match', 
+            return $this->update('match', 
                     array('host_id' => $aMatchData['host_id'],
                         'guest_id' => $aMatchData['guest_id'],
                         'date_time' => $aMatchData['date_time'],

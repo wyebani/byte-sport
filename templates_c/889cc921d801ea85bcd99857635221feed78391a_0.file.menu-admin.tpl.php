@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-08 18:08:51
+/* Smarty version 3.1.33, created on 2019-01-10 09:41:57
   from 'D:\xampp\htdocs\byte-sport\templates\menu-admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c34d923bab036_89748498',
+  'unifunc' => 'content_5c370555625383_40218070',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '889cc921d801ea85bcd99857635221feed78391a' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\menu-admin.tpl',
-      1 => 1546967323,
+      1 => 1547106729,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c34d923bab036_89748498 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c370555625383_40218070 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-dark bg-dark navbar-expand-md">
 
 
@@ -55,7 +55,7 @@ function content_5c34d923bab036_89748498 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="dropdown-menu" aria-labelledby="submenu">
 
                         <a class="dropdown-item" href="php/functions/showMyProfil.php"> Mój profil </a>
-                        <a class="dropdown-item" id="My_favourite_leagues" style="cursor: pointer"> Moja ulubiona Liga </a>
+                        <a class="dropdown-item" href="my_favourite_leagues.php"> Moja ulubiona Liga </a>
                         <a class="dropdown-item" href="admin-login.html"> Panel Administratora </a>
                     </div>
                 </li>

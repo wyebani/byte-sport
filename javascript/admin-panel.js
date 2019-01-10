@@ -459,10 +459,73 @@ $(document).ready(function () {
                 alert('Wystąpił błąd, spróbuj później');
             }
         });
-        
+
         $( "#addMatchBtn" ).click();
         e.preventDefault();
     });
+   
+    
+    $(document).on("click", ".editMatch", function () {
+        var MATCHID = $('th:first', $(this).parents('tr')).text();
+
+        $.ajax({
+            method: "GET",
+            url: "../functions/admin_panel/match/getMatchById.php",
+            data: {matchId: MATCHID}
+        }).done(function (msg) {
+            var matchData = jQuery.parseJSON(msg);
+
+            $("#editMatchForm #matchId_edit").val(matchData.id);
+            $("#editMatchForm #matchLeagueId_edit").val(matchData.league_id);
+            $("#editMatchForm #matchHostId_edit").val(matchData.host_id);
+            $("#editMatchForm #matchGuestId_edit").val(matchData.guest_id);
+            $("#editMatchForm #matchLeague_edit").val(matchData.league_name);
+            $("#editMatchForm #matchHost_edit").val(matchData.host_name);
+            $("#editMatchForm #matchGuest_edit").val(matchData.guest_name);
+            $("#editMatchForm #matchStatusPicker_edit").val(matchData.status_id);
+            $("#editMatchForm #matchResult_edit").val(matchData.result);
+            $("#editMatchForm #matchDate_edit").val(matchData.date);
+            $("#editMatchForm #matchSeason_edit").val(matchData.season);
+            $("#editMatchForm #matchHour_edit").val(matchData.hour);
+
+            $("#editMatchModal").modal({
+                show: true
+            });
+        });
+    });
+    
+    $( "#editMatchForm" ).submit(function(e) {
+        var ID = document.getElementById('matchId_edit').value;
+        var LEAGUEID = document.getElementById('matchLeagueId_edit').value;
+        var HOSTID = document.getElementById('matchHostId_edit').value;
+        var GUESTID = document.getElementById('matchGuestId_edit').value;
+        var MATCHSTATUSID = document.getElementById('matchStatusPicker_edit').value;
+        var RESULT = document.getElementById('matchResult_edit').value;
+        var SEASON = document.getElementById('matchSeason_edit').value;
+        var DATE = document.getElementById('matchDate_edit').value;
+        var TIME = document.getElementById('matchHour_edit').value;
+        
+        $.ajax({
+            method: "POST",
+            url: "../functions/admin_panel/match/editMatch.php",
+            data: {
+                id : ID,
+                league_id : LEAGUEID,
+                host_id : HOSTID,
+                guest_id : GUESTID,
+                status_id : MATCHSTATUSID,
+                result : RESULT,
+                season : SEASON,
+                date : DATE,
+                time : TIME
+            }
+        }).done(function (msg) {
+            alert(msg);
+        });
+        $("#editMatchModal").modal('toggle');
+        e.preventDefault();
+    });
+    
 
 /*******************************************************************************
 * Articles submenu
@@ -579,6 +642,9 @@ $(document).ready(function () {
             });
         });
     });
+    
+    /* Start function */
+    $("#usersBtn").click();
 
 });
 

@@ -144,6 +144,9 @@ class TeamBilansService extends Crud {
         
         
         if(!empty($aHostData) && !empty($aGuestData)) {
+            $aHostData['matches_played'] += 1;
+            $aGuestData['matches_played'] += 1;
+            
             if($iMatchResult == MatchResult::DRAW) {                                   
                 $aHostData['draws'] += 1;
                 $aHostData['scored_goals'] += $aMatchData['host_score'];

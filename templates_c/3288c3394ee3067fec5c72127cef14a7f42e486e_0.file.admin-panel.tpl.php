@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-08 15:01:11
+/* Smarty version 3.1.33, created on 2019-01-10 19:45:11
   from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c34ad2750a425_04581656',
+  'unifunc' => 'content_5c3792b722a3e5_09677681',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3288c3394ee3067fec5c72127cef14a7f42e486e' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\admin-panel.tpl',
-      1 => 1546956068,
+      1 => 1547145847,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c34ad2750a425_04581656 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3792b722a3e5_09677681 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -399,6 +399,7 @@ and open the template in the editor.
                                         <th scope="col">Sezon</th>
                                         <th scope="col">Liga</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="upcomingMatchesTableContent">
@@ -420,6 +421,7 @@ and open the template in the editor.
                                         <th scope="col">Sezon</th>
                                         <th scope="col">Liga</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="ongoingMatchesTableContent">
@@ -441,6 +443,7 @@ and open the template in the editor.
                                         <th scope="col">Sezon</th>
                                         <th scope="col">Liga</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="finishedMatchesTableContent">
@@ -480,7 +483,7 @@ and open the template in the editor.
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <label for="matchGuestPicker" class="col-md-4 col-form-label text-md-right">Gość: </label>
                                     <div class="col-md-6">
@@ -488,28 +491,28 @@ and open the template in the editor.
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <label for="matchResult" class="col-md-4 col-form-label text-md-right">Wynik: </label>
                                     <div class="col-md-6">
                                         <input type="text" id="matchResult" class="form-control" name="matchResult" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <label for="matchSeason" class="col-md-4 col-form-label text-md-right">Sezon: </label>
                                     <div class="col-md-6">
                                         <input type="text" id="matchSeason" class="form-control" name="matchSeason" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <label for="matchDate" class="col-md-4 col-form-label text-md-right">Data: </label>
                                     <div class="col-md-6">
                                         <input type="date" id="matchDate" class="form-control" name="matchDate" value="" style="width: 180px; display: inline; margin-left: 14px;" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <label for="matchHour" class="col-md-4 col-form-label text-md-right">Godzina: </label>
                                     <div class="col-md-6">
@@ -522,8 +525,90 @@ and open the template in the editor.
                                 </div>
                             </form>
                         </div>
-                    </div>
 
+                        <!-- Edit match -->
+                        <div class="modal fade bd-example-modal-lg" id="editMatchModal" tabindex="-1" role="dialog" aria-labelledby="editMatch" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4>Edycja spotkania</h4>
+                                    </div>
+                                    <form id="editMatchForm" data-toggle="validator" role="form" method="POST">
+                                        <br>
+                                        <input type="hidden" id="matchId_edit" name="matchId" value=""/>
+                                        <input type="hidden" id="matchLeagueId_edit" name="leagueId" value=""/>
+                                        <input type="hidden" id="matchHostId_edit" name="hostId" value=""/>
+                                        <input type="hidden" id="matchGuestId_edit" name="guestId" value=""/>
+
+                                        <div class="form-group row">
+                                            <label for="matchLeague_edit" class="col-md-4 col-form-label text-md-right">Nazwa ligi: </label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="matchLeague_edit" class="form-control" name="leagueName" style="width: 180px; display: inline; margin-left: 14px;" value="" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="matchHost_edit" class="col-md-4 col-form-label text-md-right">Gospodarz: </label>
+                                            <input type="text" id="matchHost_edit" class="form-control" name="hostName" style="width: 180px; display: inline; margin-left: 29px;" value="" disabled>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="matchGuest_edit" class="col-md-4 col-form-label text-md-right">Gość: </label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="matchGuest_edit" class="form-control" name="guestName" style="width: 180px; display: inline; margin-left: 14px;" value="" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="matchStatusPicker_edit" class="col-md-4 col-form-label text-md-right">Status: </label>
+                                            <div class="col-md-6">
+                                                <select id="matchStatusPicker_edit" class="form-control" style="width: 180px; display: inline; margin-left: 14px;" required>
+                                                    <option value="1">Nadchodzące</option>
+                                                    <option value="2">Trwające</option>
+                                                    <option value="3">Zakończone</option>
+                                                    <option value="4">Odwołane</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="matchResult_edit" class="col-md-4 col-form-label text-md-right">Wynik: </label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="matchResult_edit" class="form-control" name="matchResult" style="width: 180px; display: inline; margin-left: 14px;" value="" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group row">
+                                            <label for="matchSeason_edit" class="col-md-4 col-form-label text-md-right">Sezon: </label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="matchSeason_edit" class="form-control" name="matchSeason" style="width: 180px; display: inline; margin-left: 14px;" value="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="matchDate_edit" class="col-md-4 col-form-label text-md-right">Data: </label>
+                                            <div class="col-md-6">
+                                                <input type="date" id="matchDate_edit" class="form-control" name="matchDate" style="width: 180px; display: inline; margin-left: 14px;" value="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="matchHour_edit" class="col-md-4 col-form-label text-md-right">Godzina: </label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="matchHour_edit" class="form-control" name="matchHour"style="width: 180px; display: inline; margin-left: 14px;" value="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <input type="submit" id="editMatchForm-submit" class="btn btn-success" value="Zapisz"/>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
                 <!-- Articles -->
