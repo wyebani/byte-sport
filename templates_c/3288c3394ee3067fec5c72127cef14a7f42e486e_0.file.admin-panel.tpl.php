@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-10 19:45:11
+/* Smarty version 3.1.33, created on 2019-01-13 16:44:07
   from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c3792b722a3e5_09677681',
+  'unifunc' => 'content_5c3b5cc72ae509_15188635',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3288c3394ee3067fec5c72127cef14a7f42e486e' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\admin-panel.tpl',
-      1 => 1547145847,
+      1 => 1547394240,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c3792b722a3e5_09677681 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3b5cc72ae509_15188635 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -100,8 +100,8 @@ and open the template in the editor.
                         </a>
                     </li>
                     <li>
-                        <a href="#logout" id="logoutBtn">
-                            Wyloguj
+                        <a href="../../index.php" id="exitBtn">
+                            Wyjście
                         </a>
                     </li>
                 </ul>

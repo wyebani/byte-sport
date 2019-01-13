@@ -526,6 +526,23 @@ $(document).ready(function () {
         e.preventDefault();
     });
     
+    $(document).on("click", ".deleteMatch", function () {
+        var MATCHID = $('th:first', $(this).parents('tr')).text();
+        var THIS = $(this);
+        $.ajax({
+            method: "POST",
+            url: "../functions/admin_panel/match/deleteMatch.php",
+            data: {id: MATCHID}
+        }).done(function (msg) {
+            var result = jQuery.parseJSON(msg);
+            if (result === true) {
+                THIS.parents("tr").remove();
+            } else {
+                alert("Nie udało się usunąć spotkania, spróbuj później!");
+            }
+        });
+    });
+    
 
 /*******************************************************************************
 * Articles submenu

@@ -67,8 +67,8 @@ and open the template in the editor.
                         </a>
                     </li>
                     <li>
-                        <a href="#logout" id="logoutBtn">
-                            Wyloguj
+                        <a href="../../index.php" id="exitBtn">
+                            Wyjście
                         </a>
                     </li>
                 </ul>

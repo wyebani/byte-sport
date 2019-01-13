@@ -26,7 +26,6 @@ if($aMatches) {
             echo '<td scope="col">NADCHODZĄCE</td>'; 
              echo '<td scope="col">'.
                         '<a class="editMatch" title="Edytuj"><i class="fas fa-edit text-warning"></i></a>'.
-                        '<a class="deleteMatch" title="Usuń"><i class="fas fa-trash text-danger"></i></a>'.
                         '</th>';
         echo '</tr>';
     }
