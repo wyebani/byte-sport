@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-10 09:41:49
+/* Smarty version 3.1.33, created on 2019-01-16 19:33:41
   from 'D:\xampp\htdocs\byte-sport\templates\navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c37054d0ec3e8_71410021',
+  'unifunc' => 'content_5c3f79054b14a6_06308139',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c37054d0ec3e8_71410021 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3f79054b14a6_06308139 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="bg-dark" style="margin-top: 10px;">
 
 

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-13 16:44:07
+/* Smarty version 3.1.33, created on 2019-01-16 19:36:44
   from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c3b5cc72ae509_15188635',
+  'unifunc' => 'content_5c3f79bca893b5_20103610',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c3b5cc72ae509_15188635 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3f79bca893b5_20103610 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
