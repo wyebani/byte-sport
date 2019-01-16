@@ -39,7 +39,7 @@ $(document).ready(function () {
 
     $("#personalDateBtn").click(function (e){
        alert("kokos");
-        
+       e.preventDefault();
     });
 
     $("#homePageBtn").click(function(e){
