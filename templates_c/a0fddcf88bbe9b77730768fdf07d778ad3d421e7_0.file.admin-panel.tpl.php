@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-13 16:44:07
-  from 'D:\xampp\htdocs\byte-sport\templates\admin-panel.tpl' */
+/* Smarty version 3.1.33, created on 2019-01-16 19:43:06
+  from 'D:\xampp\htdocs\bs\dobre\byte-sport-v.0.2\templates\admin-panel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c3b5cc72ae509_15188635',
+  'unifunc' => 'content_5c3f7b3a8cc2d0_47105318',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3288c3394ee3067fec5c72127cef14a7f42e486e' => 
+    'a0fddcf88bbe9b77730768fdf07d778ad3d421e7' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\admin-panel.tpl',
-      1 => 1547394240,
+      0 => 'D:\\xampp\\htdocs\\bs\\dobre\\byte-sport-v.0.2\\templates\\admin-panel.tpl',
+      1 => 1547397573,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c3b5cc72ae509_15188635 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3f7b3a8cc2d0_47105318 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.

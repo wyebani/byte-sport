@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-29 14:15:21
-  from 'D:\xampp\htdocs\byte-sport\templates\header.tpl' */
+/* Smarty version 3.1.33, created on 2019-01-16 18:53:37
+  from 'D:\xampp\htdocs\bs\dobre\byte-sport-v.0.2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c27736990f4c2_39192042',
+  'unifunc' => 'content_5c3f6fa1e7c5a9_55340550',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '54352dfa265e0c69a4e8d9162f911454366f6c43' => 
+    'f6e3ed2ffbd5442c680c96dd60261473441bfdbf' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\header.tpl',
-      1 => 1546012377,
+      0 => 'D:\\xampp\\htdocs\\bs\\dobre\\byte-sport-v.0.2\\templates\\header.tpl',
+      1 => 1547397573,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c27736990f4c2_39192042 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3f6fa1e7c5a9_55340550 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 
 <html>
@@ -54,9 +54,7 @@ function content_5c27736990f4c2_39192042 (Smarty_Internal_Template $_smarty_tpl)
 	<?php echo '<script'; ?>
  src="javascript/popup.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
- src="javascript/script.js" async><?php echo '</script'; ?>
->
+        
 
     </head>
 

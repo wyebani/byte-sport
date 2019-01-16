@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-31 11:50:00
-  from 'D:\xampp\htdocs\byte-sport\templates\notlogged-menu.tpl' */
+/* Smarty version 3.1.33, created on 2019-01-16 18:53:37
+  from 'D:\xampp\htdocs\bs\dobre\byte-sport-v.0.2\templates\notlogged-menu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c29f458b1dd77_73172577',
+  'unifunc' => 'content_5c3f6fa1e9ef36_79371304',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'cf50303d87747cd517c6dc203537edb97141753d' => 
+    '2aade5cef0013c5a7bf6fbddfd9f052cab2f2e5c' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\notlogged-menu.tpl',
-      1 => 1546253396,
+      0 => 'D:\\xampp\\htdocs\\bs\\dobre\\byte-sport-v.0.2\\templates\\notlogged-menu.tpl',
+      1 => 1547397573,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c29f458b1dd77_73172577 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3f6fa1e9ef36_79371304 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-dark bg-dark navbar-expand">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
@@ -95,12 +95,12 @@ function content_5c29f458b1dd77_73172577 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                     <div class="modal-body">
 
-                        <form method="" role="form" action="" id="registerForm" data-toggle="validator" novalidate="true">
+                        <form method="post" id="registerForm" data-toggle="validator" novalidate="true">
 
 
                             <div class="form-group col-md-6">
                                 <label for="ex-username">Nazwa użytkownika</label>
-                                <input type="text" class="form-control" id="ex-username" name="username" value="" placeholder="Nazwa użytkownika" required>
+                                <input type="text" class="form-control" id="ex-username" name="username" placeholder="Nazwa użytkownika" required>
                             </div>
 
                             <div class="form-group col-md-6">

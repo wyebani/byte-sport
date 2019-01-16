@@ -184,13 +184,13 @@ class UserService extends Crud {
         
         $bResult = true;    
                 
-        if(isset($aUserData['password'])) {
+        if(isset($aUserData['password']) && !empty($aUserData['password'])) {
             $bResult = $this->update('user',
                 array('password' => hash('sha512', $aUserData['password'])), 
                 array('id' => $aUserData['id']));
         }      
                  
-        if(!empty($aUserData['username'])) {
+        if(!empty($aUserData['name'] || $aUserData['surname'] || $aUserData['email'] || $aUserData['date_of_birth'])) {
             $bResult = $this->update('user',
             array('username' => $aUserData['username']),
             array('id' => $aUserData['id']));
@@ -202,7 +202,7 @@ class UserService extends Crud {
                         'email' => $aUserData['email']),
                 array('id' => $aUserData['id']));
         } 
-    
+        else return false;
         return $bResult;
     }
 }

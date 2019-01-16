@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-01-10 09:41:57
-  from 'D:\xampp\htdocs\byte-sport\templates\menu-admin.tpl' */
+/* Smarty version 3.1.33, created on 2019-01-16 19:28:39
+  from 'D:\xampp\htdocs\bs\dobre\byte-sport-v.0.2\templates\menu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c370555625383_40218070',
+  'unifunc' => 'content_5c3f77d71b7566_57223815',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '889cc921d801ea85bcd99857635221feed78391a' => 
+    'b88f96063b0d8a8e55b0a2468e42c0f80b3c77f5' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\menu-admin.tpl',
-      1 => 1547106729,
+      0 => 'D:\\xampp\\htdocs\\bs\\dobre\\byte-sport-v.0.2\\templates\\menu.tpl',
+      1 => 1547397573,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c370555625383_40218070 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3f77d71b7566_57223815 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-dark bg-dark navbar-expand-md">
 
 
@@ -55,19 +55,18 @@ function content_5c370555625383_40218070 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="dropdown-menu" aria-labelledby="submenu">
 
                         <a class="dropdown-item" href="php/functions/showMyProfil.php"> Mój profil </a>
-                        <a class="dropdown-item" href="my_favourite_leagues.php"> Moja ulubiona Liga </a>
-                        <a class="dropdown-item" href="admin-login.html"> Panel Administratora </a>
+                        <a class="dropdown-item"  href="my_favourite_leagues.php"  > Moja ulubiona Liga </a>
                     </div>
                 </li>
                 <div class="dropdown-divider"></div>
-                <li class="nav-item">
+                <li class="nav-item" >
                     <form method="post" action="php/functions/logout.php">    
-                        <button type="submit" class="btn btn-danger" id="logout_button">Wyloguj</button>
+                        <button type="submit" class="btn btn-danger" id="logout_button" >Wyloguj</button>
                     </form>
                 </li>
             </ul>
 
-        </form>
+        </div>
 
     </div>
 

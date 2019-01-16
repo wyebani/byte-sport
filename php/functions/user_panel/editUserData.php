@@ -24,9 +24,8 @@ if(isset($_POST['date_of_birth'])) {
     $aUserData['date_of_birth'] = $_POST['date_of_birth'];
 }
 
-if(isset($_POST['password'])) {
-    $aUserData['password'] = $_POST['password'];
-}
+if(isset($_POST[]))
+
 
 if($oUserService->updateUser2($aUserData))
     echo "Pomyślna aktualizacja danych użytkownika!";
