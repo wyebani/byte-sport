@@ -35,12 +35,12 @@ if (isset($_POST['password']) && isset($_POST['oldpass']) && isset($_POST['confi
         echo "Podane hasła różnią się! \n";
     } else {
 
-        $oldPass = '"' . $_POST['oldpass'] . '"';
+        $oldPass = $_POST['oldpass'];
         $oldPassConf = loadPassFromDB();
         if (strlen($_POST['password']) < 6) {
             echo "Podane hasło jest za krótkie";
         } else {
-            if ($oldPass != $oldPassConf) {
+            if (hash('sha512', $oldPass) != $oldPassConf) {
                 echo "Niepoprawne hasło \n";
             } else {
                 $aUserData['password'] = $_POST['password'];
@@ -65,7 +65,7 @@ function loadPassFromDB() {
 
     $aUser = $oUserService->oMySql->otherQuery($sQuery);
 
-    return json_encode($aUser[0]['password']);
+    return $aUser[0]['password'];
 }
 
 /*******************************************************************************

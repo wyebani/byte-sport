@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 17 Sty 2019, 21:11
--- Wersja serwera: 10.1.34-MariaDB
+-- Czas generowania: 17 Sty 2019, 23:42
+-- Wersja serwera: 10.1.32-MariaDB
 -- Wersja PHP: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -328,7 +328,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `permissions`, `active`) VALUES
-(5, 'tomczyk.marek', '7fcf4ba391c48784edde599889d6e3f1e47a27db36ecc050cc92f259bfac38afad2c68a1ae804d77075e8fb722503f3eca2b2c1006ee6f6c7b7628cb45fffd1d', 1, 1);
+(5, 'tomczyk.marek', '7fcf4ba391c48784edde599889d6e3f1e47a27db36ecc050cc92f259bfac38afad2c68a1ae804d77075e8fb722503f3eca2b2c1006ee6f6c7b7628cb45fffd1d', 1, 1),
+(66, 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -351,7 +352,8 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `name`, `surname`, `date_of_birth`, `email`, `login_success`, `login_failure`) VALUES
-(5, 'Marek', 'Tomczyk', '2018-11-18', 'tomczykmarek33@gmail.com', '2019-01-17 00:00:00', '0000-00-00 00:00:00');
+(5, 'Marek', 'Tomczyk', '2018-11-18', 'tomczykmarek33@gmail.com', '2019-01-17 00:00:00', '0000-00-00 00:00:00'),
+(66, 'Admin', '', '0000-00-00', 'admin@byte-sport.pl', '2019-01-17 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -506,7 +508,7 @@ ALTER TABLE `team`
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT dla tabeli `user_leagues`
