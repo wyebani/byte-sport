@@ -8,9 +8,6 @@ $aUserData = array();
 if(isset($_SESSION['userDetails']["id"])){
     $aUserData['id'] = $_SESSION['userDetails']["id"];  
 }
-if(isset($_POST['username'])) {
-    $aUserData['username'] = $_POST['username'];
-}
 if(isset($_POST['name'])) {
     $aUserData['name'] = $_POST['name'];
 }
@@ -24,7 +21,32 @@ if(isset($_POST['date_of_birth'])) {
     $aUserData['date_of_birth'] = $_POST['date_of_birth'];
 }
 
-if(isset($_POST[]))
+if(isset($_POST['password']) && isset($_POST['oldpass']) && isset($_POST['confirmpass'])  ) {
+            
+    if($_POST['password'] != $_POST['confirmpass']){
+        echo "Podane hasła różnią się! \n";
+        
+    }   
+    else{
+        
+        $oldPass = '"'.$_POST['oldpass'].'"';
+        $oldPassConf = loadPassFromDB();
+        if(strlen($_POST['password']) < 6 )
+        {
+            echo "Podane hasło jest za krótkie"
+        }
+        else{        
+            if($oldPass != $oldPassConf){ 
+                echo "Niepoprawne hasło \n";                    
+            }
+            else{
+                $aUserData['password'] = $_POST['password'];       
+            }
+        }
+    }
+                        
+}
+
 
 
 if($oUserService->updateUser2($aUserData))
@@ -32,7 +54,20 @@ if($oUserService->updateUser2($aUserData))
 else
     echo "Nieudana aktualizacja danych użytkownika.";
 
+function loadPassFromDB()
+{
+    $oUserService = new UserService();
 
+    $iUserId = $_SESSION['userDetails']["id"];
+
+    $sQuery = 'SELECT u.password ';
+    $sQuery .= 'FROM `user` as u ';
+    $sQuery .= 'WHERE u.id = '.$iUserId;
+   
+    $aUser = $oUserService->oMySql->otherQuery($sQuery);
+
+    return json_encode($aUser[0]['password']);
+}
 
 
 

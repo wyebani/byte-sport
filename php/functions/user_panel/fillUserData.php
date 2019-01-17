@@ -10,10 +10,13 @@ if(isset($_SESSION['userDetails']["id"])){
     $iUserId = $_SESSION['userDetails']["id"];  
 } 
 
-$sQuery = 'SELECT u.id, u.username, u.password, u.permissions, u.active, ';
-    $sQuery .= 'ud.name, ud.surname, ud.date_of_birth, ud.email, ud.login_success, ud.login_failure ';
+$sQuery = 'SELECT u.id, ';
+    $sQuery .= 'ud.name, ud.surname, ud.date_of_birth, ud.email ';
     $sQuery .= 'FROM `user` as u ';
     $sQuery .= 'INNER JOIN `user_details` as ud ';
     $sQuery .= 'ON u.id = ud.id ';
     $sQuery .= 'WHERE u.id = '.$iUserId;
-    $aUser = $oUserService->oMySql->otherQuery($sQuery);
+   
+if( $aUser = $oUserService->oMySql->otherQuery($sQuery))
+    echo json_encode($aUser[0]);    
+
