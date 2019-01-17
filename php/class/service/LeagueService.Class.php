@@ -40,6 +40,26 @@ class LeagueService extends Crud {
     
 /*******************************************************************************
  * @brief                                                                      *
+ *       Method gets one League by name.                                       *
+ * @params:                                                                    *
+ *      - $sLeagueName - league name                                           *
+ * @returns:                                                                   *
+ *      - array with league                                                    *
+ *      - false when fail                                                      *
+ ******************************************************************************/    
+    
+    public function getLeagueByName($sLeagueName) {
+        if(empty($sLeagueName)) {
+            return false;
+        }
+        
+        return $this->oMySql->select('league',
+                null,
+                array('name' => $sLeagueName));
+    }
+    
+/*******************************************************************************
+ * @brief                                                                      *
  *       Method adds new league into database.                                 *
  * @params:                                                                    *
  *      -$sLeagueName - league name                                            *

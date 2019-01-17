@@ -8,12 +8,19 @@
 
 require __DIR__.'/../../class/service/LeagueService.Class.php';
 
-$oLeagueService = new LeagueService();
-$iLeagueId = $_POST['leagueId'];
+session_start();
 
-if($iLeagueId) {
-    $bResult = $oLeagueService->oMySql->delete("user_leagues",
-            array('id' => $iLeagueId));            
+$oLeagueService = new LeagueService();
+$sLeagueName = $_POST['leagueName'];
+
+if($sLeagueName) {
+    $aLeague = $oLeagueService->getLeagueByName($sLeagueName);
+    if($aLeague) {
+        $sQuery  = 'DELETE FROM `user_leagues` WHERE league_id = '.$aLeague['0']['id'];
+        $sQuery .= ' AND user_id = '.$_SESSION['userData']['id'];
+        
+        echo $oLeagueService->oMySql->otherQuery($sQuery);
+    }
 }
 
 /*******************************************************************************
