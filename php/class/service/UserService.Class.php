@@ -171,9 +171,7 @@ class UserService extends Crud {
                             'date_of_birth' => $aUserData['date_of_birth'],
                             'email' => $aUserData['email']),
                     array('id' => $aUserData['id']));
-        }
-        
-        
+        }  
         
         return $bResult;
     }
@@ -184,17 +182,15 @@ class UserService extends Crud {
         
         $bResult = true;    
                 
-        if(isset($aUserData['password']) && !empty($aUserData['password'])) {
-            $bResult = $this->update('user',
-                array('password' => hash('sha512', $aUserData['password'])), 
-                array('id' => $aUserData['id']));
+        if(isset($aUserData['password'])) {
+                $bResult = $this->update('user',
+                    array('password' => hash('sha512', $aUserData['password'])), 
+                    array('id' => $aUserData['id']));
+                    return true;
         }      
                  
-        if(!empty($aUserData['name'] || $aUserData['surname'] || $aUserData['email'] || $aUserData['date_of_birth'])) {
-            $bResult = $this->update('user',
-            array('username' => $aUserData['username']),
-            array('id' => $aUserData['id']));
-           
+        else if(!empty($aUserData['name']) || !empty($aUserData['surname']) || !empty($aUserData['email']) || !empty($aUserData['date_of_birth'])) {
+                      
             $bResult = $this->update('user_details',
                 array('name' => $aUserData['name'],
                        'surname' => $aUserData['surname'],
