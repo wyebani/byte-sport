@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function returns table with admin articles                           *
+ * @author Marek                                                               *
+ * @date 18.12.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/ArticleService.Class.php';
 require __DIR__.'/../../../class/service/UserService.Class.php';
 require __DIR__.'/../../../class/service/LeagueService.Class.php';
@@ -36,3 +42,7 @@ if($aArticles) {
             echo '</tr>';
     }
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

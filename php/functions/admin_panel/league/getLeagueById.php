@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function returns league by id                                        *
+ * @author Marek                                                               *
+ * @date 12.12.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/LeagueService.Class.php';
 
 $oLeagueService = new LeagueService();
@@ -19,3 +25,6 @@ if($iLeagueId) {
     echo '<strong style="color: red; font-size: 14px">Podana liga nie istnieje</strong>';
 }
 
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

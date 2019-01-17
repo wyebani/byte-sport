@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function returns one user by id                                      *
+ * @author Marek                                                               *
+ * @date 27.11.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/UserService.Class.php';
 
 $oUserService = new UserService();
@@ -22,3 +28,7 @@ if($iUserId) {
 } else {
     echo '<strong style="color: red; font-size: 14px">Nie ma takiego użytkownika</strong>';
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

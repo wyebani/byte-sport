@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function add new team.                                               *
+ * @author Marek                                                               *
+ * @date 29.11.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/TeamService.Class.php';
 require __DIR__.'/../../../class/service/LeagueService.Class.php';
 
@@ -30,3 +36,7 @@ if($bResult) {
         echo '<strong style="color: red; font-size: 14px">Brak drużyn w bazie danych!</strong>';
     }
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

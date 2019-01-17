@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function returns all users                                           *
+ * @author Marek                                                               *
+ * @date 27.11.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/UserService.Class.php';
 
 $oUserService = new UserService();
@@ -30,3 +36,7 @@ if($aUsers) {
 } else {
     echo '<strong style="color: red; font-size: 14px">Brak użytkowników w bazie danych!</strong>';
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

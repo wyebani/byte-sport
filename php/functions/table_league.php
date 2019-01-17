@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function return table content for league.                            *
+ * @author Michał, Marek                                                       *
+ * @date 05.01.2019                                                            *
+ ******************************************************************************/
+
 require __DIR__ . '/../class/service/TeamBilansService.Class.php';
 
 $oTeamBilansService = new TeamBilansService();
@@ -32,3 +38,7 @@ if ($aTeams) {
 } else {
     echo "Brak drużyn dla danej ligi";
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

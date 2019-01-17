@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function returns team by id                                          *
+ * @author Marek                                                               *
+ * @date 02.12.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__ . '/../../../class/service/MatchService.Class.php';
 require __DIR__ . '/../../../class/service/TeamService.Class.php';
 require __DIR__ . '/../../../class/service/LeagueService.Class.php';
@@ -43,3 +49,7 @@ if ($_GET['matchId']) {
 } else {
     echo json_encode(false);
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

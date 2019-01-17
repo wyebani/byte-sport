@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function returns article by id                                       *
+ * @author Marek                                                               *
+ * @date 18.12.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/ArticleService.Class.php';
 require __DIR__.'/../../../class/service/UserService.Class.php';
 
@@ -29,3 +35,6 @@ if($iArticleId) {
     echo json_encode('Wystąpił nieoczekiwany błąd');
 }
 
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

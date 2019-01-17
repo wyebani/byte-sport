@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function returns table with upcoming matches                         *
+ * @author Marek                                                               *
+ * @date 02.12.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/MatchService.Class.php';
 require __DIR__.'/../../../class/service/TeamService.Class.php';
 require __DIR__.'/../../../class/service/LeagueService.Class.php';
@@ -32,3 +38,7 @@ if($aMatches) {
 } else {
     echo '<strong style="color: red; font-size: 14px">Brak nadchodzących meczów w bazie danych!</strong>';
 }
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

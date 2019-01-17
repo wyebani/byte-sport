@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function updates league                                              *
+ * @author Marek                                                               *
+ * @date 12.12.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/LeagueService.Class.php';
 
 $oLeagueService = new LeagueService();
@@ -22,3 +28,7 @@ if(isset($_POST['date_of_found'])) {
 }
 
 $oLeagueService->updateLeague($aLeagueData);
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/

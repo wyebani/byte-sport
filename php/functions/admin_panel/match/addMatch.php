@@ -1,5 +1,11 @@
 <?php
 
+/*******************************************************************************
+ * @brief Function add match                                                   *
+ * @author Marek                                                               *
+ * @date 02.12.2018                                                            *
+ ******************************************************************************/
+
 require __DIR__.'/../../../class/service/MatchService.Class.php';
 require __DIR__.'/../../../class/service/TeamBilansService.Class.php';
 require_once __DIR__.'/../../../class//MatchStatus.Enum.php';
@@ -41,3 +47,7 @@ if($bResult) {
 }
 
 echo json_encode($bResult);
+
+/*******************************************************************************
+ *                              END OF FILE                                    *
+ ******************************************************************************/
