@@ -45,10 +45,10 @@ $("document").ready(function () {
         $.ajax({
             method: "GET",
             url: "php/functions/articles_main/GetAllArticlesFromSelectedLeague.php?league=" + getUrl,
-            success: function (data) {
-                id_numbers = JSON.parse(data);
-                getArray(id_numbers);
-            }
+            
+        }).done(function(data) {
+            id_numbers = JSON.parse(data);
+            getArray(id_numbers);
         });
 
     }

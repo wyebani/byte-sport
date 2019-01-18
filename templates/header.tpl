@@ -15,12 +15,7 @@
         <script src="bootstrap/js/bootstrap-validator.js"></script>
         
         <!-- Font-awesome icons -->
-        <link rel="stylesheet" href="fontawesome/css/all.css"/>
-        
-        <script src="javascript/jquery.js"></script>
-	<script src="javascript/popup.js"></script>
-        
-
+        <link rel="stylesheet" href="fontawesome/css/all.css"/>      
     </head>
 
     <body>

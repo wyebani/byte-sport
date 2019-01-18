@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-12-29 14:15:21
+/* Smarty version 3.1.33, created on 2019-01-18 09:26:29
   from 'D:\xampp\htdocs\byte-sport\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c27736990f4c2_39192042',
+  'unifunc' => 'content_5c418db5e70754_65934719',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54352dfa265e0c69a4e8d9162f911454366f6c43' => 
     array (
       0 => 'D:\\xampp\\htdocs\\byte-sport\\templates\\header.tpl',
-      1 => 1546012377,
+      1 => 1547799963,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c27736990f4c2_39192042 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c418db5e70754_65934719 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 
 <html>
@@ -46,18 +46,7 @@ function content_5c27736990f4c2_39192042 (Smarty_Internal_Template $_smarty_tpl)
 >
         
         <!-- Font-awesome icons -->
-        <link rel="stylesheet" href="fontawesome/css/all.css"/>
-        
-        <?php echo '<script'; ?>
- src="javascript/jquery.js"><?php echo '</script'; ?>
->
-	<?php echo '<script'; ?>
- src="javascript/popup.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="javascript/script.js" async><?php echo '</script'; ?>
->
-
+        <link rel="stylesheet" href="fontawesome/css/all.css"/>      
     </head>
 
     <body>
